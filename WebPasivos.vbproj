@@ -76,18 +76,90 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FOND_AltaPago.aspx" />
+    <Content Include="FOND_AltaCapital.aspx" />
+    <Content Include="FOND_AltaFondeo.aspx" />
+    <Content Include="FOND_EdoCta.aspx" />
+    <Content Include="FOND_Saldos.aspx" />
+    <Content Include="FOND_ConsultaFondeo.aspx" />
+    <Content Include="css\calendar-blue.css" />
     <Content Include="Default.aspx" />
+    <Content Include="images\custom_b.png" />
+    <Content Include="images\custom_bl.png" />
+    <Content Include="images\custom_br.png" />
+    <Content Include="images\custom_l.png" />
+    <Content Include="images\custom_r.png" />
+    <Content Include="images\custom_t.png" />
+    <Content Include="images\custom_tl.png" />
+    <Content Include="images\custom_tr.png" />
+    <Content Include="images\datepicker_b.png" />
+    <Content Include="images\datepicker_bl.png" />
+    <Content Include="images\datepicker_br.png" />
+    <Content Include="images\datepicker_l.png" />
+    <Content Include="images\datepicker_r.png" />
+    <Content Include="images\datepicker_t.png" />
+    <Content Include="images\datepicker_tl.png" />
+    <Content Include="images\datepicker_tr.png" />
+    <Content Include="images\field.png" />
+    <Content Include="IMG\calender.png" />
     <Content Include="IMG\LOGO FINAGIL.JPG" />
+    <Content Include="js\calendar-en.min.js" />
+    <None Include="js\jquery-1.4.1-vsdoc.js" />
+    <Content Include="js\jquery-1.4.1.js" />
+    <Content Include="js\jquery-1.4.1.min.js" />
+    <Content Include="js\jquery.dynDateTime.min.js" />
     <Content Include="LoginX.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FOND_AltaPago.aspx.designer.vb">
+      <DependentUpon>FOND_AltaPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_AltaPago.aspx.vb">
+      <DependentUpon>FOND_AltaPago.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FOND_AltaCapital.aspx.designer.vb">
+      <DependentUpon>FOND_AltaCapital.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_AltaCapital.aspx.vb">
+      <DependentUpon>FOND_AltaCapital.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="ClaseHash.vb" />
+    <Compile Include="FOND_AltaFondeo.aspx.designer.vb">
+      <DependentUpon>FOND_AltaFondeo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_AltaFondeo.aspx.vb">
+      <DependentUpon>FOND_AltaFondeo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="ConfReembolso.aspx.designer.vb">
       <DependentUpon>ConfReembolso.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConfReembolso.aspx.vb">
       <DependentUpon>ConfReembolso.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FOND_EdoCta.aspx.designer.vb">
+      <DependentUpon>FOND_EdoCta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_EdoCta.aspx.vb">
+      <DependentUpon>FOND_EdoCta.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FOND_Saldos.aspx.designer.vb">
+      <DependentUpon>FOND_Saldos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_Saldos.aspx.vb">
+      <DependentUpon>FOND_Saldos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FOND_ConsultaFondeo.aspx.designer.vb">
+      <DependentUpon>FOND_ConsultaFondeo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_ConsultaFondeo.aspx.vb">
+      <DependentUpon>FOND_ConsultaFondeo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="DetalleReembolso.aspx.designer.vb">
@@ -213,6 +285,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Docs\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

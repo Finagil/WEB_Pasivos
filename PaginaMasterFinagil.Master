@@ -24,7 +24,7 @@
                         <StaticSelectedStyle BackColor="#507CD1" />
                         <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                         <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
-                        <DynamicMenuStyle BackColor="#B5C7DE" />
+                        <DynamicMenuStyle BackColor="White" BorderColor="Black" BorderStyle="Solid" />
                         <DynamicSelectedStyle BackColor="#507CD1" />
                         <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
                         <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
@@ -32,7 +32,12 @@
                             <asp:MenuItem SeparatorImageUrl="~/IMG/sep.JPG" Text="Confirmar Reembolso" Value="Subir Facturas" NavigateUrl="~/ConfReembolso.aspx">
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/SaldosFondeo.aspx" SeparatorImageUrl="~/IMG/sep.JPG"
-                                Text="Saldos Fondeo" Value="Saldos Fondeo"></asp:MenuItem>
+                                Text="Saldos Fondeo PALM" Value="Saldos Fondeo"></asp:MenuItem>
+                            <asp:MenuItem Text="Fondeos " Value="Fondeos ">
+                                <asp:MenuItem Text="Alta de Fondeo" Value="Alta de Fondeo" NavigateUrl="~/FOND_AltaFondeo.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Fondeos Vigentes" Value="Fondeos Vigentes" NavigateUrl="~/FOND_ConsultaFondeo.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Saldo por Fondeador" Value="Saldo por Fondeador" NavigateUrl="~/FOND_Saldos.aspx"></asp:MenuItem>
+                            </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/LoginX.aspx" Text="Salir" Value="Salir" SeparatorImageUrl="~/IMG/sep.JPG"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
