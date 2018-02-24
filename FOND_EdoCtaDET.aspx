@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Fondeos Vigentes" Language="vb" AutoEventWireup="false" MasterPageFile="~/PaginaMasterFinagil.Master" CodeBehind="FOND_EdoCta.aspx.vb" Inherits="WEB_Finagil.FOND_EdoCta" %>
+﻿<%@ Page Title="Fondeos Vigentes" Language="vb" AutoEventWireup="false" MasterPageFile="~/PaginaMasterFinagil.Master" CodeBehind="FOND_EdoCtaDET.aspx.vb" Inherits="WEB_Finagil.FOND_EdoCtaDET" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <table style="width: 100%;" >
     <tr>
@@ -57,6 +57,9 @@
                         <asp:BoundField DataField="Concepto" HeaderText="Concepto" SortExpression="Concepto" />
                         <asp:BoundField DataField="TasaRetencion" DataFormatString="{0:n6}" HeaderText="Tasa Rete." HtmlEncode="False" SortExpression="TasaRetencion">
                         </asp:BoundField>
+                        <asp:BoundField DataField="SaldoInicial" DataFormatString="{0:n}" HeaderText="Saldo Ini." HtmlEncode="False" SortExpression="SaldoInicial">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
                         <asp:BoundField DataField="Importe" DataFormatString="{0:n2}" HeaderText="Capital"
                             HtmlEncode="False" SortExpression="Importe" >
                         <ItemStyle HorizontalAlign="Right" />
@@ -68,11 +71,9 @@
                         <asp:BoundField HeaderText="Retención" DataField="Retencion" SortExpression="Retencion" DataFormatString="{0:n2}" HtmlEncode="False" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id_fondeo", "fond_EdoCtaDET.aspx?id_fondeo={0}") & Eval("FechaInicio", "&Fec={0:d}") %>' Text="Detalle"></asp:HyperLink>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        <asp:BoundField DataField="SaldoFinal" DataFormatString="{0:n}" HeaderText="Soldo Fin." SortExpression="SaldoFinal">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
@@ -86,13 +87,39 @@
                     <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>
             
-                <asp:ObjectDataSource ID="VWFondeosDS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDataByResumen" TypeName="WEB_Finagil.WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter" DeleteMethod="Delete">
+                <asp:ObjectDataSource ID="VWFondeosDS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEB_Finagil.WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
                     <DeleteParameters>
                         <asp:Parameter Name="Original_id_Movimiento" Type="Decimal" />
                     </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="id_Fondeo" Type="Decimal" />
+                        <asp:Parameter Name="Concepto" Type="String" />
+                        <asp:Parameter Name="Importe" Type="Decimal" />
+                        <asp:Parameter Name="Interes" Type="Decimal" />
+                        <asp:Parameter Name="Retencion" Type="Decimal" />
+                        <asp:Parameter Name="TasaRetencion" Type="Decimal" />
+                        <asp:Parameter Name="FechaInicio" Type="DateTime" />
+                        <asp:Parameter Name="FechaFin" Type="DateTime" />
+                        <asp:Parameter Name="SaldoInicial" Type="Decimal" />
+                        <asp:Parameter Name="SaldoFinal" Type="Decimal" />
+                    </InsertParameters>
                     <SelectParameters>
                         <asp:QueryStringParameter DefaultValue="0" Name="id_Fondeo" QueryStringField="ID_Fondeo" Type="Decimal" />
+                        <asp:QueryStringParameter DefaultValue="" Name="Fecha" QueryStringField="Fec" Type="DateTime" />
                     </SelectParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="id_Fondeo" Type="Decimal" />
+                        <asp:Parameter Name="Concepto" Type="String" />
+                        <asp:Parameter Name="Importe" Type="Decimal" />
+                        <asp:Parameter Name="Interes" Type="Decimal" />
+                        <asp:Parameter Name="Retencion" Type="Decimal" />
+                        <asp:Parameter Name="TasaRetencion" Type="Decimal" />
+                        <asp:Parameter Name="FechaInicio" Type="DateTime" />
+                        <asp:Parameter Name="FechaFin" Type="DateTime" />
+                        <asp:Parameter Name="SaldoInicial" Type="Decimal" />
+                        <asp:Parameter Name="SaldoFinal" Type="Decimal" />
+                        <asp:Parameter Name="Original_id_Movimiento" Type="Decimal" />
+                    </UpdateParameters>
                 </asp:ObjectDataSource>
             
                 <br />

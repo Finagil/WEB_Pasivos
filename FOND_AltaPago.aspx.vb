@@ -6,9 +6,29 @@
     End Sub
 
     Protected Sub BotonEnviar1_Click(sender As Object, e As EventArgs) Handles BotonEnviar1.Click
-        Dim ID As Integer = Request.QueryString("ID_fondeo")
-        Dim ta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
-        ta.Insert(ID, "PAGO", CDec(TxtImporte.Text) * -1, CDec(TxtInteres.Text) * -1, 0, 0, TextBox1.Text, TextBox1.Text)
-        Response.Redirect("~\FOND_ConsultaFondeo.aspx", True)
+        Try
+            If Validaciones() = True Then
+                Dim ID As Integer = Request.QueryString("ID_fondeo")
+                Dim ta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
+                Dim F1 As DateTime = DateTime.Parse(Request.Form(TextBox1.UniqueID))
+                ta.Insert(ID, "PAGO", CDec(TxtImporte.Text) * -1, CDec(TxtInteres.Text) * -1, 0, 0, F1, F1, 0, 0)
+                Response.Redirect("~\FOND_ConsultaFondeo.aspx", True)
+            End If
+        Catch ex As Exception
+            LberrorGlobal.Text = ex.Message
+            LberrorGlobal.Visible = True
+        End Try
     End Sub
+
+    Function Validaciones() As Boolean
+        Validaciones = True
+        If Val(TxtInteres.Text) > 0 Then
+            If Val(TxtRetencion.Text) <= 0 Then
+                LberrorGlobal.Text = "Falta la retención."
+                Validaciones = False
+            End If
+        End If
+        LberrorGlobal.Visible = Not Validaciones
+        Return Validaciones
+    End Function
 End Class

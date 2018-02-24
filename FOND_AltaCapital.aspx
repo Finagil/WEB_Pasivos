@@ -9,7 +9,7 @@
         $(document).ready(function () {
             $("#<%=TextBox1.ClientID %>").dynDateTime({
                 showsTime: false,
-                ifFormat: "%Y/%m/%d",
+                ifFormat: "%d/%m/%Y",
                 daFormat: "%l;%M %p, %e %m,  %Y",
                 align: "BR",
                 electric: false,
@@ -46,6 +46,7 @@
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" SortExpression="Descripcion" />
                         <asp:BoundField DataField="FechaInicio" DataFormatString="{0:d}" HeaderText="Fecha Inicio" HtmlEncode="False" SortExpression="FechaInicio" />
                         <asp:BoundField DataField="FechaVencimiento" DataFormatString="{0:d}" HeaderText="Fecha Venc." HtmlEncode="False" SortExpression="FechaVencimiento" />
+                        <asp:BoundField DataField="FechaPago" DataFormatString="{0:d}" HeaderText="Fecha Pago" HtmlEncode="False" ReadOnly="True" SortExpression="FechaPago" />
                         <asp:BoundField DataField="TipoTasa" HeaderText="Tipo Tasa" SortExpression="TipoTasa" />
                         <asp:BoundField DataField="TasaDiferencial" DataFormatString="{0:n6}" HeaderText="Tasa ó Diferencial" HtmlEncode="False" SortExpression="TasaDiferencial" />
                     </Fields>
@@ -77,13 +78,17 @@
             <td align="left">
             <asp:TextBox ID="TxtImporte" runat="server" Width="171px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TxtImporte" ErrorMessage="Campo Requerido" Font-Names="Arial"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TxtImporte" ErrorMessage="Error en Importe" Font-Names="Arial" ValidationExpression="^\d{1,10}(?:,\s?\d{3})*(?:\.\d*)?$"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TxtImporte" ErrorMessage="Error en Importe" Font-Names="Arial" ValidationExpression="^\d{1,12}(?:,\s?\d{3})*(?:\.\d*)?$"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
             <td align="center" colspan="2" width="40%">
                 <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
-                    ForeColor="White" Text="Inserta Capital" TextoEnviando="Insertando..." Width="182px" EnableTheming="True" /></td>
+                    ForeColor="White" Text="Inserta Capital" TextoEnviando="Insertando..." Width="182px" EnableTheming="True" />
+                <br />
+                <asp:Label ID="LberrorGlobal" runat="server" Font-Bold="False" Font-Names="Arial" ForeColor="Red"
+                    Text="Retención" Visible="False"></asp:Label>
+                </td>
         </tr>
     </table>
 </asp:Content>

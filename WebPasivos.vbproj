@@ -79,6 +79,7 @@
     <Content Include="FOND_AltaPago.aspx" />
     <Content Include="FOND_AltaCapital.aspx" />
     <Content Include="FOND_AltaFondeo.aspx" />
+    <Content Include="FOND_EdoCtaDET.aspx" />
     <Content Include="FOND_EdoCta.aspx" />
     <Content Include="FOND_Saldos.aspx" />
     <Content Include="FOND_ConsultaFondeo.aspx" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="ConfReembolso.aspx.vb">
       <DependentUpon>ConfReembolso.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FOND_EdoCtaDET.aspx.designer.vb">
+      <DependentUpon>FOND_EdoCtaDET.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_EdoCtaDET.aspx.vb">
+      <DependentUpon>FOND_EdoCtaDET.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="FOND_EdoCta.aspx.designer.vb">

@@ -19,9 +19,10 @@
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="id_Fondeo" DataNavigateUrlFormatString="FOND_EdoCta.aspx?ID_Fondeo={0}" DataTextField="Fondeador" HeaderText="Fondeador" />
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" SortExpression="Descripcion" />
-                        <asp:BoundField DataField="FechaInicio" HeaderText="Fecha Inicio" SortExpression="FechaInicio" DataFormatString="{0:d}" HtmlEncode="False" />
+                        <asp:BoundField DataField="FechaInicio" HeaderText="Fecha Inicio" SortExpression="FechaInicio" DataFormatString="{0:d}" HtmlEncode="False" Visible="False" />
                         <asp:BoundField DataField="FechaVencimiento" DataFormatString="{0:d}" HeaderText="Fecha Venc."
                             HtmlEncode="False" SortExpression="FechaVencimiento" />
+                        <asp:BoundField DataField="FechaPago" DataFormatString="{0:d}" HeaderText="Fecha Pago" HtmlEncode="False" SortExpression="FechaPago" />
                         <asp:BoundField DataField="TipoTasa" HeaderText="Tipo Tasa" SortExpression="TipoTasa" />
                         <asp:BoundField HeaderText="Tasa ó Diff." DataField="TasaDiferencial" SortExpression="TasaDiferencial" DataFormatString="{0:n6}" HtmlEncode="False" />
                         <asp:BoundField DataField="Capital" DataFormatString="{0:n2}" HeaderText="Capital" HtmlEncode="False" SortExpression="Capital" ReadOnly="True">

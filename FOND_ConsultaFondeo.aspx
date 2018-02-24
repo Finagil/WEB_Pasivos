@@ -36,6 +36,7 @@
                             HtmlEncode="False" SortExpression="FechaInicio" />
                         <asp:BoundField DataField="FechaVencimiento" DataFormatString="{0:d}" HeaderText="Fecha Venc."
                             HtmlEncode="False" SortExpression="FechaVencimiento" />
+                        <asp:BoundField DataField="FechaPago" DataFormatString="{0:d}" HeaderText="Fecha Pago" HtmlEncode="False" ReadOnly="True" SortExpression="FechaPago" />
                         <asp:BoundField HeaderText="Tipo Tasa" DataField="TipoTasa" SortExpression="TipoTasa" />
                         <asp:BoundField DataField="TasaDiferencial" DataFormatString="{0:n6}" HeaderText="Tasa o Dif." HtmlEncode="False" SortExpression="TasaDiferencial">
                         <ItemStyle HorizontalAlign="Right" />

@@ -10,7 +10,7 @@
         $(document).ready(function () {
             $("#<%=TextBox1.ClientID %>").dynDateTime({
                 showsTime: false,
-                ifFormat: "%Y/%m/%d",
+                ifFormat: "%d/%m/%Y",
                 daFormat: "%l;%M %p, %e %m,  %Y",
                 align: "BR",
                 electric: false,
@@ -24,7 +24,7 @@
         $(document).ready(function () {
             $("#<%=TextBox2.ClientID %>").dynDateTime({
                 showsTime: false,
-                ifFormat: "%Y/%m/%d",
+                ifFormat: "%d/%m/%Y",
                 daFormat: "%l;%M %p, %e %m,  %Y",
                 align: "BR",
                 electric: false,
@@ -34,7 +34,21 @@
             });
         });
     </script>
-<table width=100%>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#<%=TextBox3.ClientID %>").dynDateTime({
+                showsTime: false,
+                ifFormat: "%d/%m/%Y",
+                daFormat: "%l;%M %p, %e %m,  %Y",
+                align: "BR",
+                electric: false,
+                singleClick: false,
+                displayArea: ".siblings('.dtcDisplayArea')",
+                button: ".next()"
+            });
+        });
+    </script>
+<table width=100% causesvalidation="True">
 <tr>
 <td align=center style="height: 302px"> 
     <table style="width:100%;">
@@ -100,7 +114,7 @@
         Text="Descripción"></asp:Label></td>
             <td align="left">
                 <asp:TextBox ID="TxtDesc" runat="server" MaxLength="50" Width="365px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TxtDesc" ErrorMessage="Campo Requerido" Font-Names="Arial"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TxtDesc" ErrorMessage="Campo Requerido" Font-Names="Arial">*</asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -109,7 +123,7 @@
         Text="Fecha de Inicio"></asp:Label></td>
             <td align="left">
                 <asp:TextBox ID="TextBox1" runat="server" ReadOnly = "true"></asp:TextBox><img src="IMG/calender.png" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox1" ErrorMessage="Campo Requerido" Font-Names="Arial"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox1" ErrorMessage="Campo Requerido" Font-Names="Arial">*</asp:RequiredFieldValidator>
              </td>
         </tr>
         <tr>
@@ -117,7 +131,15 @@
     <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
         Text="Fecha de Vencimiento"></asp:Label></td>
             <td align="left">
-                <asp:TextBox ID="TextBox2" runat="server" ReadOnly = "true"></asp:TextBox><img src="IMG/calender.png" /><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox2" ErrorMessage="Campo Requerido" Font-Names="Arial"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="TextBox2" runat="server" ReadOnly = "true"></asp:TextBox><img src="IMG/calender.png" /><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox2" ErrorMessage="Campo Requerido" Font-Names="Arial">*</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" width="50%">
+    <asp:Label ID="Label10" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        Text="Fecha de Pago"></asp:Label></td>
+            <td align="left">
+                <asp:TextBox ID="TextBox3" runat="server" ReadOnly = "true"></asp:TextBox><img src="IMG/calender.png" /><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox3" ErrorMessage="Campo Requerido" Font-Names="Arial">*</asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
@@ -133,13 +155,13 @@
             </td>
         </tr>
         <tr>
-            <td align="right" width="50%">
+            <td align="right" width="50%" style="height: 29px">
     <asp:Label ID="Label8" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
         Text="Tasa o Diferencial"></asp:Label></td>
-            <td align="left">
+            <td align="left" style="height: 29px">
                 <asp:TextBox ID="TxtDiff" runat="server" Width="112px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TxtDiff" ErrorMessage="Campo Requerido" Font-Names="Arial"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TxtDiff" ErrorMessage="Error en Tasa o diferencial" Font-Names="Arial" ValidationExpression="^\d{1,2}(?:,\s?\d{3})*(?:\.\d{1,6})?$"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TxtDiff" ErrorMessage="Campo Requerido" Font-Names="Arial">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TxtDiff" ErrorMessage="Error en Tasa o diferencial" Font-Names="Arial" ValidationExpression="^\d{1,2}(?:,\s?\d{3})*(?:\.\d{1,6})?$">Error en Tasa o diferencial</asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
@@ -148,13 +170,26 @@
         Text="Contrato"></asp:Label></td>
             <td align="left">
                 <asp:FileUpload ID="FileUpload1" runat="server" Width="320px" />
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="FileUpload1" ErrorMessage="solo archivos PDF" Font-Names="Arial" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.pdf|.doc|xls)$"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="FileUpload1" ErrorMessage="solo archivos PDF" Font-Names="Arial" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.pdf)$">solo archivos PDF</asp:RegularExpressionValidator>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" width="50%">
+    <asp:Label ID="Label11" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        Text="Fechas de Pago de Capital"></asp:Label></td>
+            <td align="left">
+                <asp:FileUpload ID="FileUpload2" runat="server" Width="320px" />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="FileUpload2" ErrorMessage="solo archivos TXT" Font-Names="Arial" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.txt|csv)$">solo archivos TXT</asp:RegularExpressionValidator>
+                <asp:Label ID="Lberror" runat="server" Font-Names="Arial" ForeColor="Red" Text="Archivo Inválido" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr>
             <td align="center" width="50%" colspan="2">
                 <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
-                    ForeColor="White" Text="Guardar Fondeo" TextoEnviando="Confirmando..." Width="182px" /></td>
+                    ForeColor="White" Text="Guardar Fondeo" TextoEnviando="Confirmando..." Width="182px" CausesValidation="True" />
+                <br />
+    <asp:Label ID="LbErrorGlobal" runat="server" Font-Bold="False" Font-Names="Arial" ForeColor="Red"
+        Text="Fechas de Pago de Capital" Visible="False"></asp:Label></td>
         </tr>
         </table>
 
