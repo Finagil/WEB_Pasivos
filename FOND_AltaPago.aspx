@@ -19,7 +19,7 @@
             });
         });
     </script>
-    <table style="width: 100%;">
+    <table style="width: 100%;" border="">
         <tr>
             <td align="center" colspan="2">
                 <br />
