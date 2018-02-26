@@ -38,25 +38,31 @@ Partial Public Class AltaFondeo
                 Dim F1 As DateTime = DateTime.Parse(Request.Form(TextBox1.UniqueID))
                 Dim F2 As DateTime = DateTime.Parse(Request.Form(TextBox2.UniqueID))
                 Dim F3 As DateTime = DateTime.Parse(Request.Form(TextBox3.UniqueID))
-                ta.Insert(cmbFondeador.SelectedValue, cmbTipoFondeo.SelectedValue, TxtDesc.Text.ToUpper,
+
+                If F1 <= Date.Now.Date.AddDays(Date.Now.Day * -1) Then
+                    LbErrorGlobal.Text = "Fecha incorrecta, no se puede usar fecha del mes anterior."
+                    LbErrorGlobal.Visible = True
+                Else
+                    ta.Insert(cmbFondeador.SelectedValue, cmbTipoFondeo.SelectedValue, TxtDesc.Text.ToUpper,
                             F1, F2, CmbTasas.SelectedValue, CDec(TxtDiff.Text),
                             FileUpload1.FileName, "VIGENTE", F3)
-                Dim ID As Integer = ta.MaxID
-                If FileUpload1.FileName.Length > 0 Then
-                    FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Docs/") & ID.ToString & FileUpload1.FileName)
+                    Dim ID As Integer = ta.MaxID
+                    If FileUpload1.FileName.Length > 0 Then
+                        FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Docs/") & ID.ToString & FileUpload1.FileName)
+                    End If
+                    If FileUpload2.FileName.Length > 0 Then
+                        Dim Linea As String
+                        Dim Datos() As String
+                        Dim F As New StreamReader(Server.MapPath("~/Docs/") & FileUpload2.FileName)
+                        Dim ta1 As New WEB_FinagilDSTableAdapters.FOND_FechasPagoCapitalTableAdapter
+                        While Not F.EndOfStream
+                            Linea = F.ReadLine
+                            Datos = Linea.Split(",")
+                            ta1.Insert(ID, Datos(0), Datos(1))
+                        End While
+                    End If
+                    Response.Redirect("~\FOND_AltaCapital.aspx?id_fondeo=" & ID, True)
                 End If
-                If FileUpload2.FileName.Length > 0 Then
-                    Dim Linea As String
-                    Dim Datos() As String
-                    Dim F As New StreamReader(Server.MapPath("~/Docs/") & FileUpload2.FileName)
-                    Dim ta1 As New WEB_FinagilDSTableAdapters.FOND_FechasPagoCapitalTableAdapter
-                    While Not F.EndOfStream
-                        Linea = F.ReadLine
-                        Datos = Linea.Split(",")
-                        ta1.Insert(ID, Datos(0), Datos(1))
-                    End While
-                End If
-                Response.Redirect("~\FOND_AltaCapital.aspx?id_fondeo=" & ID, True)
             End If
         Catch ex As Exception
             LbErrorGlobal.Text = ex.Message

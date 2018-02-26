@@ -105,6 +105,7 @@
     <Content Include="IMG\calender.png" />
     <Content Include="IMG\LOGO FINAGIL.JPG" />
     <Content Include="js\calendar-en.min.js" />
+    <Content Include="App_Browsers\Chrome.browser" />
     <None Include="js\jquery-1.4.1-vsdoc.js" />
     <Content Include="js\jquery-1.4.1.js" />
     <Content Include="js\jquery-1.4.1.min.js" />
