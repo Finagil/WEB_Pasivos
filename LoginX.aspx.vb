@@ -53,6 +53,9 @@ Public Partial Class LoginX
                     Session.Item("Nombre") = Trim(Rr.Nombre)
                     Session.Item("TipoCadena") = Rr.Tipo
                     Session.Item("Correo") = Rr.Correo
+                    If Rr.Tipo = "PAS" Then
+                        Session.Item("id_fondeo") = Trim(Rr.Nombre)
+                    End If
                     Autentificacion = True
                 End If
             End If

@@ -79,6 +79,9 @@
     <Content Include="FOND_AltaPago.aspx" />
     <Content Include="FOND_AltaCapital.aspx" />
     <Content Include="FOND_AltaFondeo.aspx" />
+    <Content Include="FOND_EXT_EdoCtaDET.aspx" />
+    <Content Include="FOND_EXT_EdoCta.aspx" />
+    <Content Include="FOND_EXT_ConsultaFondeo.aspx" />
     <Content Include="FOND_EdoCtaDET.aspx" />
     <Content Include="FOND_EdoCta.aspx" />
     <Content Include="FOND_Saldos.aspx" />
@@ -143,6 +146,27 @@
       <DependentUpon>ConfReembolso.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="FOND_EXT_EdoCtaDET.aspx.designer.vb">
+      <DependentUpon>FOND_EXT_EdoCtaDET.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_EXT_EdoCtaDET.aspx.vb">
+      <DependentUpon>FOND_EXT_EdoCtaDET.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FOND_EXT_EdoCta.aspx.designer.vb">
+      <DependentUpon>FOND_EXT_EdoCta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_EXT_EdoCta.aspx.vb">
+      <DependentUpon>FOND_EXT_EdoCta.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FOND_EXT_ConsultaFondeo.aspx.designer.vb">
+      <DependentUpon>FOND_EXT_ConsultaFondeo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_EXT_ConsultaFondeo.aspx.vb">
+      <DependentUpon>FOND_EXT_ConsultaFondeo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="FOND_EdoCtaDET.aspx.designer.vb">
       <DependentUpon>FOND_EdoCtaDET.aspx</DependentUpon>
     </Compile>
@@ -176,6 +200,13 @@
     </Compile>
     <Compile Include="DetalleReembolso.aspx.vb">
       <DependentUpon>DetalleReembolso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaMasterFilial.Master.designer.vb">
+      <DependentUpon>PaginaMasterFilial.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaMasterFilial.Master.vb">
+      <DependentUpon>PaginaMasterFilial.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PaginaMasterFinagil.Master.designer.vb">
@@ -260,6 +291,7 @@
     <Content Include="PaginaMasterFinagil.Master" />
     <Content Include="SaldosFondeo.aspx" />
     <None Include="My Project\PublishProfiles\web_PAsivos.pubxml" />
+    <Content Include="PaginaMasterFilial.Master" />
     <None Include="WEB_FinagilDS.xsc">
       <DependentUpon>WEB_FinagilDS.xsd</DependentUpon>
     </None>

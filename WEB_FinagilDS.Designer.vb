@@ -13267,7 +13267,7 @@ Namespace WEB_FinagilDSTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        FOND_Fondeadores.Fondeador, FOND_Fondeos.Descripcion, FOND_Fondeos."& _ 
@@ -13286,6 +13286,25 @@ Namespace WEB_FinagilDSTableAdapters
                 "FOND_Fondeos.FechaPago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVen"& _ 
                 "cimiento"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        FOND_Fondeadores.Fondeador, FOND_Fondeos.Descripcion, FOND_Fondeos."& _ 
+                "FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, FOND_Fondeos."& _ 
+                "TasaDiferencial, SUM(FOND_EstadoCuenta.Importe) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         AS Ca"& _ 
+                "pital, SUM(FOND_EstadoCuenta.Interes) AS Interes, SUM(FOND_EstadoCuenta.Retencio"& _ 
+                "n) AS Retencion, SUM(FOND_EstadoCuenta.Importe + FOND_EstadoCuenta.Interes - FON"& _ 
+                "D_EstadoCuenta.Retencion) AS Total, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos.id_F"& _ 
+                "ondeo, FOND_Fondeos.FechaPago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_Fondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadore"& _ 
+                "s.id_Fondeador INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_EstadoCuenta ON FOND_Fo"& _ 
+                "ndeos.id_Fondeo = FOND_EstadoCuenta.id_Fondeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FOND_Fondeos.Estatu"& _ 
+                "s = 'vigente') AND (FOND_Fondeadores.id_Fondeador = @Fondeador)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY FOND_F"& _ 
+                "ondeadores.Fondeador, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_F"& _ 
+                "ondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, FOND_Fondeos.TasaDiferencial, FO"& _ 
+                "ND_Fondeos.id_Fondeo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos.FechaPago"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER B"& _ 
+                "Y FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fondeador", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeador", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13307,6 +13326,32 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As WEB_FinagilDS.FOND_SaldosDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As WEB_FinagilDS.FOND_SaldosDataTable = New WEB_FinagilDS.FOND_SaldosDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByFondeador(ByVal dataTable As WEB_FinagilDS.FOND_SaldosDataTable, ByVal Fondeador As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fondeador,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByFondeador(ByVal Fondeador As Decimal) As WEB_FinagilDS.FOND_SaldosDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fondeador,Decimal)
             Dim dataTable As WEB_FinagilDS.FOND_SaldosDataTable = New WEB_FinagilDS.FOND_SaldosDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
