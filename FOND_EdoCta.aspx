@@ -92,13 +92,38 @@
                     <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>
             
-                <asp:ObjectDataSource ID="VWFondeosDS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDataByResumen" TypeName="WEB_Finagil.WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter" DeleteMethod="Delete">
+                <asp:ObjectDataSource ID="VWFondeosDS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDataByResumen" TypeName="WEB_Finagil.WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
                     <DeleteParameters>
                         <asp:Parameter Name="Original_id_Movimiento" Type="Decimal" />
                     </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="id_Fondeo" Type="Decimal" />
+                        <asp:Parameter Name="Concepto" Type="String" />
+                        <asp:Parameter Name="Importe" Type="Decimal" />
+                        <asp:Parameter Name="Interes" Type="Decimal" />
+                        <asp:Parameter Name="Retencion" Type="Decimal" />
+                        <asp:Parameter Name="TasaRetencion" Type="Decimal" />
+                        <asp:Parameter Name="FechaInicio" Type="DateTime" />
+                        <asp:Parameter Name="FechaFin" Type="DateTime" />
+                        <asp:Parameter Name="SaldoInicial" Type="Decimal" />
+                        <asp:Parameter Name="SaldoFinal" Type="Decimal" />
+                    </InsertParameters>
                     <SelectParameters>
                         <asp:QueryStringParameter DefaultValue="0" Name="id_Fondeo" QueryStringField="ID_Fondeo" Type="Decimal" />
                     </SelectParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="id_Fondeo" Type="Decimal" />
+                        <asp:Parameter Name="Concepto" Type="String" />
+                        <asp:Parameter Name="Importe" Type="Decimal" />
+                        <asp:Parameter Name="Interes" Type="Decimal" />
+                        <asp:Parameter Name="Retencion" Type="Decimal" />
+                        <asp:Parameter Name="TasaRetencion" Type="Decimal" />
+                        <asp:Parameter Name="FechaInicio" Type="DateTime" />
+                        <asp:Parameter Name="FechaFin" Type="DateTime" />
+                        <asp:Parameter Name="SaldoInicial" Type="Decimal" />
+                        <asp:Parameter Name="SaldoFinal" Type="Decimal" />
+                        <asp:Parameter Name="Original_id_Movimiento" Type="Decimal" />
+                    </UpdateParameters>
                 </asp:ObjectDataSource>
             
                 <br />

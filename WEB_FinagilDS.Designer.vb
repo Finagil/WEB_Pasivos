@@ -4117,6 +4117,8 @@ Partial Public Class WEB_FinagilDS
         
         Private columnSaldoFinal As Global.System.Data.DataColumn
         
+        Private columnPromedio As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -4241,6 +4243,14 @@ Partial Public Class WEB_FinagilDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property PromedioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPromedio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4277,9 +4287,9 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddFOND_EstadoCuentaRow(ByVal id_Fondeo As Decimal, ByVal Concepto As String, ByVal Importe As Decimal, ByVal Interes As Decimal, ByVal Retencion As Decimal, ByVal TasaRetencion As Decimal, ByVal FechaInicio As Date, ByVal FechaFin As Date, ByVal SaldoInicial As Decimal, ByVal SaldoFinal As Decimal) As FOND_EstadoCuentaRow
+        Public Overloads Function AddFOND_EstadoCuentaRow(ByVal id_Fondeo As Decimal, ByVal Concepto As String, ByVal Importe As Decimal, ByVal Interes As Decimal, ByVal Retencion As Decimal, ByVal TasaRetencion As Decimal, ByVal FechaInicio As Date, ByVal FechaFin As Date, ByVal SaldoInicial As Decimal, ByVal SaldoFinal As Decimal, ByVal Promedio As Decimal) As FOND_EstadoCuentaRow
             Dim rowFOND_EstadoCuentaRow As FOND_EstadoCuentaRow = CType(Me.NewRow,FOND_EstadoCuentaRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, id_Fondeo, Concepto, Importe, Interes, Retencion, TasaRetencion, FechaInicio, FechaFin, SaldoInicial, SaldoFinal}
+            Dim columnValuesArray() As Object = New Object() {Nothing, id_Fondeo, Concepto, Importe, Interes, Retencion, TasaRetencion, FechaInicio, FechaFin, SaldoInicial, SaldoFinal, Promedio}
             rowFOND_EstadoCuentaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowFOND_EstadoCuentaRow)
             Return rowFOND_EstadoCuentaRow
@@ -4325,6 +4335,7 @@ Partial Public Class WEB_FinagilDS
             Me.columnFechaFin = MyBase.Columns("FechaFin")
             Me.columnSaldoInicial = MyBase.Columns("SaldoInicial")
             Me.columnSaldoFinal = MyBase.Columns("SaldoFinal")
+            Me.columnPromedio = MyBase.Columns("Promedio")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4352,6 +4363,8 @@ Partial Public Class WEB_FinagilDS
             MyBase.Columns.Add(Me.columnSaldoInicial)
             Me.columnSaldoFinal = New Global.System.Data.DataColumn("SaldoFinal", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSaldoFinal)
+            Me.columnPromedio = New Global.System.Data.DataColumn("Promedio", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPromedio)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_Movimiento}, true))
             Me.columnid_Movimiento.AutoIncrement = true
             Me.columnid_Movimiento.AutoIncrementSeed = -1
@@ -4360,6 +4373,7 @@ Partial Public Class WEB_FinagilDS
             Me.columnid_Movimiento.ReadOnly = true
             Me.columnid_Movimiento.Unique = true
             Me.columnConcepto.MaxLength = 20
+            Me.columnPromedio.ReadOnly = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7388,6 +7402,21 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Promedio() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableFOND_EstadoCuenta.PromedioColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Promedio' de la tabla 'FOND_EstadoCuenta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableFOND_EstadoCuenta.PromedioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function Isid_FondeoNull() As Boolean
             Return Me.IsNull(Me.tableFOND_EstadoCuenta.id_FondeoColumn)
         End Function
@@ -7504,6 +7533,18 @@ Partial Public Class WEB_FinagilDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetSaldoFinalNull()
             Me(Me.tableFOND_EstadoCuenta.SaldoFinalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsPromedioNull() As Boolean
+            Return Me.IsNull(Me.tableFOND_EstadoCuenta.PromedioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetPromedioNull()
+            Me(Me.tableFOND_EstadoCuenta.PromedioColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -12573,6 +12614,7 @@ Namespace WEB_FinagilDSTableAdapters
             tableMapping.ColumnMappings.Add("FechaFin", "FechaFin")
             tableMapping.ColumnMappings.Add("SaldoInicial", "SaldoInicial")
             tableMapping.ColumnMappings.Add("SaldoFinal", "SaldoFinal")
+            tableMapping.ColumnMappings.Add("Promedio", "Promedio")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -12632,10 +12674,10 @@ Namespace WEB_FinagilDSTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        id_Movimiento, id_Fondeo, Concepto, Importe, Interes, Retencion, Ta"& _ 
-                "saRetencion, FechaInicio, FechaFin, SaldoInicial, SaldoFinal"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FO"& _ 
-                "ND_EstadoCuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_Fondeo = @id_Fondeo) AND (MONTH(FechaInicio) ="& _ 
-                " MONTH(@Fecha)) AND (YEAR(FechaInicio) = YEAR(@Fecha))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FechaInicio, Fe"& _ 
-                "chaFin"
+                "saRetencion, FechaInicio, FechaFin, SaldoInicial, SaldoFinal, 0 AS Promedio"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
+                "M            FOND_EstadoCuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_Fondeo = @id_Fondeo) AND (MONTH"& _ 
+                "(FechaInicio) = MONTH(@Fecha)) AND (YEAR(FechaInicio) = YEAR(@Fecha))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY "& _ 
+                "FechaInicio, FechaFin"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -12646,10 +12688,10 @@ Namespace WEB_FinagilDSTableAdapters
                 "mporte, SUM(Interes) AS Interes, SUM(Retencion) AS Retencion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
                 "         MAX(TasaRetencion) AS TasaRetencion, MIN(FechaInicio) AS FechaInicio, M"& _ 
                 "AX(FechaFin) AS FechaFin, MIN(SaldoInicial) AS SaldoInicial, MAX(SaldoFinal) AS "& _ 
-                "SaldoFinal"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_EstadoCuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY id_Fondeo, DATENAME(m, F"& _ 
-                "echaInicio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)), MONTH(FechaInicio), YEA"& _ 
-                "R(FechaInicio)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (id_Fondeo = @id_Fondeo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY MIN(FechaInicio"& _ 
-                "), MAX(FechaFin)"
+                "SaldoFinal, AVG(SaldoInicial) AS Promedio"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_EstadoCuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GR"& _ 
+                "OUP BY id_Fondeo, DATENAME(m, FechaInicio) + ' ' + CONVERT(varchar, YEAR(FechaIn"& _ 
+                "icio)), MONTH(FechaInicio), YEAR(FechaInicio)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (id_Fondeo = @id_Fo"& _ 
+                "ndeo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FechaInicio, FechaFin"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()

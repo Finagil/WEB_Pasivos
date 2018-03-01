@@ -64,8 +64,8 @@ Module Globales
         Dim Diff As Decimal
 
         For x As Integer = 1 To 1000
-            AuxRete = Math.Round(Tasa * Capital, 2)
-            Diff = Math.Round(Rete - AuxRete, 2)
+            AuxRete = Math.Round(Tasa * Capital, 6)
+            Diff = Math.Round(Rete - AuxRete, 6)
             Select Case Math.Abs(Diff)
                 Case >= 1000
                     Incre = 0.1
@@ -76,9 +76,11 @@ Module Globales
                 Case > 1
                     Incre = 0.00001
                 Case > 0.02
-                    Incre = 0.000001
+                    Incre = 0.00001
                 Case > 0.01
-                    Incre = 0.0000001
+                    Incre = 0.00001
+                Case > 0.001
+                    Exit For
                 Case <= 0.0
                     Exit For
             End Select
