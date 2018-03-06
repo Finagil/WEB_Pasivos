@@ -1,11 +1,11 @@
-﻿<%@ Page Title="Fondeos Vigentes" Language="vb" AutoEventWireup="false" MasterPageFile="~/PaginaMasterFilial.Master" CodeBehind="FOND_EXT_EdoCtaDET.aspx.vb" Inherits="WEB_Finagil.FOND_EXT_EdoCtaDET" %>
+﻿<%@ Page Title="Detalle de Fondeo" Language="vb" AutoEventWireup="false" MasterPageFile="~/PaginaMasterFilial.Master" CodeBehind="FOND_EXT_EdoCtaDET.aspx.vb" Inherits="WEB_Finagil.FOND_EXT_EdoCtaDET" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <table style="width: 100%;" >
     <tr>
         <td align="center">
                 <br />
                 <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
-                    Text="Estado de Cuenta"></asp:Label>
+                    Text="Detalle de Fondeo"></asp:Label>
                 <br />
                 <br />
         </td>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Fondeos Vigentes" Language="vb" AutoEventWireup="false" MasterPageFile="~/PaginaMasterFilial.Master" CodeBehind="FOND_EXT_EdoCta.aspx.vb" Inherits="WEB_Finagil.FOND_EXT_EdoCta" %>
+﻿<%@ Page Title="Estado de Cuenta" Language="vb" AutoEventWireup="false" MasterPageFile="~/PaginaMasterFilial.Master" CodeBehind="FOND_EXT_EdoCta.aspx.vb" Inherits="WEB_Finagil.FOND_EXT_EdoCta" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <table style="width: 100%;" >
     <tr>
@@ -44,9 +44,59 @@
                 &nbsp;</td>
             </tr>
     <tr>
+        <td align="center" style="font-family: Verdana; color: #FF6600">
+                <span style="font-weight: bold">Saldo Garantia<asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWGarantias" Font-Names="Verdana" Font-Size="Smaller"
+                    ForeColor="#333333" GridLines="None" DataKeyNames="id_Garantia" EnableModelValidation="True">
+                    <RowStyle BackColor="#FFE0C0" />
+                    <Columns>
+                        <asp:HyperLinkField DataNavigateUrlFields="id_Fondeador" DataNavigateUrlFormatString="FOND_EXT_SaldoGaratiaDet?id_fondeador={0}" Text="Detalle" />
+                        <asp:BoundField DataField="Capital" DataFormatString="{0:n2}" HeaderText="Capital" SortExpression="Capital" >
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                    </Columns>
+                    <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                    <EmptyDataTemplate>
+                        <br />
+                        <span style="font-weight: bold; color: #FF6600">Sin Datos </span>
+                    </EmptyDataTemplate>
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <EditRowStyle BackColor="#2461BF" />
+                    <AlternatingRowStyle BackColor="White" />
+                </asp:GridView>
+            
+                <asp:ObjectDataSource ID="VWGarantias" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDataByResumen" TypeName="WEB_Finagil.WEB_FinagilDSTableAdapters.FOND_SaldoGarantiasTableAdapter" InsertMethod="Insert" UpdateMethod="Update">
+                    <InsertParameters>
+                        <asp:Parameter Name="id_Fondeador" Type="Decimal" />
+                        <asp:Parameter Name="id_fondeo" Type="Decimal" />
+                        <asp:Parameter Name="Capital" Type="Decimal" />
+                        <asp:Parameter Name="Fecha" Type="DateTime" />
+                        <asp:Parameter Name="Concepto" Type="String" />
+                    </InsertParameters>
+                    <SelectParameters>
+                        <asp:QueryStringParameter Name="id_Fondeador" QueryStringField="id_fondeador" Type="Decimal" />
+                    </SelectParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="id_Fondeador" Type="Decimal" />
+                        <asp:Parameter Name="id_fondeo" Type="Decimal" />
+                        <asp:Parameter Name="Capital" Type="Decimal" />
+                        <asp:Parameter Name="Fecha" Type="DateTime" />
+                        <asp:Parameter Name="Concepto" Type="String" />
+                        <asp:Parameter Name="Original_id_Garantia" Type="Decimal" />
+                    </UpdateParameters>
+                </asp:ObjectDataSource>
+            
+                </span></td>
+            </tr>
+    <tr>
+        <td align="center">
+                &nbsp;</td>
+            </tr>
+    <tr>
         <td align="center">
             
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWFondeosDS" Font-Names="Verdana" Font-Size="Smaller"
+                <span style="font-family: Verdana; font-weight: bold; color: #FF6600">Mensual</span><asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWFondeosDS" Font-Names="Verdana" Font-Size="Smaller"
                     ForeColor="#333333" GridLines="None" ShowFooter="True" DataKeyNames="id_Movimiento" EnableModelValidation="True">
                     <RowStyle BackColor="#FFE0C0" />
                     <Columns>

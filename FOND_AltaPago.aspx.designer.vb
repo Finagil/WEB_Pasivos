@@ -176,6 +176,24 @@ Partial Public Class FOND_AltaPago
     Protected WithEvents RegularExpressionValidator3 As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
+    '''Control CkGarantia.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents CkGarantia As Global.System.Web.UI.WebControls.CheckBox
+    
+    '''<summary>
+    '''Control TxtGarantia.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TxtGarantia As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
     '''Control BotonEnviar1.
     '''</summary>
     '''<remarks>

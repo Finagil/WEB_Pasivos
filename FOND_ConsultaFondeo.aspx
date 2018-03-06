@@ -1,11 +1,11 @@
-﻿<%@ Page Title="Fondeos Vigentes" Language="vb" AutoEventWireup="false" MasterPageFile="~/PaginaMasterFinagil.Master" CodeBehind="FOND_ConsultaFondeo.aspx.vb" Inherits="WEB_Finagil.ConsultaFondeo" %>
+﻿<%@ Page Title="Estado de Cuenta" Language="vb" AutoEventWireup="false" MasterPageFile="~/PaginaMasterFinagil.Master" CodeBehind="FOND_ConsultaFondeo.aspx.vb" Inherits="WEB_Finagil.ConsultaFondeo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <table style="width: 100%;" >
     <tr>
         <td align="center">
                 <br />
                 <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
-                    Text="Fondeos Vigentes"></asp:Label>
+                    Text="Estado de Cuenta"></asp:Label>
                 <br />
                 <br />
         </td>
@@ -20,7 +20,11 @@
                         <asp:HyperLinkField DataNavigateUrlFields="id_Fondeo" DataNavigateUrlFormatString="FOND_AltaCapital.aspx?ID_fondeo={0}" Text="Alta Capital" >
                         <ItemStyle HorizontalAlign="Center" />
                         </asp:HyperLinkField>
-                        <asp:HyperLinkField DataNavigateUrlFields="id_Fondeo" DataNavigateUrlFormatString="FOND_AltaPago.aspx?ID_Fondeo={0}" Text="Alta Pago" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id_Fondeo", "FOND_AltaPago.aspx?id_fondeo={0}") & Eval("id_fondeador", "&id_fondeador={0}") %>' Text="Alta Pago"></asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="No Fondeo" InsertVisible="False" SortExpression="id_Fondeo" Visible="False">
                             <EditItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("id_Fondeo", "{0:n0}") %>'></asp:Label>
@@ -41,6 +45,7 @@
                         <asp:BoundField DataField="TasaDiferencial" DataFormatString="{0:n6}" HeaderText="Tasa o Dif." HtmlEncode="False" SortExpression="TasaDiferencial">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
+                        <asp:BoundField DataField="id_Fondeador" SortExpression="id_Fondeador" Visible="False" />
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />

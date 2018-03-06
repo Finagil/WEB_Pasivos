@@ -65,8 +65,10 @@ Module Globales
 
         For x As Integer = 1 To 1000
             AuxRete = Math.Round(Tasa * Capital, 6)
-            Diff = Math.Round(Rete - AuxRete, 6)
+            Diff = Math.Round(Rete - AuxRete, 3)
             Select Case Math.Abs(Diff)
+                Case 0.0
+                    Exit For
                 Case >= 1000
                     Incre = 0.1
                 Case > 100
@@ -77,12 +79,8 @@ Module Globales
                     Incre = 0.00001
                 Case > 0.02
                     Incre = 0.00001
-                Case > 0.01
-                    Incre = 0.00001
                 Case > 0.001
-                    Exit For
-                Case <= 0.0
-                    Exit For
+                    Incre = 0.00001
             End Select
 
             If Diff > 0 Then

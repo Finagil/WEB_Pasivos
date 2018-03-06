@@ -23,6 +23,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,6 +82,8 @@
     <Content Include="FOND_AltaPago.aspx" />
     <Content Include="FOND_AltaCapital.aspx" />
     <Content Include="FOND_AltaFondeo.aspx" />
+    <Content Include="FOND_SaldoGaratiaDet.aspx" />
+    <Content Include="FOND_EXT_SaldoGaratiaDet.aspx" />
     <Content Include="FOND_EXT_EdoCtaDET.aspx" />
     <Content Include="FOND_EXT_EdoCta.aspx" />
     <Content Include="FOND_EXT_ConsultaFondeo.aspx" />
@@ -146,6 +149,20 @@
     </Compile>
     <Compile Include="ConfReembolso.aspx.vb">
       <DependentUpon>ConfReembolso.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FOND_SaldoGaratiaDet.aspx.designer.vb">
+      <DependentUpon>FOND_SaldoGaratiaDet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_SaldoGaratiaDet.aspx.vb">
+      <DependentUpon>FOND_SaldoGaratiaDet.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="FOND_EXT_SaldoGaratiaDet.aspx.designer.vb">
+      <DependentUpon>FOND_EXT_SaldoGaratiaDet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_EXT_SaldoGaratiaDet.aspx.vb">
+      <DependentUpon>FOND_EXT_SaldoGaratiaDet.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="FOND_EXT_EdoCtaDET.aspx.designer.vb">

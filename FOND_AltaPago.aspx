@@ -104,6 +104,14 @@
             </td>
         </tr>
         <tr>
+            <td align="right" width="40%" style="font-family: Verdana; color: #FF6600">
+                <span style="font-weight: bold">Garantía</span></td>
+            <td align="left">
+                <asp:CheckBox ID="CkGarantia" runat="server" />
+                <asp:TextBox ID="TxtGarantia" runat="server" MaxLength="50" Width="363px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
             <td align="center" colspan="2" width="40%">
                 <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
                     ForeColor="White" Text="Inserta Pago" TextoEnviando="Insertando..." Width="182px" EnableTheming="True" />
