@@ -4569,6 +4569,8 @@ Partial Public Class WEB_FinagilDS
         
         Private columnid_Fondeador As Global.System.Data.DataColumn
         
+        Private columnContrato As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -4693,6 +4695,14 @@ Partial Public Class WEB_FinagilDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property ContratoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnContrato
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4729,9 +4739,9 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddVw_FondeosRow(ByVal Fondeador As String, ByVal Tipo_Fondeo As String, ByVal Descripcion As String, ByVal FechaInicio As Date, ByVal FechaVencimiento As Date, ByVal TipoTasa As String, ByVal TasaDiferencial As Decimal, ByVal No_Movimientos As Decimal, ByVal FechaPago As Date, ByVal id_Fondeador As Decimal) As Vw_FondeosRow
+        Public Overloads Function AddVw_FondeosRow(ByVal Fondeador As String, ByVal Tipo_Fondeo As String, ByVal Descripcion As String, ByVal FechaInicio As Date, ByVal FechaVencimiento As Date, ByVal TipoTasa As String, ByVal TasaDiferencial As Decimal, ByVal No_Movimientos As Decimal, ByVal FechaPago As Date, ByVal id_Fondeador As Decimal, ByVal Contrato As String) As Vw_FondeosRow
             Dim rowVw_FondeosRow As Vw_FondeosRow = CType(Me.NewRow,Vw_FondeosRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Fondeador, Tipo_Fondeo, Descripcion, FechaInicio, FechaVencimiento, TipoTasa, TasaDiferencial, No_Movimientos, FechaPago, id_Fondeador}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Fondeador, Tipo_Fondeo, Descripcion, FechaInicio, FechaVencimiento, TipoTasa, TasaDiferencial, No_Movimientos, FechaPago, id_Fondeador, Contrato}
             rowVw_FondeosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVw_FondeosRow)
             Return rowVw_FondeosRow
@@ -4777,6 +4787,7 @@ Partial Public Class WEB_FinagilDS
             Me.columnNo_Movimientos = MyBase.Columns("No_Movimientos")
             Me.columnFechaPago = MyBase.Columns("FechaPago")
             Me.columnid_Fondeador = MyBase.Columns("id_Fondeador")
+            Me.columnContrato = MyBase.Columns("Contrato")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4804,6 +4815,8 @@ Partial Public Class WEB_FinagilDS
             MyBase.Columns.Add(Me.columnFechaPago)
             Me.columnid_Fondeador = New Global.System.Data.DataColumn("id_Fondeador", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid_Fondeador)
+            Me.columnContrato = New Global.System.Data.DataColumn("Contrato", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnContrato)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_Fondeo}, true))
             Me.columnid_Fondeo.AutoIncrement = true
             Me.columnid_Fondeo.AutoIncrementSeed = -1
@@ -4815,6 +4828,7 @@ Partial Public Class WEB_FinagilDS
             Me.columnTipo_Fondeo.MaxLength = 20
             Me.columnDescripcion.MaxLength = 50
             Me.columnTipoTasa.MaxLength = 20
+            Me.columnContrato.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8130,6 +8144,21 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Contrato() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_Fondeos.ContratoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Contrato' de la tabla 'Vw_Fondeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_Fondeos.ContratoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsFondeadorNull() As Boolean
             Return Me.IsNull(Me.tableVw_Fondeos.FondeadorColumn)
         End Function
@@ -8246,6 +8275,18 @@ Partial Public Class WEB_FinagilDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Setid_FondeadorNull()
             Me(Me.tableVw_Fondeos.id_FondeadorColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsContratoNull() As Boolean
+            Return Me.IsNull(Me.tableVw_Fondeos.ContratoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetContratoNull()
+            Me(Me.tableVw_Fondeos.ContratoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -13747,6 +13788,7 @@ Namespace WEB_FinagilDSTableAdapters
             tableMapping.ColumnMappings.Add("No_Movimientos", "No_Movimientos")
             tableMapping.ColumnMappings.Add("FechaPago", "FechaPago")
             tableMapping.ColumnMappings.Add("id_Fondeador", "id_Fondeador")
+            tableMapping.ColumnMappings.Add("Contrato", "Contrato")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -13767,11 +13809,11 @@ Namespace WEB_FinagilDSTableAdapters
                 "os.Tipo_Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos"& _ 
                 ".FechaVencimiento, FOND_Fondeos.TipoTasa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeo"& _ 
                 "s.TasaDiferencial, FOND_TiposFondeos.No_Movimientos, FOND_Fondeos.FechaPago, FON"& _ 
-                "D_Fondeos.id_Fondeador"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_TiposFondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "               FOND_Fondeos ON FOND_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id"& _ 
-                "_TipoFondeo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeadores ON FOND_Fondeo"& _ 
-                "s.id_Fondeador = FOND_Fondeadores.id_Fondeador"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FOND_Fondeos.id_Fo"& _ 
-                "ndeo = @Id_Fondeo)"
+                "D_Fondeos.id_Fondeador, FOND_Fondeos.Contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_TiposFondeos"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos ON FOND_TiposFondeos.id_TipoF"& _ 
+                "ondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fon"& _ 
+                "deadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
+                "    (FOND_Fondeos.id_Fondeo = @Id_Fondeo)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
@@ -13779,11 +13821,12 @@ Namespace WEB_FinagilDSTableAdapters
             Me._commandCollection(1).CommandText = "SELECT        FOND_Fondeos.id_Fondeo, FOND_Fondeadores.Fondeador, FOND_TiposFonde"& _ 
                 "os.Tipo_Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos"& _ 
                 ".FechaVencimiento, FOND_Fondeos.TipoTasa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeo"& _ 
-                "s.TasaDiferencial, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      "& _ 
-                "      FOND_TiposFondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos ON FON"& _ 
-                "D_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "               FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores."& _ 
-                "id_Fondeador"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FOND_Fondeos.Estatus = 'Vigente')"
+                "s.TasaDiferencial, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador, FOND_Fonde"& _ 
+                "os.Contrato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_TiposFondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    FOND_Fondeos ON FOND_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeadores ON FOND_Fondeos.id_Fondea"& _ 
+                "dor = FOND_Fondeadores.id_Fondeador"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FOND_Fondeos.Estatus = 'Vigen"& _ 
+                "te')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection

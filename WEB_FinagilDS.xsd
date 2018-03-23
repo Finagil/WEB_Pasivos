@@ -880,7 +880,7 @@ WHERE        (id_Fondeo = @id_fondeo) AND (FechaInicio &lt;= @Fecha)</CommandTex
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        FOND_Fondeos.id_Fondeo, FOND_Fondeadores.Fondeador, FOND_TiposFondeos.Tipo_Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, 
-                         FOND_Fondeos.TasaDiferencial, FOND_TiposFondeos.No_Movimientos, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador
+                         FOND_Fondeos.TasaDiferencial, FOND_TiposFondeos.No_Movimientos, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador, FOND_Fondeos.Contrato
 FROM            FOND_TiposFondeos INNER JOIN
                          FOND_Fondeos ON FOND_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN
                          FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador
@@ -904,13 +904,14 @@ WHERE        (FOND_Fondeos.id_Fondeo = @Id_Fondeo)</CommandText>
               <Mapping SourceColumn="No_Movimientos" DataSetColumn="No_Movimientos" />
               <Mapping SourceColumn="FechaPago" DataSetColumn="FechaPago" />
               <Mapping SourceColumn="id_Fondeador" DataSetColumn="id_Fondeador" />
+              <Mapping SourceColumn="Contrato" DataSetColumn="Contrato" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByVigentes" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByVigentes" GeneratorSourceName="FillByVigentes" GetMethodModifier="Public" GetMethodName="GetDataByVigentes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByVigentes" UserSourceName="FillByVigentes">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        FOND_Fondeos.id_Fondeo, FOND_Fondeadores.Fondeador, FOND_TiposFondeos.Tipo_Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, 
-                         FOND_Fondeos.TasaDiferencial, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador
+                         FOND_Fondeos.TasaDiferencial, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador, FOND_Fondeos.Contrato
 FROM            FOND_TiposFondeos INNER JOIN
                          FOND_Fondeos ON FOND_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN
                          FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador
@@ -1426,6 +1427,13 @@ WHERE        (FOND_Fondeos.id_Fondeo = @id_Fondeo)</CommandText>
               <xs:element name="No_Movimientos" msprop:Generator_ColumnVarNameInTable="columnNo_Movimientos" msprop:Generator_ColumnPropNameInRow="No_Movimientos" msprop:Generator_ColumnPropNameInTable="No_MovimientosColumn" msprop:Generator_UserColumnName="No_Movimientos" type="xs:decimal" minOccurs="0" />
               <xs:element name="FechaPago" msprop:Generator_ColumnVarNameInTable="columnFechaPago" msprop:Generator_ColumnPropNameInRow="FechaPago" msprop:Generator_ColumnPropNameInTable="FechaPagoColumn" msprop:Generator_UserColumnName="FechaPago" type="xs:dateTime" minOccurs="0" />
               <xs:element name="id_Fondeador" msprop:Generator_ColumnVarNameInTable="columnid_Fondeador" msprop:Generator_ColumnPropNameInRow="id_Fondeador" msprop:Generator_ColumnPropNameInTable="id_FondeadorColumn" msprop:Generator_UserColumnName="id_Fondeador" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Contrato" msprop:Generator_ColumnVarNameInTable="columnContrato" msprop:Generator_ColumnPropNameInRow="Contrato" msprop:Generator_ColumnPropNameInTable="ContratoColumn" msprop:Generator_UserColumnName="Contrato" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

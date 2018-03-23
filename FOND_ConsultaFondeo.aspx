@@ -46,6 +46,7 @@
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                         <asp:BoundField DataField="id_Fondeador" SortExpression="id_Fondeador" Visible="False" />
+                        <asp:HyperLinkField DataNavigateUrlFields="Contrato" DataNavigateUrlFormatString="~\docs\{0}" DataTextField="Contrato" HeaderText="Contrato" Target="_blank" />
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
