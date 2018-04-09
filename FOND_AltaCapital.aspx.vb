@@ -9,7 +9,7 @@
                 BotonEnviar1.Visible = False
             End If
         End If
-        'TextBox1.Text = CDate(row("FechaInicio")).ToShortDateString
+        TextBox1.Text = Today.ToShortDateString
     End Sub
 
     Protected Sub BotonEnviar1_Click(sender As Object, e As EventArgs) Handles BotonEnviar1.Click
