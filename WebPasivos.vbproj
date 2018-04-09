@@ -93,6 +93,7 @@
     <Content Include="FOND_ConsultaFondeo.aspx" />
     <Content Include="css\calendar-blue.css" />
     <Content Include="Default.aspx" />
+    <Content Include="FOND_Tabla.aspx" />
     <Content Include="images\custom_b.png" />
     <Content Include="images\custom_bl.png" />
     <Content Include="images\custom_br.png" />
@@ -220,6 +221,13 @@
     <Compile Include="DetalleReembolso.aspx.vb">
       <DependentUpon>DetalleReembolso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FOND_Tabla.aspx.designer.vb">
+      <DependentUpon>FOND_Tabla.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_Tabla.aspx.vb">
+      <DependentUpon>FOND_Tabla.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="PaginaMasterFilial.Master.designer.vb">
       <DependentUpon>PaginaMasterFilial.Master</DependentUpon>
