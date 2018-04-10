@@ -133,6 +133,9 @@
                         <asp:BoundField DataFormatString="{0:n6}" HeaderText="Tasa o Cuota" ReadOnly="True">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Pago Neto" ReadOnly="True" >
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
