@@ -19,7 +19,7 @@
                     <br />
                     <asp:Label ID="LabelUser" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="#FF6401"
                         Text="Usuario"></asp:Label><br />
-                    <asp:TextBox ID="Txtuser" runat="server"></asp:TextBox><br />
+                    <asp:TextBox ID="Txtuser" runat="server" Width="150px"></asp:TextBox><br />
                     <asp:Label ID="LabelPass" runat="server" Font-Bold="True" Font-Names="Arial" ForeColor="#FF6401"
                         Text="Contraseña"></asp:Label><br />
                     <asp:TextBox ID="TxtPass" runat="server" TextMode="Password" Width="150px"></asp:TextBox><br />
