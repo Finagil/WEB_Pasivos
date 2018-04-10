@@ -14,5 +14,14 @@
     <Setting Name="CorreoAdmin2" Type="System.String" Scope="Application">
       <Value Profile="(Default)">atorres@finagil.com.mx</Value>
     </Setting>
+    <Setting Name="RutaPROC1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Jobs\</Value>
+    </Setting>
+    <Setting Name="RutaPROC2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Y:\</Value>
+    </Setting>
+    <Setting Name="PROC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ProcesosDiarios.exe</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -92,4 +92,14 @@ Module Globales
         Return Math.Round(Capital, 6)
     End Function
 
+    Sub ProcesaCalculos(ID As Integer)
+        If System.IO.File.Exists(My.Settings.RutaPROC1 & My.Settings.PROC) Then
+            Shell(My.Settings.RutaPROC1 & My.Settings.PROC & " PASIVOS " & ID, AppWinStyle.NormalFocus, False)
+        Else
+            If System.IO.File.Exists(My.Settings.RutaPROC2 & My.Settings.PROC) Then
+                Shell(My.Settings.RutaPROC2 & My.Settings.PROC & " PASIVOS " & ID, AppWinStyle.NormalFocus, False)
+            End If
+        End If
+    End Sub
+
 End Module

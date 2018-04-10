@@ -30,6 +30,7 @@
                     If TxtGarantia.Text = "" Then TxtGarantia.Text = "Garantia Ejercida"
                     ta2.Insert(IDF, ID, CDec(TxtImporte.Text), F1, TxtGarantia.Text)
                 End If
+                ProcesaCalculos(ID)
                 Response.Redirect("~\FOND_ConsultaFondeo.aspx", True)
                 'End If
             End If
