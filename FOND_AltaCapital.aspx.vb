@@ -22,7 +22,7 @@
             '    LberrorGlobal.Visible = True
             'Else
             ta.Insert(ID, "CAPITAL", TxtImporte.Text, 0, 0, 0, F1, F1, TxtImporte.Text, TxtImporte.Text)
-                Response.Redirect("~\FOND_Saldos.aspx", True)
+            Response.Redirect("~\FOND_ConsultaFondeo.aspx", True)
             'End If
         Catch ex As Exception
             LberrorGlobal.Text = ex.Message

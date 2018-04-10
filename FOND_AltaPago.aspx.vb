@@ -1,7 +1,15 @@
 ﻿Public Class FOND_AltaPago
     Inherits System.Web.UI.Page
+
     Private Sub DetailsView1_DataBound(sender As Object, e As EventArgs) Handles DetailsView1.DataBound
+        Dim id As Integer = Request.QueryString("ID_FONDEO")
         Dim row As DataRowView = DetailsView1.DataItem
+        If row("Tipo_Fondeo") = "INDIVIDUAL" Then
+            Dim TA As New WEB_FinagilDSTableAdapters.Vw_FondeosTableAdapter
+            If TA.NoMinistraciones(id) >= DetailsView1.DataKey(1) Then
+                BotonEnviar1.Visible = False
+            End If
+        End If
         TextBox1.Text = Today.ToShortDateString
     End Sub
 
