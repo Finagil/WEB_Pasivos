@@ -11,7 +11,7 @@
             FecIni = DataBinder.Eval(e.Row.DataItem, "FechaInicio")
             FecIni = FecIni.AddDays(FecIni.Day * -1).AddMonths(1) 'ultimo dia del mes
             Cap = DataBinder.Eval(e.Row.DataItem, "Promedio")
-            e.Row.Cells(6).Text = taEdoCta.SumCapitalHasta(DataBinder.Eval(e.Row.DataItem, "id_fondeo"), FecIni)
+            e.Row.Cells(6).Text = CDec(taEdoCta.SumCapitalHasta(DataBinder.Eval(e.Row.DataItem, "id_fondeo"), FecIni)).ToString("n2")
             Rete = DataBinder.Eval(e.Row.DataItem, "Retencion")
             Inte = DataBinder.Eval(e.Row.DataItem, "Interes")
             Dim Cont As Integer = 0

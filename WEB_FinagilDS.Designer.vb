@@ -13914,12 +13914,14 @@ Namespace WEB_FinagilDSTableAdapters
                 "os.Tipo_Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos"& _ 
                 ".FechaVencimiento, FOND_Fondeos.TipoTasa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeo"& _ 
                 "s.TasaDiferencial, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador, FOND_Fonde"& _ 
-                "os.Contrato, Vw_ResumTabla.Plazo AS Pagos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_TiposFondeos INN"& _ 
-                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos ON FOND_TiposFondeos.id_TipoFonde"& _ 
-                "o = FOND_Fondeos.id_TipoFondeo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondead"& _ 
-                "ores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador LEFT OUTER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_ResumTabla ON FOND_Fondeos.id_Fondeo = Vw_ResumTa"& _ 
-                "bla.id_fondeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FOND_Fondeos.Estatus = 'Vigente')"
+                "os.Contrato, Vw_ResumTabla.Plazo AS Pagos, Vw_FOND_SaldosFondeos.SaldoInsoluto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "FROM            FOND_TiposFondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fond"& _ 
+                "eos ON FOND_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fo"& _ 
+                "ndeadores.id_Fondeador LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_FOND_SaldosF"& _ 
+                "ondeos ON FOND_Fondeos.id_Fondeo = Vw_FOND_SaldosFondeos.id_Fondeo LEFT OUTER JO"& _ 
+                "IN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_ResumTabla ON FOND_Fondeos.id_Fondeo = Vw_ResumT"& _ 
+                "abla.id_fondeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FOND_Fondeos.Estatus = 'Vigente')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection

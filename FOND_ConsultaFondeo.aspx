@@ -15,7 +15,7 @@
             
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWFondeosDS" Font-Names="Verdana" Font-Size="Smaller"
                     ForeColor="#333333" GridLines="None" ShowFooter="True" DataKeyNames="id_Fondeo" EnableModelValidation="True">
-                    <RowStyle BackColor="#FFE0C0" />
+                    <RowStyle BackColor="#FFE0C0" Font-Size="Smaller" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="id_Fondeo" DataNavigateUrlFormatString="FOND_AltaCapital.aspx?ID_fondeo={0}" Text="Alta Capital" >
                         <ItemStyle HorizontalAlign="Center" />
@@ -46,6 +46,9 @@
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                         <asp:BoundField DataField="id_Fondeador" SortExpression="id_Fondeador" Visible="False" />
+                        <asp:BoundField DataField="SaldoInsoluto" DataFormatString="{0:n2}" HeaderText="Saldo Insoluto" HtmlEncode="False" ReadOnly="True" SortExpression="SaldoInsoluto">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
                         <asp:HyperLinkField DataNavigateUrlFields="Contrato" DataNavigateUrlFormatString="~\Docs\{0}" DataTextField="Contrato" HeaderText="Contrato" Target="_blank" />
                         <asp:HyperLinkField DataNavigateUrlFields="id_Fondeo" DataNavigateUrlFormatString="FOND_Tabla.aspx?id={0}" DataTextField="Pagos" HeaderText="Tabla" Target="_blank" />
                     </Columns>

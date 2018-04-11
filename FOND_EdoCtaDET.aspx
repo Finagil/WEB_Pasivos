@@ -57,7 +57,7 @@
                         <asp:BoundField DataField="Concepto" HeaderText="Concepto" SortExpression="Concepto" />
                         <asp:BoundField DataField="TasaRetencion" DataFormatString="{0:n6}" HeaderText="Tasa Rete." HtmlEncode="False" SortExpression="TasaRetencion">
                         </asp:BoundField>
-                        <asp:BoundField DataField="SaldoInicial" DataFormatString="{0:n}" HeaderText="Saldo Ini." HtmlEncode="False" SortExpression="SaldoInicial">
+                        <asp:BoundField DataField="SaldoInicial" DataFormatString="{0:n2}" HeaderText="Saldo Ini." HtmlEncode="False" SortExpression="SaldoInicial">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                         <asp:BoundField DataField="Importe" DataFormatString="{0:n2}" HeaderText="Capital"
@@ -71,7 +71,7 @@
                         <asp:BoundField HeaderText="Retención" DataField="Retencion" SortExpression="Retencion" DataFormatString="{0:n2}" HtmlEncode="False" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="SaldoFinal" DataFormatString="{0:n}" HeaderText="Soldo Fin." SortExpression="SaldoFinal">
+                        <asp:BoundField DataField="SaldoFinal" DataFormatString="{0:n2}" HeaderText="Soldo Fin." SortExpression="SaldoFinal">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                     </Columns>
