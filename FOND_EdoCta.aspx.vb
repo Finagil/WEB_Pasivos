@@ -1,17 +1,20 @@
 ﻿Public Class FOND_EdoCta
     Inherits System.Web.UI.Page
-    Dim FecIni As Date
+    Dim FecIni, FecFin As Date
     Dim cFactor, Aux As String
     Dim Retencion, Rete, Inte As Decimal
     Dim Factor As Decimal
     Dim Cap As Decimal
     Dim taEdoCta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
     Protected Sub GridView1_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles GridView1.RowDataBound
+        Dim ID As Integer = 0
         If e.Row.RowType = DataControlRowType.DataRow Then
+            ID = DataBinder.Eval(e.Row.DataItem, "id_fondeo")
             FecIni = DataBinder.Eval(e.Row.DataItem, "FechaInicio")
+            FecFin = DataBinder.Eval(e.Row.DataItem, "FechaFin")
             FecIni = FecIni.AddDays(FecIni.Day * -1).AddMonths(1) 'ultimo dia del mes
             Cap = DataBinder.Eval(e.Row.DataItem, "Promedio")
-            e.Row.Cells(6).Text = CDec(taEdoCta.SumCapitalHasta(DataBinder.Eval(e.Row.DataItem, "id_fondeo"), FecIni)).ToString("n2")
+            e.Row.Cells(6).Text = CDec(taEdoCta.SumCapitalHasta(ID, FecIni)).ToString("n2")
             Rete = DataBinder.Eval(e.Row.DataItem, "Retencion")
             Inte = DataBinder.Eval(e.Row.DataItem, "Interes")
             Dim Cont As Integer = 0
@@ -33,7 +36,8 @@
                 'Factor = Aux
                 e.Row.Cells(11).Text = Math.Abs(Factor) ' factor
                 e.Row.Cells(10).Text = EncuentraBaseFOR(Cap, Factor, Rete, 0.1).ToString("n2") ' base
-                e.Row.Cells(12).Text = Math.Abs(Inte - Rete).ToString("n2") ' Pago Neto
+                e.Row.Cells(12).Text = CDec(taEdoCta.InteresPagado(ID, FecFin.Month, FecFin.Year)).ToString("n2")
+                e.Row.Cells(13).Text = Math.Abs(Inte - Rete).ToString("n2") ' Pago Neto
             End If
         ElseIf e.Row.RowType = DataControlRowType.Footer Then
             'e.Row.Cells(0).Text = "Totales"

@@ -80,6 +80,9 @@
                         <asp:BoundField DataFormatString="{0:n6}" HeaderText="Tasa o Cuota" ReadOnly="True">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Interes Pag." HtmlEncode="False" ReadOnly="True">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
                         <asp:BoundField DataFormatString="{0:n2}" HeaderText="Pago Neto" ReadOnly="True" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
