@@ -41,6 +41,7 @@
     End Sub
 
     Function Validaciones() As Boolean
+        Dim F1 As DateTime = DateTime.Parse(Request.Form(TextBox1.UniqueID))
         Validaciones = True
         If Val(TxtInteres.Text) > 0 Then
             If Val(TxtRetencion.Text) <= 0 Then
@@ -53,6 +54,11 @@
                 LberrorGlobal.Text = "Falta el concepto de la garantía."
                 Validaciones = False
             End If
+        End If
+        If F1 <= Date.Now.Date.AddDays(-6) Then
+            LberrorGlobal.Text = "Fecha incorrecta, solo se pueden usar fechas de 6 días anteriores al dpia de hoy."
+            LberrorGlobal.Visible = True
+            Validaciones = False
         End If
         LberrorGlobal.Visible = Not Validaciones
         Return Validaciones
