@@ -56,7 +56,7 @@
             End If
         End If
         If F1 <= Date.Now.Date.AddDays(-6) Then
-            LberrorGlobal.Text = "Fecha incorrecta, solo se pueden usar fechas de 6 días anteriores al dpia de hoy."
+            LberrorGlobal.Text = "Fecha incorrecta, solo se pueden usar fechas de 6 días anteriores al día de hoy."
             LberrorGlobal.Visible = True
             Validaciones = False
         End If
