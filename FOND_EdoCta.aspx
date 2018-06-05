@@ -70,21 +70,30 @@
                         <asp:BoundField HeaderText="Retención" DataField="Retencion" SortExpression="Retencion" DataFormatString="{0:n2}" HtmlEncode="False" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id_fondeo", "fond_EdoCtaDET.aspx?id_fondeo={0}") & Eval("FechaInicio", "&Fec={0:d}") %>' Text="Detalle"></asp:HyperLink>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        <asp:BoundField DataField="Neto" DataFormatString="{0:n2}" HeaderText="Neto" HtmlEncode="False" ReadOnly="True" SortExpression="Neto">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
                         <asp:BoundField DataFormatString="{0:n2}" HeaderText="Base" ReadOnly="True">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                         <asp:BoundField DataFormatString="{0:n6}" HeaderText="Tasa o Cuota" ReadOnly="True">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id_fondeo", "fond_EdoCtaDET.aspx?id_fondeo={0}") & Eval("FechaInicio", "&Fec={0:d}") %>' Text="Detalle"></asp:HyperLink>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Capital Pag." HtmlEncode="False" ReadOnly="True">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
                         <asp:BoundField DataFormatString="{0:n2}" HeaderText="Interes Pag." HtmlEncode="False" ReadOnly="True">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Pago Neto" ReadOnly="True" >
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Retención Pag." HtmlEncode="False" ReadOnly="True">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Saldo Neto" ReadOnly="True" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                     </Columns>
