@@ -4,7 +4,7 @@
     Dim cFactor, Aux As String
     Dim Retencion, Rete As Decimal
     Dim Factor As Decimal
-    Dim Cap As Decimal
+    Dim Cap, CapFinal As Decimal
     Dim taEdoCta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
     Protected Sub GridView1_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles GridView1.RowDataBound
         If e.Row.RowType = DataControlRowType.DataRow Then
@@ -12,26 +12,15 @@
             FecIni = FecIni.AddDays(FecIni.Day * -1).AddMonths(1) 'ultimo dia del mes
             Cap = DataBinder.Eval(e.Row.DataItem, "Promedio")
             e.Row.Cells(6).Text = taEdoCta.SumCapitalHasta(DataBinder.Eval(e.Row.DataItem, "id_fondeo"), FecIni)
+            CapFinal = e.Row.Cells(6).Text
             Rete = DataBinder.Eval(e.Row.DataItem, "Retencion")
             Dim Cont As Integer = 0
             Aux = ""
             If Cap > 0 Then
                 Factor = Math.Round(Rete / Cap, 6)
                 cFactor = Factor.ToString()
-                'For x As Integer = 1 To cFactor.Length
-                '    If Mid(cFactor, x, 1) = "." Or Cont > 0 Then
-                '        Cont += 1
-                '    End If
-                '    If Cont >= 0 Then
-                '        Aux += Mid(cFactor, x, 1)
-                '    End If
-                '    If Cont = 7 Then
-                '        Exit For
-                '    End If
-                'Next
-                'Factor = Aux
+                e.Row.Cells(10).Text = EncuentraBaseFOR(Cap, Factor, Rete, 0.1).ToString("n2") ' base
                 e.Row.Cells(11).Text = Math.Abs(Factor)
-                e.Row.Cells(10).Text = EncuentraBaseFOR(Cap, Factor, Rete, 0.1).ToString("n2")
             End If
         ElseIf e.Row.RowType = DataControlRowType.Footer Then
             'e.Row.Cells(0).Text = "Totales"

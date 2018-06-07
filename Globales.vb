@@ -63,33 +63,23 @@ Module Globales
         Dim AuxRete As Decimal
         Dim Diff As Decimal
 
-        For x As Integer = 1 To 1000
+        For x As Integer = 1 To 100000
             AuxRete = Math.Round(Tasa * Capital, 6)
-            Diff = Math.Round(Rete - AuxRete, 3)
+            Diff = Math.Round(Rete - AuxRete, 2)
             Select Case Math.Abs(Diff)
                 Case 0.0
                     Exit For
-                Case >= 1000
-                    Incre = 0.1
-                Case > 100
+                Case Else
                     Incre = 0.01
-                Case > 10
-                    Incre = 0.0001
-                Case > 1
-                    Incre = 0.00001
-                Case > 0.02
-                    Incre = 0.00001
-                Case > 0.001
-                    Incre = 0.00001
             End Select
 
             If Diff > 0 Then
-                Capital += Math.Round(Capital * Incre, 6)
+                Capital += Incre
             Else
-                Capital -= Math.Round(Capital * Incre, 6)
+                Capital -= Incre
             End If
         Next
-        Return Math.Round(Capital, 6)
+        Return Math.Round(Capital, 4)
     End Function
 
     Sub ProcesaCalculos(ID As Integer)

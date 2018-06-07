@@ -93,7 +93,7 @@
                         <asp:BoundField DataFormatString="{0:n2}" HeaderText="Retención Pag." HtmlEncode="False" ReadOnly="True">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Saldo Neto" ReadOnly="True" >
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Saldo" ReadOnly="True" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                     </Columns>
