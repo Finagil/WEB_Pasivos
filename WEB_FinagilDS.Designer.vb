@@ -14068,15 +14068,14 @@ Namespace WEB_FinagilDSTableAdapters
                 "         FOND_TiposFondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos ON "& _ 
                 "FOND_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
                 "                  FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeador"& _ 
-                "es.id_Fondeador INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_EstadoCuenta ON FOND_F"& _ 
-                "ondeos.id_Fondeo = FOND_EstadoCuenta.id_Fondeo LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         Vw_ResumTabla ON FOND_Fondeos.id_Fondeo = Vw_ResumTabla.id_fondeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROU"& _ 
-                "P BY FOND_Fondeos.id_Fondeo, FOND_Fondeadores.Fondeador, FOND_TiposFondeos.Tipo_"& _ 
-                "Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVe"& _ 
-                "ncimiento, FOND_Fondeos.TipoTasa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos.TasaDi"& _ 
-                "ferencial, FOND_TiposFondeos.No_Movimientos, FOND_Fondeos.FechaPago, FOND_Fondeo"& _ 
-                "s.id_Fondeador, FOND_Fondeos.Contrato, Vw_ResumTabla.Plazo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (FOND_"& _ 
-                "Fondeos.id_Fondeo = @Id_Fondeo)"
+                "es.id_Fondeador LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_EstadoCuenta ON F"& _ 
+                "OND_Fondeos.id_Fondeo = FOND_EstadoCuenta.id_Fondeo LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              Vw_ResumTabla ON FOND_Fondeos.id_Fondeo = Vw_ResumTabla.id_fondeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY FOND_Fondeos.id_Fondeo, FOND_Fondeadores.Fondeador, FOND_TiposFondeos."& _ 
+                "Tipo_Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.Fe"& _ 
+                "chaVencimiento, FOND_Fondeos.TipoTasa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos.T"& _ 
+                "asaDiferencial, FOND_TiposFondeos.No_Movimientos, FOND_Fondeos.FechaPago, FOND_F"& _ 
+                "ondeos.id_Fondeador, FOND_Fondeos.Contrato, Vw_ResumTabla.Plazo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        ("& _ 
+                "FOND_Fondeos.id_Fondeo = @Id_Fondeo)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
