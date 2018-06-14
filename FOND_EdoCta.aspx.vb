@@ -28,9 +28,7 @@
                 e.Row.Cells(13).Text = CDec(taEdoCta.CapitalPagado(ID, FecFin.Month, FecFin.Year)).ToString("n2")
                 e.Row.Cells(14).Text = CDec(taEdoCta.InteresPagado(ID, FecFin.Month, FecFin.Year)).ToString("n2")
                 e.Row.Cells(15).Text = CDec(taEdoCta.RetencionPagada(ID, FecFin.Month, FecFin.Year)).ToString("n2")
-                'Pago = CDec(e.Row.Cells(13).Text)
                 Pago = CDec(e.Row.Cells(14).Text)
-                'Pago += CDec(e.Row.Cells(15).Text)
                 e.Row.Cells(16).Text = Math.Abs(CapFinal + Inte + InteAcum + Pago).ToString("n2") ' Saldo Neto
                 InteAcum = CDec(e.Row.Cells(16).Text) - CapFinal
             End If

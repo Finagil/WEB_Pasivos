@@ -118,15 +118,27 @@
                         <asp:BoundField HeaderText="Retención" DataField="Retencion" SortExpression="Retencion" DataFormatString="{0:n2}" HtmlEncode="False" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Base">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Tasa o Cuota">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id_fondeo", "fond_EXT_EdoCtaDET.aspx?id_fondeo={0}") & Eval("FechaInicio", "&Fec={0:d}") %>' Text="Detalle"></asp:HyperLink>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Base">
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Capital Pag.">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Tasa">
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Interes Pag." HtmlEncode="False">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Retención Pag." HtmlEncode="False">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Saldo" HtmlEncode="False">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                     </Columns>
