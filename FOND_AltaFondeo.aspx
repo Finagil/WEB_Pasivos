@@ -109,6 +109,16 @@
             </td>
         </tr>
         <tr>
+            <td align="right" width="50%" style="font-family: Verdana; color: #FF6600">
+                <span style="font-weight: bold">Moneda</span></td>
+            <td align="left">
+                <asp:DropDownList ID="cmbMoneda" runat="server" DataSourceID="TipoFondeoDS0" DataTextField="Moneda" DataValueField="id_moneda" Height="30px" Width="269px">
+                </asp:DropDownList>
+                <asp:ObjectDataSource ID="TipoFondeoDS0" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEB_Finagil.WEB_FinagilDSTableAdapters.FOND_MonedasTableAdapter">
+                </asp:ObjectDataSource>
+            </td>
+        </tr>
+        <tr>
             <td align="right" width="50%">
     <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
         Text="Descripción"></asp:Label></td>

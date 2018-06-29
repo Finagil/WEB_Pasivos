@@ -77,6 +77,24 @@ Partial Public Class AltaFondeo
     Protected WithEvents TipoFondeoDS As Global.System.Web.UI.WebControls.ObjectDataSource
     
     '''<summary>
+    '''Control cmbMoneda.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cmbMoneda As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''Control TipoFondeoDS0.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents TipoFondeoDS0 As Global.System.Web.UI.WebControls.ObjectDataSource
+    
+    '''<summary>
     '''Control Label4.
     '''</summary>
     '''<remarks>

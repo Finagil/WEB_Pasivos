@@ -35,6 +35,7 @@
                         </asp:TemplateField>
                         <asp:BoundField DataField="Fondeador" HeaderText="Fondeador" SortExpression="Fondeador" />
                         <asp:BoundField DataField="Tipo_Fondeo" HeaderText="Tipo Fondeo" SortExpression="Tipo_Fondeo" />
+                        <asp:BoundField DataField="Moneda" HeaderText="Moneda" ReadOnly="True" SortExpression="Moneda" />
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" SortExpression="Descripcion" />
                         <asp:BoundField DataField="FechaInicio" DataFormatString="{0:d}" HeaderText="Fecha Inicio"
                             HtmlEncode="False" SortExpression="FechaInicio" />
