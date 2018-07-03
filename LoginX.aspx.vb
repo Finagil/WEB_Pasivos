@@ -39,6 +39,7 @@ Public Partial Class LoginX
                 Session.Item("Nombre") = Trim(R.Nombre)
                 Session.Item("TipoCadena") = R.id_depto
                 Session.Item("Correo") = R.correo
+                Session.Item("FechaAplicacion") = ta.FechaAplicacion()
                 Autentificacion = True
             End If
         Else

@@ -19,9 +19,9 @@
             Dim ID As Integer = Request.QueryString("ID_fondeo")
             Dim ta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
             Dim F1 As DateTime = DateTime.Parse(Request.Form(TextBox1.UniqueID))
-            If F1 <= Date.Now.Date.AddDays(-6) Then
-                'LberrorGlobal.Text = "Fecha incorrecta, solo se pueden usar fechas de 6 días anteriores al día de hoy."
-                'LberrorGlobal.Visible = True
+            If F1 < CDate(Session("FechaAplicacion")) Then
+                LberrorGlobal.Text = "Fecha incorrecta, no se pueden usar fecha anteriores al " & CDate(Session("FechaAplicacion")).ToShortDateString
+                LberrorGlobal.Visible = True
             Else
                 ta.Insert(ID, "CAPITAL", TxtImporte.Text, 0, 0, 0, F1, F1, TxtImporte.Text, TxtImporte.Text)
                 ProcesaCalculos(ID)
