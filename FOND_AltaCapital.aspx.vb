@@ -19,14 +19,14 @@
             Dim ID As Integer = Request.QueryString("ID_fondeo")
             Dim ta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
             Dim F1 As DateTime = DateTime.Parse(Request.Form(TextBox1.UniqueID))
-            If F1 < CDate(Session("FechaAplicacion")) Then
-                LberrorGlobal.Text = "Fecha incorrecta, no se pueden usar fecha anteriores al " & CDate(Session("FechaAplicacion")).ToShortDateString
-                LberrorGlobal.Visible = True
-            Else
-                ta.Insert(ID, "CAPITAL", TxtImporte.Text, 0, 0, 0, F1, F1, TxtImporte.Text, TxtImporte.Text)
+            'If F1 < CDate(Session("FechaAplicacion")) Then
+            '    LberrorGlobal.Text = "Fecha incorrecta, no se pueden usar fecha anteriores al " & CDate(Session("FechaAplicacion")).ToShortDateString
+            '    LberrorGlobal.Visible = True
+            'Else
+            ta.Insert(ID, "CAPITAL", TxtImporte.Text, 0, 0, 0, F1, F1, TxtImporte.Text, TxtImporte.Text)
                 ProcesaCalculos(ID)
                 Response.Redirect("~\FOND_ConsultaFondeo.aspx", True)
-            End If
+            'End If
         Catch ex As Exception
             LberrorGlobal.Text = ex.Message
             LberrorGlobal.Visible = True
