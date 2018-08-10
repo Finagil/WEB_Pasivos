@@ -14041,15 +14041,18 @@ Namespace WEB_FinagilDSTableAdapters
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        MAX(id_Movimiento) AS id_Movimiento, id_Fondeo, DATENAME(m, FechaIn"& _ 
-                "icio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)) AS Concepto, SUM(Importe) AS I"& _ 
-                "mporte, SUM(Interes) AS Interes, SUM(Retencion) AS Retencion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         MAX(TasaRetencion) AS TasaRetencion, MIN(FechaInicio) AS FechaInicio, M"& _ 
-                "AX(FechaFin) AS FechaFin, MIN(SaldoInicial) AS SaldoInicial, MAX(SaldoFinal) AS "& _ 
-                "SaldoFinal, AVG(SaldoInicial) AS Promedio, SUM(Interes) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   - SUM(Retencion) AS Neto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_EstadoCuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY id_Fond"& _ 
-                "eo, DATENAME(m, FechaInicio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)), MONTH("& _ 
-                "FechaInicio), YEAR(FechaInicio)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (id_Fondeo = @id_Fondeo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER B"& _ 
-                "Y FechaInicio, FechaFin"
+                "icio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)) AS Concepto, SUM(CASE WHEN Imp"& _ 
+                "orte > 0 THEN Importe ELSE 0 END) AS Importe, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SUM(CAS"& _ 
+                "E WHEN Interes > 0 THEN Interes ELSE 0 END) AS Interes, SUM(CASE WHEN Retencion "& _ 
+                "> 0 THEN Retencion ELSE 0 END) AS Retencion, MAX(TasaRetencion) AS TasaRetencion"& _ 
+                ", MIN(FechaInicio) AS FechaInicio, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         MAX(FechaFin) AS F"& _ 
+                "echaFin, MIN(SaldoInicial) AS SaldoInicial, MAX(SaldoFinal) AS SaldoFinal, AVG(S"& _ 
+                "aldoInicial) AS Promedio, SUM(CASE WHEN Interes > 0 THEN Interes ELSE 0 END) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        - SUM(CASE WHEN Retencion > 0 THEN Retencion ELSE 0 END)"& _ 
+                " AS Neto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_EstadoCuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY id_Fondeo, DATENAME(m, Fec"& _ 
+                "haInicio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)), MONTH(FechaInicio), YEAR("& _ 
+                "FechaInicio)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (id_Fondeo = @id_Fondeo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FechaInicio, Fech"& _ 
+                "aFin"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
