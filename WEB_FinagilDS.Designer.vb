@@ -14046,10 +14046,10 @@ Namespace WEB_FinagilDSTableAdapters
                 "         MAX(TasaRetencion) AS TasaRetencion, MIN(FechaInicio) AS FechaInicio, M"& _ 
                 "AX(FechaFin) AS FechaFin, MIN(SaldoInicial) AS SaldoInicial, MAX(SaldoFinal) AS "& _ 
                 "SaldoFinal, AVG(SaldoInicial) AS Promedio, SUM(Interes) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   - SUM(Retencion) AS Neto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_EstadoCuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (In"& _ 
-                "teres > 0)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY id_Fondeo, DATENAME(m, FechaInicio) + ' ' + CONVERT(varchar"& _ 
-                ", YEAR(FechaInicio)), MONTH(FechaInicio), YEAR(FechaInicio)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (id_F"& _ 
-                "ondeo = @id_Fondeo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FechaInicio, FechaFin"
+                "   - SUM(Retencion) AS Neto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_EstadoCuenta"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY id_Fond"& _ 
+                "eo, DATENAME(m, FechaInicio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)), MONTH("& _ 
+                "FechaInicio), YEAR(FechaInicio)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (id_Fondeo = @id_Fondeo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER B"& _ 
+                "Y FechaInicio, FechaFin"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
