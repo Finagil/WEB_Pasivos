@@ -14,24 +14,25 @@
     End Sub
 
     Protected Sub BotonEnviar1_Click(sender As Object, e As EventArgs) Handles BotonEnviar1.Click
+        Dim ID As Integer = Request.QueryString("ID_fondeo")
+        Dim IDF As Integer = Request.QueryString("ID_fondeador")
+        Dim ta2 As New WEB_FinagilDSTableAdapters.FOND_SaldoGarantiasTableAdapter
+        Dim ta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
+        Dim TasaRete As Decimal = ta.TasaRetencion(IDF)
         Try
-            If Validaciones() = True Then
-                Dim ID As Integer = Request.QueryString("ID_fondeo")
-                Dim IDF As Integer = Request.QueryString("ID_fondeador")
-                Dim ta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
-                Dim ta2 As New WEB_FinagilDSTableAdapters.FOND_SaldoGarantiasTableAdapter
+            If Validaciones(TasaRete) = True Then
                 Dim F1 As DateTime = DateTime.Parse(Request.Form(TextBox1.UniqueID))
                 'If F1 < CDate(Session("FechaAplicacion")) Then
                 '    LberrorGlobal.Text = "Fecha incorrecta, no se pueden usar fecha anteriores al " & CDate(Session("FechaAplicacion")).ToShortDateString
                 '    LberrorGlobal.Visible = True
                 'Else
                 ta.Insert(ID, "PAGO", CDec(TxtImporte.Text) * -1, CDec(TxtInteres.Text) * -1, CDec(TxtRetencion.Text) * -1, 0, F1, F1, 0, 0)
-                    If CkGarantia.Checked = True Then
-                        If TxtGarantia.Text = "" Then TxtGarantia.Text = "Garantia Ejercida"
-                        ta2.Insert(IDF, ID, CDec(TxtImporte.Text), F1, TxtGarantia.Text)
-                    End If
-                    ProcesaCalculos(ID)
-                    Response.Redirect("~\FOND_ConsultaFondeo.aspx", True)
+                If CkGarantia.Checked = True Then
+                    If TxtGarantia.Text = "" Then TxtGarantia.Text = "Garantia Ejercida"
+                    ta2.Insert(IDF, ID, CDec(TxtImporte.Text), F1, TxtGarantia.Text)
+                End If
+                ProcesaCalculos(ID)
+                Response.Redirect("~\FOND_ConsultaFondeo.aspx", True)
                 'End If
             End If
         Catch ex As Exception
@@ -40,10 +41,10 @@
         End Try
     End Sub
 
-    Function Validaciones() As Boolean
+    Function Validaciones(TasaRete As Decimal) As Boolean
         Dim F1 As DateTime = DateTime.Parse(Request.Form(TextBox1.UniqueID))
         Validaciones = True
-        If Val(TxtInteres.Text) > 0 Then
+        If Val(TxtInteres.Text) > 0 And TasaRete > 0 Then
             If Val(TxtRetencion.Text) <= 0 Then
                 LberrorGlobal.Text = "Falta la retención."
                 Validaciones = False
