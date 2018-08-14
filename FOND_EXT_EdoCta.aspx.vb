@@ -25,13 +25,13 @@
                 cFactor = Factor.ToString()
                 e.Row.Cells(9).Text = EncuentraBaseFOR(Cap, Factor, Rete, 0.1).ToString("n2") ' base
                 e.Row.Cells(10).Text = Math.Abs(Factor)
-                e.Row.Cells(12).Text = CDec(taEdoCta.CapitalPagado(ID, FecFin.Month, FecFin.Year)).ToString("n2")
-                e.Row.Cells(13).Text = CDec(taEdoCta.InteresPagado(ID, FecFin.Month, FecFin.Year)).ToString("n2")
-                e.Row.Cells(14).Text = CDec(taEdoCta.RetencionPagada(ID, FecFin.Month, FecFin.Year)).ToString("n2")
-                Pago = CDec(e.Row.Cells(13).Text)
-                e.Row.Cells(15).Text = Math.Abs(CapFinal + Inte + InteAcum + Pago).ToString("n2") ' Saldo Neto
-                InteAcum = CDec(e.Row.Cells(15).Text) - CapFinal
             End If
+            e.Row.Cells(12).Text = CDec(taEdoCta.CapitalPagado(ID, FecFin.Month, FecFin.Year)).ToString("n2")
+            e.Row.Cells(13).Text = CDec(taEdoCta.InteresPagado(ID, FecFin.Month, FecFin.Year)).ToString("n2")
+            e.Row.Cells(14).Text = CDec(taEdoCta.RetencionPagada(ID, FecFin.Month, FecFin.Year)).ToString("n2")
+            Pago = CDec(e.Row.Cells(13).Text)
+            e.Row.Cells(15).Text = Math.Abs(CapFinal + Inte + InteAcum + Pago).ToString("n2") ' Saldo Neto
+            InteAcum = CDec(e.Row.Cells(15).Text) - CapFinal
         ElseIf e.Row.RowType = DataControlRowType.Footer Then
             'e.Row.Cells(0).Text = "Totales"
             'e.Row.Cells(1).Text = Pago.ToString("n2")

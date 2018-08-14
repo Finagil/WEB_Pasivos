@@ -868,11 +868,11 @@ WHERE        (id_Fondeo = @id_fondeo) AND (Concepto LIKE '%PAGO%') AND (MONTH(Fe
               <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_EstadoCuenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByResumen" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByResumen" GeneratorSourceName="FillByResumen" GetMethodModifier="Public" GetMethodName="GetDataByResumen" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByResumen" UserSourceName="FillByResumen">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        MAX(id_Movimiento) AS id_Movimiento, id_Fondeo, DATENAME(m, FechaInicio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)) AS Concepto, SUM(Importe) AS Importe, SUM(Interes) AS Interes, SUM(Retencion) AS Retencion, 
-                         MAX(TasaRetencion) AS TasaRetencion, MIN(FechaInicio) AS FechaInicio, MAX(FechaFin) AS FechaFin, MIN(SaldoInicial) AS SaldoInicial, MAX(SaldoFinal) AS SaldoFinal, AVG(SaldoInicial) AS Promedio, SUM(Interes) 
-                         - SUM(Retencion) AS Neto
+                    <CommandText>SELECT        MAX(id_Movimiento) AS id_Movimiento, id_Fondeo, DATENAME(m, FechaInicio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)) AS Concepto, SUM(CASE WHEN Importe &gt; 0 THEN Importe ELSE 0 END) AS Importe, 
+                         SUM(CASE WHEN Interes &gt; 0 THEN Interes ELSE 0 END) AS Interes, SUM(CASE WHEN Retencion &gt; 0 THEN Retencion ELSE 0 END) AS Retencion, MAX(TasaRetencion) AS TasaRetencion, MIN(FechaInicio) AS FechaInicio, 
+                         MAX(FechaFin) AS FechaFin, MIN(SaldoInicial) AS SaldoInicial, MAX(SaldoFinal) AS SaldoFinal, AVG(SaldoInicial) AS Promedio, SUM(CASE WHEN Interes &gt; 0 THEN Interes ELSE 0 END) 
+                         - SUM(CASE WHEN Retencion &gt; 0 THEN Retencion ELSE 0 END) AS Neto
 FROM            FOND_EstadoCuenta
-WHERE        (Interes &gt; 0)
 GROUP BY id_Fondeo, DATENAME(m, FechaInicio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)), MONTH(FechaInicio), YEAR(FechaInicio)
 HAVING        (id_Fondeo = @id_Fondeo)
 ORDER BY FechaInicio, FechaFin</CommandText>
