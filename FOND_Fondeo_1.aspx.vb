@@ -74,9 +74,11 @@ Public Class FOND_Fondeo_1
         rpt_RNF.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(ruta))
         Response.Write("<script>")
         ruta = ruta.Replace("\", "/")
-        ruta = ruta.Replace("~", "..")
+        ruta = ruta.Replace("~", ".")
         Response.Write("window.open('" & ruta & "','_blank')")
         Response.Write("</script>")
+        Response.Write(ruta)
 
     End Sub
+
 End Class
