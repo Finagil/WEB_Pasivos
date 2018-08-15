@@ -83,6 +83,35 @@
             </td>
         </tr>
         <tr>
+            <td align="right" width="40%">
+                <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+                    Text="Banco"></asp:Label>
+                </td>
+            <td align="left">
+                <asp:DropDownList ID="CmbBanco" runat="server" DataSourceID="BancosDS" DataTextField="DescBanco" DataValueField="Banco" Height="16px" Width="210px">
+                </asp:DropDownList>
+                <asp:ObjectDataSource ID="BancosDS" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEB_Finagil.WEB_FinagilDSTableAdapters.CONT_BancosTableAdapter" UpdateMethod="Update">
+                    <DeleteParameters>
+                        <asp:Parameter Name="Original_Banco" Type="String" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="Banco" Type="String" />
+                        <asp:Parameter Name="DescBanco" Type="String" />
+                        <asp:Parameter Name="StatusBanco" Type="String" />
+                        <asp:Parameter Name="RFC" Type="String" />
+                        <asp:Parameter Name="Cuenta" Type="String" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="DescBanco" Type="String" />
+                        <asp:Parameter Name="StatusBanco" Type="String" />
+                        <asp:Parameter Name="RFC" Type="String" />
+                        <asp:Parameter Name="Cuenta" Type="String" />
+                        <asp:Parameter Name="Original_Banco" Type="String" />
+                    </UpdateParameters>
+                </asp:ObjectDataSource>
+            </td>
+        </tr>
+        <tr>
             <td align="center" colspan="2" width="40%">
                 <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
                     ForeColor="White" Text="Inserta Capital" TextoEnviando="Insertando..." Width="182px" EnableTheming="True" />

@@ -3,7 +3,7 @@ Imports CrystalDecisions.Shared
 Imports System.IO
 Public Class FOND_Fondeo_1
     Inherits System.Web.UI.Page
-    Dim ta_f As New WEB_FinagilDSTableAdapters.FOND_Fondeadores1TableAdapter
+    Dim ta_f As New WEB_FinagilDSTableAdapters.FOND_FondeadoresTableAdapter
     Dim ds_f As New WEB_FinagilDS
     Dim ta_datos As New WEB_FinagilDSTableAdapters.Vw_PasivoNoFiraTableAdapter
     Dim ds_d As New WEB_FinagilDS
@@ -11,12 +11,12 @@ Public Class FOND_Fondeo_1
 
     Protected Sub btnProcesar_Click(sender As Object, e As EventArgs) Handles btnProcesar.Click
 
-        ta_f.Fill(ds_f.FOND_Fondeadores1)
-        Dim arreglo(ds_f.FOND_Fondeadores1.Rows.Count - 1, 8) As String
-        Dim row As WEB_FinagilDS.FOND_Fondeadores1Row
+        ta_f.Fill(ds_f.FOND_Fondeadores)
+        Dim arreglo(ds_f.FOND_Fondeadores.Rows.Count - 1, 8) As String
+        Dim row As WEB_FinagilDS.FOND_FondeadoresRow
         Dim fecha As Integer = Month(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID))) 'Date.Now.Month
         Dim cont As Integer = 0
-        For Each row In ds_f.FOND_Fondeadores1.Rows
+        For Each row In ds_f.FOND_Fondeadores.Rows
             arreglo(cont, 0) = row.Item(1)
             arreglo(cont, 1) = ta_datos.CapitalInicial(fecha, row.Item(0)).ToString
             arreglo(cont, 2) = ta_datos.InteresInicial(fecha, row.Item(0)).ToString
@@ -44,7 +44,7 @@ Public Class FOND_Fondeo_1
 
         Dim rowRNF As DataRow
         Dim cont2 As Integer = 0
-        For fila As Integer = 0 To ds_f.FOND_Fondeadores1.Rows.Count - 1
+        For fila As Integer = 0 To ds_f.FOND_Fondeadores.Rows.Count - 1
             rowRNF = dtArreglo.NewRow
             rowRNF("Fondeador") = arreglo(cont2, 0)
             rowRNF("Capital_Inicial") = arreglo(cont2, 1)

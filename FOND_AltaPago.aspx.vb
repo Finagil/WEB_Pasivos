@@ -26,7 +26,7 @@
                 '    LberrorGlobal.Text = "Fecha incorrecta, no se pueden usar fecha anteriores al " & CDate(Session("FechaAplicacion")).ToShortDateString
                 '    LberrorGlobal.Visible = True
                 'Else
-                ta.Insert(ID, "PAGO", CDec(TxtImporte.Text) * -1, CDec(TxtInteres.Text) * -1, CDec(TxtRetencion.Text) * -1, 0, F1, F1, 0, 0)
+                ta.Insert(ID, "PAGO", CDec(TxtImporte.Text) * -1, CDec(TxtInteres.Text) * -1, CDec(TxtRetencion.Text) * -1, 0, F1, F1, 0, 0, 0, CmbBanco.selectedValue)
                 If CkGarantia.Checked = True Then
                     If TxtGarantia.Text = "" Then TxtGarantia.Text = "Garantia Ejercida"
                     ta2.Insert(IDF, ID, CDec(TxtImporte.Text), F1, TxtGarantia.Text)
