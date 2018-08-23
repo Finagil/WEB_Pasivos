@@ -39,14 +39,14 @@ Partial Public Class AltaFondeo
                 Dim F2 As DateTime = DateTime.Parse(Request.Form(TextBox2.UniqueID))
                 Dim F3 As DateTime = DateTime.Parse(Request.Form(TextBox3.UniqueID))
 
-                'If F1 <= Date.Now.Date.AddDays(Date.Now.Day * -1) Then
-                '    LbErrorGlobal.Text = "Fecha incorrecta, no se puede usar fecha del mes anterior."
-                '    LbErrorGlobal.Visible = True
-                'Else
-                ta.Insert(cmbFondeador.SelectedValue, cmbTipoFondeo.SelectedValue, TxtDesc.Text.ToUpper,
+                If F1 <= Date.Now.Date.AddDays(Date.Now.Day * -1) Then
+                    LbErrorGlobal.Text = "Fecha incorrecta, no se puede usar fecha del mes anterior."
+                    LbErrorGlobal.Visible = True
+                Else
+                    ta.Insert(cmbFondeador.SelectedValue, cmbTipoFondeo.SelectedValue, TxtDesc.Text.ToUpper,
                             F1, F2, CmbTasas.SelectedValue, CDec(TxtDiff.Text),
                             FileUpload1.FileName, "VIGENTE", F3, cmbMoneda.SelectedValue)
-                Dim ID As Integer = ta.MaxID
+                    Dim ID As Integer = ta.MaxID
                     If FileUpload1.FileName.Length > 0 Then
                         FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Docs/") & ID.ToString & FileUpload1.FileName)
                     End If
@@ -62,7 +62,7 @@ Partial Public Class AltaFondeo
                         End While
                     End If
                     Response.Redirect("~\FOND_AltaCapital.aspx?id_fondeo=" & ID, True)
-                'End If
+                End If
             End If
         Catch ex As Exception
             LbErrorGlobal.Text = ex.Message
