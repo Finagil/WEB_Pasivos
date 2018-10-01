@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="WEB_FinagilConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WEB_FinagilConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.WEB_FinagilConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="WEB_FinagilConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WEB_FinagilConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WEB_Finagil.My.MySettings.GlobalReference.Default.WEB_FinagilConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WEB_LotesTableAdapter" GeneratorDataComponentClassName="WEB_LotesTableAdapter" Name="WEB_Lotes" UserDataComponentName="WEB_LotesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="Factor100.dbo.WEB_Lotes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="Factor100.dbo.WEB_Lotes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [WEB_Lotes] WHERE (([Id_Lote] = @Original_Id_Lote))</CommandText>
@@ -66,7 +66,7 @@ ORDER BY Id_Lote DESC</CommandText>
               <Mapping SourceColumn="Cesion" DataSetColumn="Cesion" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="Factor100.dbo.WEB_Lotes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFactoraje" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFactoraje" GeneratorSourceName="FillByFactoraje" GetMethodModifier="Public" GetMethodName="GetDataByFactoraje" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFactoraje" UserSourceName="FillByFactoraje">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="Factor100.dbo.WEB_Lotes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFactoraje" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFactoraje" GeneratorSourceName="FillByFactoraje" GetMethodModifier="Public" GetMethodName="GetDataByFactoraje" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFactoraje" UserSourceName="FillByFactoraje">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     Cesion, Estatus, Fecha, Id_Lote, TipoDocumento, Usuario
@@ -79,7 +79,7 @@ ORDER BY Id_Lote DESC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="Factor100.dbo.WEB_Lotes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFondeo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFondeo" GeneratorSourceName="FillByFondeo" GetMethodModifier="Public" GetMethodName="GetDataByFondeo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFondeo" UserSourceName="FillByFondeo">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="Factor100.dbo.WEB_Lotes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFondeo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFondeo" GeneratorSourceName="FillByFondeo" GetMethodModifier="Public" GetMethodName="GetDataByFondeo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFondeo" UserSourceName="FillByFondeo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     Cesion, Estatus, Fecha, Id_Lote, TipoDocumento, Usuario
@@ -92,7 +92,7 @@ ORDER BY Id_Lote DESC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="Factor100.dbo.WEB_Lotes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByID" GeneratorSourceName="FillByID" GetMethodModifier="Public" GetMethodName="GetDataByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByID" UserSourceName="FillByID">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="Factor100.dbo.WEB_Lotes" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByID" GeneratorSourceName="FillByID" GetMethodModifier="Public" GetMethodName="GetDataByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByID" UserSourceName="FillByID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT Cesion, Estatus, Fecha, Id_Lote, TipoDocumento, Usuario FROM WEB_Lotes WHERE (Id_Lote = @ID) ORDER BY Id_Lote DESC</CommandText>
@@ -102,7 +102,7 @@ ORDER BY Id_Lote DESC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByReembolso" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReembolso" GeneratorSourceName="FillByReembolso" GetMethodModifier="Public" GetMethodName="GetDataByReembolso" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReembolso" UserSourceName="FillByReembolso">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByReembolso" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReembolso" GeneratorSourceName="FillByReembolso" GetMethodModifier="Public" GetMethodName="GetDataByReembolso" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReembolso" UserSourceName="FillByReembolso">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     MAX(WEB_Lotes.Id_Lote) AS Id_Lote, WEB_Fondeo.FechaPago AS Fecha, WEB_Lotes.Usuario, WEB_Lotes.Estatus, WEB_Lotes.TipoDocumento, 
@@ -116,7 +116,7 @@ ORDER BY Fecha</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Historia" Modifier="Public" Name="Historia" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Historia">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Historia" Modifier="Public" Name="Historia" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Historia">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE    WEB_Lotes
@@ -126,7 +126,7 @@ WHERE     (Estatus = 'Recibido') AND (Fecha &lt;= GETDATE() - 90)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="LoteProcesado" Modifier="Public" Name="LoteProcesado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="LoteProcesado">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="LoteProcesado" Modifier="Public" Name="LoteProcesado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="LoteProcesado">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE    WEB_Lotes
@@ -138,7 +138,7 @@ WHERE     (Id_Lote = @ID)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Reembolsado" Modifier="Public" Name="Reembolsado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Reembolsado">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Reembolsado" Modifier="Public" Name="Reembolsado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Reembolsado">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE    WEB_Fondeo
@@ -150,7 +150,7 @@ WHERE     (FechaPago = @FechaPago)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UltimoID" Modifier="Public" Name="UltimoID" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UltimoID">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UltimoID" Modifier="Public" Name="UltimoID" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UltimoID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     MAX(Id_Lote) AS Expr1
@@ -163,7 +163,7 @@ FROM         WEB_Lotes</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WEB_UsuariosTableAdapter" GeneratorDataComponentClassName="WEB_UsuariosTableAdapter" Name="WEB_Usuarios" UserDataComponentName="WEB_UsuariosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="Factor100.dbo.WEB_Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="Factor100.dbo.WEB_Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [WEB_Usuarios] WHERE (([id_usuario] = @Original_id_usuario))</CommandText>
@@ -221,7 +221,7 @@ WHERE     (Usuario = @Usuario)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WEB_FondeoTableAdapter" GeneratorDataComponentClassName="WEB_FondeoTableAdapter" Name="WEB_Fondeo" UserDataComponentName="WEB_FondeoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="Factor100.dbo.WEB_Fondeo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="Factor100.dbo.WEB_Fondeo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [WEB_Fondeo] WHERE (([Id_Fondeo] = @Original_Id_Fondeo))</CommandText>
@@ -294,7 +294,7 @@ WHERE     (Lote = @Lote)</CommandText>
               <Mapping SourceColumn="Retencion" DataSetColumn="Retencion" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ActualizaFechaPago" Modifier="Public" Name="ActualizaFechaPago" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ActualizaFechaPago">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ActualizaFechaPago" Modifier="Public" Name="ActualizaFechaPago" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ActualizaFechaPago">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>UPDATE    WEB_Fondeo
@@ -307,7 +307,7 @@ WHERE     (Factura = @Factura)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ActualizaFechaSol" Modifier="Public" Name="ActualizaFechaSol" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ActualizaFechaSol">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ActualizaFechaSol" Modifier="Public" Name="ActualizaFechaSol" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="ActualizaFechaSol">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>UPDATE    WEB_Fondeo
@@ -320,7 +320,7 @@ WHERE     (Lote = @Lote)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ActualizaInteres" Modifier="Public" Name="ActualizaInteres" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ActualizaInteres">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ActualizaInteres" Modifier="Public" Name="ActualizaInteres" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ActualizaInteres">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>UPDATE    WEB_Fondeo
@@ -336,7 +336,7 @@ WHERE     (Id_Fondeo = @Original_Id_Fondeo)</CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExisteFactura" Modifier="Public" Name="ExisteFactura" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="ExisteFactura">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExisteFactura" Modifier="Public" Name="ExisteFactura" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="ExisteFactura">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT     COUNT(*) AS Factura
@@ -348,7 +348,7 @@ WHERE     (Factura = @Fact)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExisteFacturaPagada" Modifier="Public" Name="ExisteFacturaPagada" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="ExisteFacturaPagada">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ExisteFacturaPagada" Modifier="Public" Name="ExisteFacturaPagada" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="ExisteFacturaPagada">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT     COUNT(*) AS Factura
@@ -360,7 +360,7 @@ WHERE     (Factura = @Fact) AND (Pagado = 1)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.WEB_Fondeo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFactura" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFactura" GeneratorSourceName="FillByFactura" GetMethodModifier="Public" GetMethodName="GetDataByFactura" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFactura" UserSourceName="FillByFactura">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.WEB_Fondeo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByFactura" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFactura" GeneratorSourceName="FillByFactura" GetMethodModifier="Public" GetMethodName="GetDataByFactura" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFactura" UserSourceName="FillByFactura">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT Factura, FechaPago, FechaSolicitud, FechaVencimiento, Id_Fondeo, Interes, Lote, Pagado, PrecioOperacion, Retencion, Tasa, TasaFon FROM WEB_Fondeo WHERE (Factura = @Factura)</CommandText>
@@ -370,7 +370,7 @@ WHERE     (Factura = @Fact) AND (Pagado = 1)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.WEB_Fondeo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByReembolso" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReembolso" GeneratorSourceName="FillByReembolso" GetMethodModifier="Public" GetMethodName="GetDataByReembolso" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReembolso" UserSourceName="FillByReembolso">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.WEB_Fondeo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByReembolso" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReembolso" GeneratorSourceName="FillByReembolso" GetMethodModifier="Public" GetMethodName="GetDataByReembolso" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReembolso" UserSourceName="FillByReembolso">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     Factura, FechaPago, FechaSolicitud, FechaVencimiento, Id_Fondeo, Interes, Lote, Pagado, PrecioOperacion, Retencion, Tasa, TasaFon
@@ -382,7 +382,7 @@ WHERE     (FechaPago = @FechaPago) AND (Pagado = 1)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.WEB_Fondeo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillMasivo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMasivo" GeneratorSourceName="FillMasivo" GetMethodModifier="Public" GetMethodName="GetDataByMasivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMasivo" UserSourceName="FillMasivo">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.WEB_Fondeo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillMasivo" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMasivo" GeneratorSourceName="FillMasivo" GetMethodModifier="Public" GetMethodName="GetDataByMasivo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMasivo" UserSourceName="FillMasivo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT Factura, FechaPago, FechaSolicitud, FechaVencimiento, Id_Fondeo, Interes, Lote, Pagado, PrecioOperacion, Retencion, Tasa, TasaFon FROM WEB_Fondeo WHERE (Pagado = 1) AND (TasaFon = 0)</CommandText>
@@ -390,7 +390,7 @@ WHERE     (FechaPago = @FechaPago) AND (Pagado = 1)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Reembolsado" Modifier="Public" Name="Reembolsado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="Reembolsado">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Reembolsado" Modifier="Public" Name="Reembolsado" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="Reembolsado">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>UPDATE    WEB_Fondeo
@@ -406,7 +406,7 @@ WHERE     (FechaPago = @FechaPago)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FON_CorreosTableAdapter" GeneratorDataComponentClassName="FON_CorreosTableAdapter" Name="FON_Correos" UserDataComponentName="FON_CorreosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FON_Correos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FON_Correos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [FON_Correos] WHERE (([id_correo] = @Original_id_correo))</CommandText>
@@ -455,7 +455,7 @@ WHERE     (Fase = @Fase)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FON_PagosTableAdapter" GeneratorDataComponentClassName="FON_PagosTableAdapter" Name="FON_Pagos" UserDataComponentName="FON_PagosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FON_Pagos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FON_Pagos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [FON_Pagos] WHERE (([id_Pago] = @Original_id_Pago))</CommandText>
@@ -510,7 +510,7 @@ WHERE     (id_Fondeo = @id_Fondeo)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SaldosFondeoTableAdapter" GeneratorDataComponentClassName="SaldosFondeoTableAdapter" Name="SaldosFondeo" UserDataComponentName="SaldosFondeoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     ISNULL(Vw_SaldoFondeo.FechaSolicitud, Vw_SaldoFondeoPAG.FechaPago) AS Fecha, ISNULL(Vw_SaldoFondeo.Fondeo, 0) AS Fondeo, 
@@ -537,7 +537,7 @@ ORDER BY Fecha, Vw_SaldoFondeoPAG.FechaPago DESC</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FOND_FondeadoresTableAdapter" GeneratorDataComponentClassName="FOND_FondeadoresTableAdapter" Name="FOND_Fondeadores" UserDataComponentName="FOND_FondeadoresTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeadores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeadores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [FOND_Fondeadores] WHERE (([id_Fondeador] = @Original_id_Fondeador))</CommandText>
@@ -593,7 +593,7 @@ ORDER BY Fondeador</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FOND_TiposFondeosTableAdapter" GeneratorDataComponentClassName="FOND_TiposFondeosTableAdapter" Name="FOND_TiposFondeos" UserDataComponentName="FOND_TiposFondeosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_TiposFondeos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_TiposFondeos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [FOND_TiposFondeos] WHERE (([id_TipoFondeo] = @Original_id_TipoFondeo))</CommandText>
@@ -639,7 +639,7 @@ FROM            FOND_TiposFondeos</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FOND_FondeosTableAdapter" GeneratorDataComponentClassName="FOND_FondeosTableAdapter" Name="FOND_Fondeos" UserDataComponentName="FOND_FondeosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [FOND_Fondeos] WHERE (([id_Fondeo] = @Original_id_Fondeo))</CommandText>
@@ -650,7 +650,7 @@ FROM            FOND_TiposFondeos</CommandText>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [FOND_Fondeos] ([id_Fondeador], [id_TipoFondeo], [Descripcion], [FechaInicio], [FechaVencimiento], [TipoTasa], [TasaDiferencial], [Contrato], [Estatus], [FechaPago], [Moneda]) VALUES (@id_Fondeador, @id_TipoFondeo, @Descripcion, @FechaInicio, @FechaVencimiento, @TipoTasa, @TasaDiferencial, @Contrato, @Estatus, @FechaPago, @Moneda)</CommandText>
+                    <CommandText>INSERT INTO [FOND_Fondeos] ([id_Fondeador], [id_TipoFondeo], [Descripcion], [FechaInicio], [FechaVencimiento], [TipoTasa], [TasaDiferencial], [Contrato], [Estatus], [FechaPago], [Moneda], [Factoraje]) VALUES (@id_Fondeador, @id_TipoFondeo, @Descripcion, @FechaInicio, @FechaVencimiento, @TipoTasa, @TasaDiferencial, @Contrato, @Estatus, @FechaPago, @Moneda, @Factoraje)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@id_Fondeador" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@id_TipoFondeo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id_TipoFondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -663,12 +663,13 @@ FROM            FOND_TiposFondeos</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Estatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Estatus" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaPago" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaPago" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Moneda" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Moneda" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Factoraje" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Factoraje" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        id_Fondeo, id_Fondeador, id_TipoFondeo, Descripcion, FechaInicio, FechaVencimiento, TipoTasa, TasaDiferencial, Contrato, Estatus, FechaPago, Moneda
+                    <CommandText>SELECT        id_Fondeo, id_Fondeador, id_TipoFondeo, Descripcion, FechaInicio, FechaVencimiento, TipoTasa, TasaDiferencial, Contrato, Estatus, FechaPago, Moneda, Factoraje
 FROM            FOND_Fondeos
 WHERE        (id_Fondeador = @Fondeador)</CommandText>
                     <Parameters>
@@ -678,7 +679,7 @@ WHERE        (id_Fondeador = @Fondeador)</CommandText>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [FOND_Fondeos] SET [id_Fondeador] = @id_Fondeador, [id_TipoFondeo] = @id_TipoFondeo, [Descripcion] = @Descripcion, [FechaInicio] = @FechaInicio, [FechaVencimiento] = @FechaVencimiento, [TipoTasa] = @TipoTasa, [TasaDiferencial] = @TasaDiferencial, [Contrato] = @Contrato, [Estatus] = @Estatus, [FechaPago] = @FechaPago, [Moneda] = @Moneda WHERE (([id_Fondeo] = @Original_id_Fondeo))</CommandText>
+                    <CommandText>UPDATE [FOND_Fondeos] SET [id_Fondeador] = @id_Fondeador, [id_TipoFondeo] = @id_TipoFondeo, [Descripcion] = @Descripcion, [FechaInicio] = @FechaInicio, [FechaVencimiento] = @FechaVencimiento, [TipoTasa] = @TipoTasa, [TasaDiferencial] = @TasaDiferencial, [Contrato] = @Contrato, [Estatus] = @Estatus, [FechaPago] = @FechaPago, [Moneda] = @Moneda, [Factoraje] = @Factoraje WHERE (([id_Fondeo] = @Original_id_Fondeo))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@id_Fondeador" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@id_TipoFondeo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id_TipoFondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -691,6 +692,7 @@ WHERE        (id_Fondeador = @Fondeador)</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Estatus" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Estatus" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@FechaPago" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="FechaPago" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Moneda" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="Moneda" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Factoraje" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="Factoraje" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_id_Fondeo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
@@ -710,9 +712,10 @@ WHERE        (id_Fondeador = @Fondeador)</CommandText>
               <Mapping SourceColumn="Estatus" DataSetColumn="Estatus" />
               <Mapping SourceColumn="FechaPago" DataSetColumn="FechaPago" />
               <Mapping SourceColumn="Moneda" DataSetColumn="Moneda" />
+              <Mapping SourceColumn="Factoraje" DataSetColumn="Factoraje" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="MaxID">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(id_Fondeo) AS MaxID
@@ -721,7 +724,7 @@ FROM            FOND_Fondeos</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDoc" Modifier="Public" Name="UpdateDoc" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateDoc">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateDoc" Modifier="Public" Name="UpdateDoc" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateDoc">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE       FOND_Fondeos
@@ -738,7 +741,7 @@ WHERE        (id_Fondeo = @Original_id_Fondeo)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FOND_EstadoCuentaTableAdapter" GeneratorDataComponentClassName="FOND_EstadoCuentaTableAdapter" Name="FOND_EstadoCuenta" UserDataComponentName="FOND_EstadoCuentaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_EstadoCuenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_EstadoCuenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [FOND_EstadoCuenta] WHERE (([id_Movimiento] = @Original_id_Movimiento))</CommandText>
@@ -817,7 +820,7 @@ ORDER BY FechaInicio, FechaFin</CommandText>
               <Mapping SourceColumn="Banco" DataSetColumn="Banco" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CapitalPagado" Modifier="Public" Name="CapitalPagado" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CapitalPagado">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CapitalPagado" Modifier="Public" Name="CapitalPagado" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CapitalPagado">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(Importe), 0) AS [Interes Pagado]
@@ -831,7 +834,7 @@ WHERE        (id_Fondeo = @id_fondeo) AND (Concepto LIKE '%PAGO%') AND (MONTH(Fe
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_EstadoCuenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByResumen" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByResumen" GeneratorSourceName="FillByResumen" GetMethodModifier="Public" GetMethodName="GetDataByResumen" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByResumen" UserSourceName="FillByResumen">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_EstadoCuenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByResumen" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByResumen" GeneratorSourceName="FillByResumen" GetMethodModifier="Public" GetMethodName="GetDataByResumen" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByResumen" UserSourceName="FillByResumen">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(id_Movimiento) AS id_Movimiento, id_Fondeo, DATENAME(m, FechaInicio) + ' ' + CONVERT(varchar, YEAR(FechaInicio)) AS Concepto, SUM(CASE WHEN Importe &gt; 0 THEN Importe ELSE 0 END) AS Importe, 
@@ -848,7 +851,7 @@ ORDER BY FechaInicio, FechaFin</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresPagado" Modifier="Public" Name="InteresPagado" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InteresPagado">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresPagado" Modifier="Public" Name="InteresPagado" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InteresPagado">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(Interes), 0) AS [Interes Pagado]
@@ -862,7 +865,7 @@ WHERE        (id_Fondeo = @id_fondeo) AND (Concepto LIKE '%PAGO%') AND (Interes 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="RetencionPagada" Modifier="Public" Name="RetencionPagada" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="RetencionPagada">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="RetencionPagada" Modifier="Public" Name="RetencionPagada" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="RetencionPagada">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(Retencion), 0) AS [Retencion Pagada]
@@ -876,7 +879,7 @@ WHERE        (id_Fondeo = @id_fondeo) AND (Concepto LIKE '%PAGO%') AND (MONTH(Fe
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SumCapitalHasta" Modifier="Public" Name="SumCapitalHasta" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="SumCapitalHasta">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SumCapitalHasta" Modifier="Public" Name="SumCapitalHasta" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="SumCapitalHasta">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        isnull(SUM(Importe),0) AS Capital
@@ -889,7 +892,7 @@ WHERE        (id_Fondeo = @id_fondeo) AND (FechaInicio &lt;= @Fecha)</CommandTex
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeadores" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="TasaRetencion" Modifier="Public" Name="TasaRetencion" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="TasaRetencion">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeadores" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="TasaRetencion" Modifier="Public" Name="TasaRetencion" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="TasaRetencion">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        TasaRetencion
@@ -906,12 +909,12 @@ GROUP BY TasaRetencion</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Vw_FondeosTableAdapter" GeneratorDataComponentClassName="Vw_FondeosTableAdapter" Name="Vw_Fondeos" UserDataComponentName="Vw_FondeosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        FOND_Fondeos.id_Fondeo, FOND_Fondeadores.Fondeador, FOND_TiposFondeos.Tipo_Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, 
                          FOND_Fondeos.TasaDiferencial, FOND_TiposFondeos.No_Movimientos, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador, FOND_Fondeos.Contrato, SUM(FOND_EstadoCuenta.Importe) AS SaldoInsoluto, 
-                         Vw_ResumTabla.Plazo AS Pagos, FOND_Fondeos.Estatus, FOND_Fondeos.Moneda
+                         Vw_ResumTabla.Plazo AS Pagos, FOND_Fondeos.Estatus, FOND_Fondeos.Moneda, FOND_Fondeos.Factoraje
 FROM            FOND_TiposFondeos INNER JOIN
                          FOND_Fondeos ON FOND_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN
                          FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador LEFT OUTER JOIN
@@ -919,7 +922,7 @@ FROM            FOND_TiposFondeos INNER JOIN
                          Vw_ResumTabla ON FOND_Fondeos.id_Fondeo = Vw_ResumTabla.id_fondeo
 GROUP BY FOND_Fondeos.id_Fondeo, FOND_Fondeadores.Fondeador, FOND_TiposFondeos.Tipo_Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, 
                          FOND_Fondeos.TasaDiferencial, FOND_TiposFondeos.No_Movimientos, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador, FOND_Fondeos.Contrato, Vw_ResumTabla.Plazo, FOND_Fondeos.Estatus, 
-                         FOND_Fondeos.Moneda
+                         FOND_Fondeos.Moneda, FOND_Fondeos.Factoraje
 HAVING        (FOND_Fondeos.id_Fondeo = @Id_Fondeo)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="Id_Fondeo" ColumnName="id_Fondeo" DataSourceName="WEB_Finagil.dbo.FOND_Fondeos" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@Id_Fondeo" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -945,14 +948,15 @@ HAVING        (FOND_Fondeos.id_Fondeo = @Id_Fondeo)</CommandText>
               <Mapping SourceColumn="Pagos" DataSetColumn="Pagos" />
               <Mapping SourceColumn="Estatus" DataSetColumn="Estatus" />
               <Mapping SourceColumn="Moneda" DataSetColumn="Moneda" />
+              <Mapping SourceColumn="Factoraje" DataSetColumn="Factoraje" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByVigentes" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByVigentes" GeneratorSourceName="FillByVigentes" GetMethodModifier="Public" GetMethodName="GetDataByVigentes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByVigentes" UserSourceName="FillByVigentes">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByVigentes" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByVigentes" GeneratorSourceName="FillByVigentes" GetMethodModifier="Public" GetMethodName="GetDataByVigentes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByVigentes" UserSourceName="FillByVigentes">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        FOND_Fondeos.id_Fondeo, FOND_Fondeadores.Fondeador, FOND_TiposFondeos.Tipo_Fondeo, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, 
                          FOND_Fondeos.TasaDiferencial, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador, FOND_Fondeos.Contrato, Vw_ResumTabla.Plazo AS Pagos, Vw_FOND_SaldosFondeos.SaldoInsoluto, FOND_Fondeos.Estatus, 
-                         FOND_Fondeos.Moneda
+                         FOND_Fondeos.Moneda, FOND_Fondeos.Factoraje
 FROM            FOND_TiposFondeos INNER JOIN
                          FOND_Fondeos ON FOND_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN
                          FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador LEFT OUTER JOIN
@@ -963,7 +967,7 @@ WHERE        (FOND_Fondeos.Estatus = 'Vigente')</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NoMinistraciones" Modifier="Public" Name="NoMinistraciones" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="NoMinistraciones">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NoMinistraciones" Modifier="Public" Name="NoMinistraciones" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="NoMinistraciones">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(id_Fondeo) AS Capitales
@@ -979,7 +983,7 @@ WHERE        (Concepto = 'CAPITAL') AND (id_Fondeo = @ID_fONDEO)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FOND_SaldosTableAdapter" GeneratorDataComponentClassName="FOND_SaldosTableAdapter" Name="FOND_Saldos" UserDataComponentName="FOND_SaldosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        FOND_Fondeadores.Fondeador, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, FOND_Fondeos.TasaDiferencial, SUM(FOND_EstadoCuenta.Importe) 
@@ -1013,7 +1017,7 @@ ORDER BY FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento</CommandText>
               <Mapping SourceColumn="id_Fondeador" DataSetColumn="id_Fondeador" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByFondeador" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFondeador" GeneratorSourceName="FillByFondeador" GetMethodModifier="Public" GetMethodName="GetDataByFondeador" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFondeador" UserSourceName="FillByFondeador">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByFondeador" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFondeador" GeneratorSourceName="FillByFondeador" GetMethodModifier="Public" GetMethodName="GetDataByFondeador" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFondeador" UserSourceName="FillByFondeador">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        FOND_Fondeadores.Fondeador, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, FOND_Fondeos.TasaDiferencial, SUM(FOND_EstadoCuenta.Importe) 
@@ -1036,7 +1040,7 @@ ORDER BY FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FOND_FechasPagoCapitalTableAdapter" GeneratorDataComponentClassName="FOND_FechasPagoCapitalTableAdapter" Name="FOND_FechasPagoCapital" UserDataComponentName="FOND_FechasPagoCapitalTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_FechasPagoCapital" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_FechasPagoCapital" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [FOND_FechasPagoCapital] WHERE (([id_pago] = @Original_id_pago))</CommandText>
@@ -1089,7 +1093,7 @@ ORDER BY FechaPago</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FOND_SaldoGarantiasTableAdapter" GeneratorDataComponentClassName="FOND_SaldoGarantiasTableAdapter" Name="FOND_SaldoGarantias" UserDataComponentName="FOND_SaldoGarantiasTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_SaldoGarantias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_SaldoGarantias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [FOND_SaldoGarantias] WHERE (([id_Garantia] = @Original_id_Garantia))</CommandText>
@@ -1145,7 +1149,7 @@ ORDER BY Fecha</CommandText>
               <Mapping SourceColumn="Concepto" DataSetColumn="Concepto" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_SaldoGarantias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByResumen" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByResumen" GeneratorSourceName="FillByResumen" GetMethodModifier="Public" GetMethodName="GetDataByResumen" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByResumen" UserSourceName="FillByResumen">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_SaldoGarantias" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByResumen" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByResumen" GeneratorSourceName="FillByResumen" GetMethodModifier="Public" GetMethodName="GetDataByResumen" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByResumen" UserSourceName="FillByResumen">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(id_Garantia) AS id_Garantia, id_Fondeador, MAX(id_fondeo) AS id_fondeo, SUM(Capital) AS Capital, MAX(Fecha) AS Fecha, MAX(Concepto) AS Concepto
@@ -1159,7 +1163,7 @@ ORDER BY MAX(Fecha)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SaldoGarantia" Modifier="Public" Name="SaldoGarantia" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="SaldoGarantia">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="SaldoGarantia" Modifier="Public" Name="SaldoGarantia" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="SaldoGarantia">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(FOND_SaldoGarantias.Capital), 0) AS SaldoGarantia
@@ -1176,7 +1180,7 @@ WHERE        (FOND_Fondeos.id_Fondeo = @id_Fondeo)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FOND_MonedasTableAdapter" GeneratorDataComponentClassName="FOND_MonedasTableAdapter" Name="FOND_Monedas" UserDataComponentName="FOND_MonedasTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_Monedas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Monedas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [FOND_Monedas] WHERE (([id_moneda] = @Original_id_moneda))</CommandText>
@@ -1221,7 +1225,7 @@ FROM            FOND_Monedas</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Vw_PasivoNoFiraTableAdapter" GeneratorDataComponentClassName="Vw_PasivoNoFiraTableAdapter" Name="Vw_PasivoNoFira" UserDataComponentName="Vw_PasivoNoFiraTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.Vw_PasivoNoFira" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.Vw_PasivoNoFira" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Importe, Interes, Fondeador, FechaInicio, FechaFin, Concepto, id_Fondeador, Descripcion, Moneda
@@ -1243,7 +1247,7 @@ FROM            Vw_PasivoNoFira</CommandText>
               <Mapping SourceColumn="Moneda" DataSetColumn="Moneda" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Capital_Inicial_FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Capital_Inicial_GetDataBy" GeneratorSourceName="Capital_Inicial_FillBy" GetMethodModifier="Public" GetMethodName="Capital_Inicial_GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Capital_Inicial_GetDataBy" UserSourceName="Capital_Inicial_FillBy">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Capital_Inicial_FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Capital_Inicial_GetDataBy" GeneratorSourceName="Capital_Inicial_FillBy" GetMethodModifier="Public" GetMethodName="Capital_Inicial_GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Capital_Inicial_GetDataBy" UserSourceName="Capital_Inicial_FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        SUM(Importe) AS CapitalInicial
@@ -1256,7 +1260,7 @@ WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CapitalInicial" Modifier="Public" Name="CapitalInicial" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CapitalInicial">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CapitalInicial" Modifier="Public" Name="CapitalInicial" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CapitalInicial">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(Importe), 0) AS CapitalInicial
@@ -1269,7 +1273,7 @@ WHERE        (MONTH(FechaInicio) &lt; @Mes) AND (id_Fondeador = @ID)</CommandTex
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Descripcion" Modifier="Public" Name="Descripcion" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Descripcion">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Descripcion" Modifier="Public" Name="Descripcion" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Descripcion">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Descripcion
@@ -1281,7 +1285,7 @@ WHERE        (id_Fondeador = @ID_FOND)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FondeosDelMes" Modifier="Public" Name="FondeosDelMes" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FondeosDelMes">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FondeosDelMes" Modifier="Public" Name="FondeosDelMes" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FondeosDelMes">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(Importe), 0) AS FondeosDelMes
@@ -1294,7 +1298,7 @@ WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID) AND (Concepto 
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresDelMes" Modifier="Public" Name="InteresDelMes" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InteresDelMes">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresDelMes" Modifier="Public" Name="InteresDelMes" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InteresDelMes">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(Interes), 0) AS InteresDelMes
@@ -1307,7 +1311,7 @@ WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresInicial" Modifier="Public" Name="InteresInicial" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="InteresInicial">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresInicial" Modifier="Public" Name="InteresInicial" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="InteresInicial">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(Interes), 0) AS InteresInicial
@@ -1320,7 +1324,7 @@ WHERE        (MONTH(FechaInicio) &lt; @Mes) AND (id_Fondeador = @ID)</CommandTex
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Moneda" Modifier="Public" Name="Moneda" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="Moneda">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Moneda" Modifier="Public" Name="Moneda" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="Moneda">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Moneda
@@ -1332,7 +1336,7 @@ WHERE        (id_Fondeador = @ID_FOND)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PagosFondeosCapital" Modifier="Public" Name="PagosFondeosCapital" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="PagosFondeosCapital">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PagosFondeosCapital" Modifier="Public" Name="PagosFondeosCapital" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="PagosFondeosCapital">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(Importe),0) AS PagosFondeosCapital
@@ -1345,7 +1349,7 @@ WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID) AND (Concepto=
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PagosFondeosInteres" Modifier="Public" Name="PagosFondeosInteres" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="PagosFondeosInteres">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PagosFondeosInteres" Modifier="Public" Name="PagosFondeosInteres" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="PagosFondeosInteres">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ISNULL(SUM(Interes),0) AS PagosFondeosInteres
@@ -1362,7 +1366,7 @@ WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID) AND (Concepto=
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CONT_BancosTableAdapter" GeneratorDataComponentClassName="CONT_BancosTableAdapter" Name="CONT_Bancos" UserDataComponentName="CONT_BancosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (Web.config)" DbObjectName="WEB_Finagil.dbo.CONT_Bancos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.CONT_Bancos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [CONT_Bancos] WHERE (([Banco] = @Original_Banco))</CommandText>
@@ -1654,6 +1658,7 @@ ORDER BY DescBanco</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Factoraje" msprop:Generator_ColumnVarNameInTable="columnFactoraje" msprop:Generator_ColumnPropNameInRow="Factoraje" msprop:Generator_ColumnPropNameInTable="FactorajeColumn" msprop:Generator_UserColumnName="Factoraje" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1751,6 +1756,7 @@ ORDER BY DescBanco</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Factoraje" msprop:Generator_ColumnVarNameInTable="columnFactoraje" msprop:Generator_ColumnPropNameInRow="Factoraje" msprop:Generator_ColumnPropNameInTable="FactorajeColumn" msprop:Generator_UserColumnName="Factoraje" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

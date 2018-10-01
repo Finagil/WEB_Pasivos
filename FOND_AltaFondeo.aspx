@@ -194,6 +194,14 @@
             </td>
         </tr>
         <tr>
+            <td align="right" width="50%">
+    <asp:Label ID="Label12" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+        Text="Factoraje"></asp:Label></td>
+            <td align="left">
+                <asp:CheckBox ID="CkFactoraje" runat="server" />
+            </td>
+        </tr>
+        <tr>
             <td align="center" width="50%" colspan="2">
                 <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
                     ForeColor="White" Text="Guardar Fondeo" TextoEnviando="Confirmando..." Width="182px" CausesValidation="True" />

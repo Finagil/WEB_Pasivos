@@ -320,6 +320,24 @@ Partial Public Class AltaFondeo
     Protected WithEvents Lberror As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Control Label12.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents Label12 As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''Control CkFactoraje.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents CkFactoraje As Global.System.Web.UI.WebControls.CheckBox
+    
+    '''<summary>
     '''Control BotonEnviar1.
     '''</summary>
     '''<remarks>

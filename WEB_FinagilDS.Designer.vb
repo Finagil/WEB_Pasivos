@@ -3492,6 +3492,8 @@ Partial Public Class WEB_FinagilDS
         
         Private columnMoneda As Global.System.Data.DataColumn
         
+        Private columnFactoraje As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -3624,6 +3626,14 @@ Partial Public Class WEB_FinagilDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property FactorajeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFactoraje
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3660,9 +3670,9 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddFOND_FondeosRow(ByVal id_Fondeador As Decimal, ByVal id_TipoFondeo As Decimal, ByVal Descripcion As String, ByVal FechaInicio As Date, ByVal FechaVencimiento As Date, ByVal TipoTasa As String, ByVal TasaDiferencial As Decimal, ByVal Contrato As String, ByVal Estatus As String, ByVal FechaPago As Date, ByVal Moneda As String) As FOND_FondeosRow
+        Public Overloads Function AddFOND_FondeosRow(ByVal id_Fondeador As Decimal, ByVal id_TipoFondeo As Decimal, ByVal Descripcion As String, ByVal FechaInicio As Date, ByVal FechaVencimiento As Date, ByVal TipoTasa As String, ByVal TasaDiferencial As Decimal, ByVal Contrato As String, ByVal Estatus As String, ByVal FechaPago As Date, ByVal Moneda As String, ByVal Factoraje As Boolean) As FOND_FondeosRow
             Dim rowFOND_FondeosRow As FOND_FondeosRow = CType(Me.NewRow,FOND_FondeosRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, id_Fondeador, id_TipoFondeo, Descripcion, FechaInicio, FechaVencimiento, TipoTasa, TasaDiferencial, Contrato, Estatus, FechaPago, Moneda}
+            Dim columnValuesArray() As Object = New Object() {Nothing, id_Fondeador, id_TipoFondeo, Descripcion, FechaInicio, FechaVencimiento, TipoTasa, TasaDiferencial, Contrato, Estatus, FechaPago, Moneda, Factoraje}
             rowFOND_FondeosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowFOND_FondeosRow)
             Return rowFOND_FondeosRow
@@ -3703,6 +3713,7 @@ Partial Public Class WEB_FinagilDS
             Me.columnEstatus = MyBase.Columns("Estatus")
             Me.columnFechaPago = MyBase.Columns("FechaPago")
             Me.columnMoneda = MyBase.Columns("Moneda")
+            Me.columnFactoraje = MyBase.Columns("Factoraje")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3732,6 +3743,8 @@ Partial Public Class WEB_FinagilDS
             MyBase.Columns.Add(Me.columnFechaPago)
             Me.columnMoneda = New Global.System.Data.DataColumn("Moneda", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMoneda)
+            Me.columnFactoraje = New Global.System.Data.DataColumn("Factoraje", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFactoraje)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_Fondeo}, true))
             Me.columnid_Fondeo.AutoIncrement = true
             Me.columnid_Fondeo.AutoIncrementSeed = -1
@@ -4364,6 +4377,8 @@ Partial Public Class WEB_FinagilDS
         
         Private columnMoneda As Global.System.Data.DataColumn
         
+        Private columnFactoraje As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -4528,6 +4543,14 @@ Partial Public Class WEB_FinagilDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property FactorajeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFactoraje
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4564,9 +4587,25 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddVw_FondeosRow(ByVal Fondeador As String, ByVal Tipo_Fondeo As String, ByVal Descripcion As String, ByVal FechaInicio As Date, ByVal FechaVencimiento As Date, ByVal TipoTasa As String, ByVal TasaDiferencial As Decimal, ByVal No_Movimientos As Decimal, ByVal FechaPago As Date, ByVal id_Fondeador As Decimal, ByVal Contrato As String, ByVal SaldoInsoluto As Decimal, ByVal Pagos As Integer, ByVal Estatus As String, ByVal Moneda As String) As Vw_FondeosRow
+        Public Overloads Function AddVw_FondeosRow( _
+                    ByVal Fondeador As String,  _
+                    ByVal Tipo_Fondeo As String,  _
+                    ByVal Descripcion As String,  _
+                    ByVal FechaInicio As Date,  _
+                    ByVal FechaVencimiento As Date,  _
+                    ByVal TipoTasa As String,  _
+                    ByVal TasaDiferencial As Decimal,  _
+                    ByVal No_Movimientos As Decimal,  _
+                    ByVal FechaPago As Date,  _
+                    ByVal id_Fondeador As Decimal,  _
+                    ByVal Contrato As String,  _
+                    ByVal SaldoInsoluto As Decimal,  _
+                    ByVal Pagos As Integer,  _
+                    ByVal Estatus As String,  _
+                    ByVal Moneda As String,  _
+                    ByVal Factoraje As Boolean) As Vw_FondeosRow
             Dim rowVw_FondeosRow As Vw_FondeosRow = CType(Me.NewRow,Vw_FondeosRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Fondeador, Tipo_Fondeo, Descripcion, FechaInicio, FechaVencimiento, TipoTasa, TasaDiferencial, No_Movimientos, FechaPago, id_Fondeador, Contrato, SaldoInsoluto, Pagos, Estatus, Moneda}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Fondeador, Tipo_Fondeo, Descripcion, FechaInicio, FechaVencimiento, TipoTasa, TasaDiferencial, No_Movimientos, FechaPago, id_Fondeador, Contrato, SaldoInsoluto, Pagos, Estatus, Moneda, Factoraje}
             rowVw_FondeosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowVw_FondeosRow)
             Return rowVw_FondeosRow
@@ -4611,6 +4650,7 @@ Partial Public Class WEB_FinagilDS
             Me.columnPagos = MyBase.Columns("Pagos")
             Me.columnEstatus = MyBase.Columns("Estatus")
             Me.columnMoneda = MyBase.Columns("Moneda")
+            Me.columnFactoraje = MyBase.Columns("Factoraje")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4648,6 +4688,8 @@ Partial Public Class WEB_FinagilDS
             MyBase.Columns.Add(Me.columnEstatus)
             Me.columnMoneda = New Global.System.Data.DataColumn("Moneda", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMoneda)
+            Me.columnFactoraje = New Global.System.Data.DataColumn("Factoraje", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFactoraje)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_Fondeo}, true))
             Me.columnid_Fondeo.AutoIncrement = true
             Me.columnid_Fondeo.AutoIncrementSeed = -1
@@ -8292,6 +8334,21 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Factoraje() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableFOND_Fondeos.FactorajeColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Factoraje' de la tabla 'FOND_Fondeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableFOND_Fondeos.FactorajeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function Isid_FondeadorNull() As Boolean
             Return Me.IsNull(Me.tableFOND_Fondeos.id_FondeadorColumn)
         End Function
@@ -8420,6 +8477,18 @@ Partial Public Class WEB_FinagilDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetMonedaNull()
             Me(Me.tableFOND_Fondeos.MonedaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsFactorajeNull() As Boolean
+            Return Me.IsNull(Me.tableFOND_Fondeos.FactorajeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetFactorajeNull()
+            Me(Me.tableFOND_Fondeos.FactorajeColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -9082,6 +9151,21 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Factoraje() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableVw_Fondeos.FactorajeColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Factoraje' de la tabla 'Vw_Fondeos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableVw_Fondeos.FactorajeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsFondeadorNull() As Boolean
             Return Me.IsNull(Me.tableVw_Fondeos.FondeadorColumn)
         End Function
@@ -9258,6 +9342,18 @@ Partial Public Class WEB_FinagilDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetMonedaNull()
             Me(Me.tableVw_Fondeos.MonedaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsFactorajeNull() As Boolean
+            Return Me.IsNull(Me.tableVw_Fondeos.FactorajeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetFactorajeNull()
+            Me(Me.tableVw_Fondeos.FactorajeColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -11021,7 +11117,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11619,7 +11715,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11968,7 +12064,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12696,7 +12792,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12990,7 +13086,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13280,7 +13376,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13464,7 +13560,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13771,7 +13867,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14029,6 +14125,7 @@ Namespace WEB_FinagilDSTableAdapters
             tableMapping.ColumnMappings.Add("Estatus", "Estatus")
             tableMapping.ColumnMappings.Add("FechaPago", "FechaPago")
             tableMapping.ColumnMappings.Add("Moneda", "Moneda")
+            tableMapping.ColumnMappings.Add("Factoraje", "Factoraje")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -14039,9 +14136,9 @@ Namespace WEB_FinagilDSTableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [FOND_Fondeos] ([id_Fondeador], [id_TipoFondeo], [Descripcion], [Fech"& _ 
                 "aInicio], [FechaVencimiento], [TipoTasa], [TasaDiferencial], [Contrato], [Estatu"& _ 
-                "s], [FechaPago], [Moneda]) VALUES (@id_Fondeador, @id_TipoFondeo, @Descripcion, "& _ 
-                "@FechaInicio, @FechaVencimiento, @TipoTasa, @TasaDiferencial, @Contrato, @Estatu"& _ 
-                "s, @FechaPago, @Moneda)"
+                "s], [FechaPago], [Moneda], [Factoraje]) VALUES (@id_Fondeador, @id_TipoFondeo, @"& _ 
+                "Descripcion, @FechaInicio, @FechaVencimiento, @TipoTasa, @TasaDiferencial, @Cont"& _ 
+                "rato, @Estatus, @FechaPago, @Moneda, @Factoraje)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_Fondeador", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeador", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_TipoFondeo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id_TipoFondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14054,13 +14151,15 @@ Namespace WEB_FinagilDSTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaPago", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaPago", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Moneda", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Moneda", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Factoraje", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factoraje", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [FOND_Fondeos] SET [id_Fondeador] = @id_Fondeador, [id_TipoFondeo] = @id_T"& _ 
                 "ipoFondeo, [Descripcion] = @Descripcion, [FechaInicio] = @FechaInicio, [FechaVen"& _ 
                 "cimiento] = @FechaVencimiento, [TipoTasa] = @TipoTasa, [TasaDiferencial] = @Tasa"& _ 
                 "Diferencial, [Contrato] = @Contrato, [Estatus] = @Estatus, [FechaPago] = @FechaP"& _ 
-                "ago, [Moneda] = @Moneda WHERE (([id_Fondeo] = @Original_id_Fondeo))"
+                "ago, [Moneda] = @Moneda, [Factoraje] = @Factoraje WHERE (([id_Fondeo] = @Origina"& _ 
+                "l_id_Fondeo))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_Fondeador", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeador", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_TipoFondeo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id_TipoFondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -14073,6 +14172,7 @@ Namespace WEB_FinagilDSTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaPago", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaPago", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Moneda", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Moneda", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Factoraje", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Factoraje", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
@@ -14080,7 +14180,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14091,7 +14191,8 @@ Namespace WEB_FinagilDSTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        id_Fondeo, id_Fondeador, id_TipoFondeo, Descripcion, FechaInicio, F"& _ 
                 "echaVencimiento, TipoTasa, TasaDiferencial, Contrato, Estatus, FechaPago, Moneda"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_Fondeos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_Fondeador = @Fondeador)"
+                ", Factoraje"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_Fondeos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (id_Fondeador = @Fondead"& _ 
+                "or)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fondeador", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeador", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
@@ -14194,7 +14295,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal id_Fondeador As Global.System.Nullable(Of Decimal), ByVal id_TipoFondeo As Global.System.Nullable(Of Decimal), ByVal Descripcion As String, ByVal FechaInicio As Global.System.Nullable(Of Date), ByVal FechaVencimiento As Global.System.Nullable(Of Date), ByVal TipoTasa As String, ByVal TasaDiferencial As Global.System.Nullable(Of Decimal), ByVal Contrato As String, ByVal Estatus As String, ByVal FechaPago As Global.System.Nullable(Of Date), ByVal Moneda As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal id_Fondeador As Global.System.Nullable(Of Decimal), ByVal id_TipoFondeo As Global.System.Nullable(Of Decimal), ByVal Descripcion As String, ByVal FechaInicio As Global.System.Nullable(Of Date), ByVal FechaVencimiento As Global.System.Nullable(Of Date), ByVal TipoTasa As String, ByVal TasaDiferencial As Global.System.Nullable(Of Decimal), ByVal Contrato As String, ByVal Estatus As String, ByVal FechaPago As Global.System.Nullable(Of Date), ByVal Moneda As String, ByVal Factoraje As Global.System.Nullable(Of Boolean)) As Integer
             If (id_Fondeador.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(id_Fondeador.Value,Decimal)
             Else
@@ -14250,6 +14351,11 @@ Namespace WEB_FinagilDSTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = CType(Moneda,String)
             End If
+            If (Factoraje.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Factoraje.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -14269,7 +14375,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal id_Fondeador As Global.System.Nullable(Of Decimal), ByVal id_TipoFondeo As Global.System.Nullable(Of Decimal), ByVal Descripcion As String, ByVal FechaInicio As Global.System.Nullable(Of Date), ByVal FechaVencimiento As Global.System.Nullable(Of Date), ByVal TipoTasa As String, ByVal TasaDiferencial As Global.System.Nullable(Of Decimal), ByVal Contrato As String, ByVal Estatus As String, ByVal FechaPago As Global.System.Nullable(Of Date), ByVal Moneda As String, ByVal Original_id_Fondeo As Decimal) As Integer
+        Public Overloads Overridable Function Update(ByVal id_Fondeador As Global.System.Nullable(Of Decimal), ByVal id_TipoFondeo As Global.System.Nullable(Of Decimal), ByVal Descripcion As String, ByVal FechaInicio As Global.System.Nullable(Of Date), ByVal FechaVencimiento As Global.System.Nullable(Of Date), ByVal TipoTasa As String, ByVal TasaDiferencial As Global.System.Nullable(Of Decimal), ByVal Contrato As String, ByVal Estatus As String, ByVal FechaPago As Global.System.Nullable(Of Date), ByVal Moneda As String, ByVal Factoraje As Global.System.Nullable(Of Boolean), ByVal Original_id_Fondeo As Decimal) As Integer
             If (id_Fondeador.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(id_Fondeador.Value,Decimal)
             Else
@@ -14325,7 +14431,12 @@ Namespace WEB_FinagilDSTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Moneda,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_id_Fondeo,Decimal)
+            If (Factoraje.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Factoraje.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_id_Fondeo,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -14561,7 +14672,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15194,6 +15305,7 @@ Namespace WEB_FinagilDSTableAdapters
             tableMapping.ColumnMappings.Add("Pagos", "Pagos")
             tableMapping.ColumnMappings.Add("Estatus", "Estatus")
             tableMapping.ColumnMappings.Add("Moneda", "Moneda")
+            tableMapping.ColumnMappings.Add("Factoraje", "Factoraje")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -15201,7 +15313,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15216,19 +15328,20 @@ Namespace WEB_FinagilDSTableAdapters
                 "s.TasaDiferencial, FOND_TiposFondeos.No_Movimientos, FOND_Fondeos.FechaPago, FON"& _ 
                 "D_Fondeos.id_Fondeador, FOND_Fondeos.Contrato, SUM(FOND_EstadoCuenta.Importe) AS"& _ 
                 " SaldoInsoluto, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_ResumTabla.Plazo AS Pagos, FOND_Fo"& _ 
-                "ndeos.Estatus, FOND_Fondeos.Moneda"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_TiposFondeos INNER JOIN"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos ON FOND_TiposFondeos.id_TipoFondeo = FON"& _ 
-                "D_Fondeos.id_TipoFondeo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeadores ON"& _ 
-                " FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
-                "                     FOND_EstadoCuenta ON FOND_Fondeos.id_Fondeo = FOND_EstadoCu"& _ 
-                "enta.id_Fondeo LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_ResumTabla ON FOND_F"& _ 
-                "ondeos.id_Fondeo = Vw_ResumTabla.id_fondeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY FOND_Fondeos.id_Fondeo, FON"& _ 
-                "D_Fondeadores.Fondeador, FOND_TiposFondeos.Tipo_Fondeo, FOND_Fondeos.Descripcion"& _ 
-                ", FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa"& _ 
-                ", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos.TasaDiferencial, FOND_TiposFondeos.No_"& _ 
-                "Movimientos, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador, FOND_Fondeos.Con"& _ 
-                "trato, Vw_ResumTabla.Plazo, FOND_Fondeos.Estatus, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FON"& _ 
-                "D_Fondeos.Moneda"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (FOND_Fondeos.id_Fondeo = @Id_Fondeo)"
+                "ndeos.Estatus, FOND_Fondeos.Moneda, FOND_Fondeos.Factoraje"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND"& _ 
+                "_TiposFondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos ON FOND_TiposFon"& _ 
+                "deos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondead"& _ 
+                "or LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_EstadoCuenta ON FOND_Fondeos.i"& _ 
+                "d_Fondeo = FOND_EstadoCuenta.id_Fondeo LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " Vw_ResumTabla ON FOND_Fondeos.id_Fondeo = Vw_ResumTabla.id_fondeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY FON"& _ 
+                "D_Fondeos.id_Fondeo, FOND_Fondeadores.Fondeador, FOND_TiposFondeos.Tipo_Fondeo, "& _ 
+                "FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimient"& _ 
+                "o, FOND_Fondeos.TipoTasa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos.TasaDiferencia"& _ 
+                "l, FOND_TiposFondeos.No_Movimientos, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fon"& _ 
+                "deador, FOND_Fondeos.Contrato, Vw_ResumTabla.Plazo, FOND_Fondeos.Estatus, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     FOND_Fondeos.Moneda, FOND_Fondeos.Factoraje"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        "& _ 
+                "(FOND_Fondeos.id_Fondeo = @Id_Fondeo)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
@@ -15238,14 +15351,14 @@ Namespace WEB_FinagilDSTableAdapters
                 ".FechaVencimiento, FOND_Fondeos.TipoTasa, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeo"& _ 
                 "s.TasaDiferencial, FOND_Fondeos.FechaPago, FOND_Fondeos.id_Fondeador, FOND_Fonde"& _ 
                 "os.Contrato, Vw_ResumTabla.Plazo AS Pagos, Vw_FOND_SaldosFondeos.SaldoInsoluto, "& _ 
-                "FOND_Fondeos.Estatus, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos.Moneda"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM      "& _ 
-                "      FOND_TiposFondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos ON FON"& _ 
-                "D_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFondeo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "               FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores."& _ 
-                "id_Fondeador LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_FOND_SaldosFondeos ON "& _ 
-                "FOND_Fondeos.id_Fondeo = Vw_FOND_SaldosFondeos.id_Fondeo LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   Vw_ResumTabla ON FOND_Fondeos.id_Fondeo = Vw_ResumTabla.id_fo"& _ 
-                "ndeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FOND_Fondeos.Estatus = 'Vigente')"
+                "FOND_Fondeos.Estatus, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos.Moneda, FOND_Fonde"& _ 
+                "os.Factoraje"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_TiposFondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     FOND_Fondeos ON FOND_TiposFondeos.id_TipoFondeo = FOND_Fondeos.id_TipoFonde"& _ 
+                "o INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeadores ON FOND_Fondeos.id_Fonde"& _ 
+                "ador = FOND_Fondeadores.id_Fondeador LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         V"& _ 
+                "w_FOND_SaldosFondeos ON FOND_Fondeos.id_Fondeo = Vw_FOND_SaldosFondeos.id_Fondeo"& _ 
+                " LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Vw_ResumTabla ON FOND_Fondeos.id_Fond"& _ 
+                "eo = Vw_ResumTabla.id_fondeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FOND_Fondeos.Estatus = 'Vigente')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
@@ -15450,7 +15563,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15678,7 +15791,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15986,7 +16099,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16379,7 +16492,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -16656,7 +16769,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17153,7 +17266,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings("WEB_FinagilConnectionString").ConnectionString
+            Me._connection.ConnectionString = Global.WEB_Finagil.My.MySettings.Default.WEB_FinagilConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
