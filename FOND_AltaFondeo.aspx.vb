@@ -45,7 +45,7 @@ Partial Public Class AltaFondeo
                 Else
                     ta.Insert(cmbFondeador.SelectedValue, cmbTipoFondeo.SelectedValue, TxtDesc.Text.ToUpper,
                             F1, F2, CmbTasas.SelectedValue, CDec(TxtDiff.Text),
-                            FileUpload1.FileName, "VIGENTE", F3, cmbMoneda.SelectedValue, CkFactoraje.Checked)
+                            FileUpload1.FileName, "VIGENTE", F3, cmbMoneda.SelectedValue, CkFactoraje.Checked, cmbSuc.SelectedValue)
                     Dim ID As Integer = ta.MaxID
                     If FileUpload1.FileName.Length > 0 Then
                         FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Docs/") & ID.ToString & FileUpload1.FileName)
