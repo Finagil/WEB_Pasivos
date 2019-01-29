@@ -3,7 +3,7 @@
     Dim ta As New WEB_FinagilDSTableAdapters.FOND_SaldoGarantiasTableAdapter
     Protected Sub GridView1_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles GridView1.RowDataBound
         If e.Row.RowType = DataControlRowType.DataRow Then
-            e.Row.Cells(10).Text = ta.SaldoGarantia(DataBinder.Eval(e.Row.DataItem, "id_fondeo"))
+            e.Row.Cells(11).Text = CDec(ta.SaldoGarantia(DataBinder.Eval(e.Row.DataItem, "id_fondeo"))).ToString("n2")
         End If
     End Sub
 End Class

@@ -16669,8 +16669,9 @@ Namespace WEB_FinagilDSTableAdapters
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        ISNULL(SUM(FOND_SaldoGarantias.Capital), 0) AS SaldoGarantia"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "& _ 
                 "           FOND_SaldoGarantias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FOND_Fondeos"& _ 
-                " ON FOND_SaldoGarantias.id_Fondeador = FOND_Fondeos.id_Fondeador"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ("& _ 
-                "FOND_Fondeos.id_Fondeo = @id_Fondeo)"
+                " ON FOND_SaldoGarantias.id_Fondeador = FOND_Fondeos.id_Fondeador AND FOND_SaldoG"& _ 
+                "arantias.id_fondeo = FOND_Fondeos.id_Fondeo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FOND_Fondeos.id_Fonde"& _ 
+                "o = @id_Fondeo)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
