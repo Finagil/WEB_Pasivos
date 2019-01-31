@@ -41,6 +41,9 @@
                         <asp:BoundField DataField="Total" DataFormatString="{0:n2}" HeaderText="Total" HtmlEncode="False" ReadOnly="True" SortExpression="Total">
                         <ItemStyle Font-Bold="True" Font-Size="Larger" HorizontalAlign="Right" />
                         </asp:BoundField>
+                        <asp:BoundField DataField="id_Fondeo" HeaderText="Fondeo" HtmlEncode="False" ReadOnly="True" SortExpression="id_Fondeo">
+                        <ItemStyle HorizontalAlign="Right" />
+                        </asp:BoundField>
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
