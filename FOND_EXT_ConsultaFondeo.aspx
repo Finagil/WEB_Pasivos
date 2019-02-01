@@ -25,6 +25,7 @@
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="id_Fondeo" DataNavigateUrlFormatString="FOND_EXT_EdoCta.aspx?ID_Fondeo={0}" DataTextField="Fondeador" HeaderText="Fondeador" />
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" SortExpression="Descripcion" />
+                        <asp:BoundField DataField="Sucursal" HeaderText="Sucursal" ReadOnly="True" SortExpression="Sucursal" />
                         <asp:BoundField DataField="FechaInicio" HeaderText="Fecha Inicio" SortExpression="FechaInicio" DataFormatString="{0:d}" HtmlEncode="False" Visible="False" />
                         <asp:BoundField DataField="FechaVencimiento" DataFormatString="{0:d}" HeaderText="Fecha Venc."
                             HtmlEncode="False" SortExpression="FechaVencimiento" />

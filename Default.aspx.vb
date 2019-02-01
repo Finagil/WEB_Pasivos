@@ -5,7 +5,7 @@ Partial Public Class _Default
         Select Case UCase(Session.Item("TipoCadena"))
             Case "PAS"
                 Response.Redirect("~/FOND_EXT_ConsultaFondeo.aspx", True)
-            Case "ADMON"
+            Case "ADMON", "CONTA"
                 Response.Redirect("~/ConfReembolso.aspx", True)
             Case Else
                 Response.Redirect("~/LoginX.aspx", True)

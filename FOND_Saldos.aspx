@@ -19,6 +19,7 @@
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="id_Fondeo,id_Fondeador" DataNavigateUrlFormatString="FOND_EdoCta.aspx?ID_Fondeo={0}&amp;id_fondeador={1}" DataTextField="Fondeador" HeaderText="Fondeador" />
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" SortExpression="Descripcion" />
+                        <asp:BoundField DataField="Sucursal" HeaderText="Sucursal" SortExpression="Sucursal" />
                         <asp:BoundField DataField="FechaInicio" HeaderText="Fecha Inicio" SortExpression="FechaInicio" DataFormatString="{0:d}" HtmlEncode="False" Visible="False" />
                         <asp:BoundField DataField="FechaVencimiento" DataFormatString="{0:d}" HeaderText="Fecha Venc."
                             HtmlEncode="False" SortExpression="FechaVencimiento" />
@@ -39,6 +40,9 @@
                         </asp:BoundField>
                         <asp:BoundField DataField="Total" DataFormatString="{0:n2}" HeaderText="Total" HtmlEncode="False" ReadOnly="True" SortExpression="Total">
                         <ItemStyle Font-Bold="True" Font-Size="Larger" HorizontalAlign="Right" />
+                        </asp:BoundField>
+                        <asp:BoundField DataField="id_Fondeo" HeaderText="Fondeo" HtmlEncode="False" ReadOnly="True" SortExpression="id_Fondeo">
+                        <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />

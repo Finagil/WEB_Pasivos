@@ -95,6 +95,24 @@ Partial Public Class AltaFondeo
     Protected WithEvents TipoFondeoDS0 As Global.System.Web.UI.WebControls.ObjectDataSource
     
     '''<summary>
+    '''Control cmbSuc.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cmbSuc As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''Control SucDS.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SucDS As Global.System.Web.UI.WebControls.ObjectDataSource
+    
+    '''<summary>
     '''Control Label4.
     '''</summary>
     '''<remarks>

@@ -119,6 +119,26 @@
             </td>
         </tr>
         <tr>
+            <td align="right" width="50%" style="font-family: Verdana; color: #FF6600">
+                <span style="font-weight: bold">Sucursal</span></td>
+            <td align="left">
+                <asp:DropDownList ID="cmbSuc" runat="server" DataSourceID="SucDS" DataTextField="Sucursal" DataValueField="Sucursal" Height="30px" Width="269px">
+                </asp:DropDownList>
+                <asp:ObjectDataSource ID="SucDS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="WEB_Finagil.WEB_FinagilDSTableAdapters.FOND_SucursalesTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
+                    <DeleteParameters>
+                        <asp:Parameter Name="Original_id_sucursal" Type="Decimal" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="Sucursal" Type="String" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="Sucursal" Type="String" />
+                        <asp:Parameter Name="Original_id_sucursal" Type="Decimal" />
+                    </UpdateParameters>
+                </asp:ObjectDataSource>
+            </td>
+        </tr>
+        <tr>
             <td align="right" width="50%">
     <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
         Text="Descripción"></asp:Label></td>

@@ -59,7 +59,10 @@
                             <ItemTemplate>
                                 <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Factoraje") %>' Enabled="false" />
                             </ItemTemplate>
+
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
                         </asp:TemplateField>
+                        <asp:BoundField DataField="Sucursal" HeaderText="Sucursal" ReadOnly="True" SortExpression="Sucursal" />
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
