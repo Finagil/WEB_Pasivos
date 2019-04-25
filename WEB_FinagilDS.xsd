@@ -1022,22 +1022,6 @@ ORDER BY FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento</CommandText>
               <Mapping SourceColumn="Sucursal" DataSetColumn="Sucursal" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="All_FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="All_GetDataBy" GeneratorSourceName="All_FillBy" GetMethodModifier="Public" GetMethodName="All_GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="All_GetDataBy" UserSourceName="All_FillBy">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        FOND_Fondeadores.Fondeador, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, FOND_Fondeos.TasaDiferencial, SUM(FOND_EstadoCuenta.Importe) 
-                         AS Capital, SUM(FOND_EstadoCuenta.Interes) AS Interes, SUM(FOND_EstadoCuenta.Retencion) AS Retencion, SUM(FOND_EstadoCuenta.Importe + FOND_EstadoCuenta.Interes - FOND_EstadoCuenta.Retencion) AS Total, 
-                         FOND_Fondeos.id_Fondeo, FOND_Fondeos.FechaPago, FOND_Fondeadores.id_Fondeador, FOND_Fondeos.Sucursal
-FROM            FOND_Fondeos INNER JOIN
-                         FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador INNER JOIN
-                         FOND_EstadoCuenta ON FOND_Fondeos.id_Fondeo = FOND_EstadoCuenta.id_Fondeo
-GROUP BY FOND_Fondeadores.Fondeador, FOND_Fondeos.Descripcion, FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento, FOND_Fondeos.TipoTasa, FOND_Fondeos.TasaDiferencial, FOND_Fondeos.id_Fondeo, 
-                         FOND_Fondeos.FechaPago, FOND_Fondeadores.id_Fondeador, FOND_Fondeos.Sucursal
-ORDER BY FOND_Fondeos.FechaInicio, FOND_Fondeos.FechaVencimiento</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
               <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByFondeador" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFondeador" GeneratorSourceName="FillByFondeador" GetMethodModifier="Public" GetMethodName="GetDataByFondeador" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFondeador" UserSourceName="FillByFondeador">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -1244,6 +1228,147 @@ FROM            FOND_Monedas</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Vw_PasivoNoFiraTableAdapter" GeneratorDataComponentClassName="Vw_PasivoNoFiraTableAdapter" Name="Vw_PasivoNoFira" UserDataComponentName="Vw_PasivoNoFiraTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.Vw_PasivoNoFira" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Importe, Interes, Fondeador, FechaInicio, FechaFin, Concepto, id_Fondeador, Descripcion, Moneda
+FROM            Vw_PasivoNoFira</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Importe" DataSetColumn="Importe" />
+              <Mapping SourceColumn="Interes" DataSetColumn="Interes" />
+              <Mapping SourceColumn="Fondeador" DataSetColumn="Fondeador" />
+              <Mapping SourceColumn="FechaInicio" DataSetColumn="FechaInicio" />
+              <Mapping SourceColumn="FechaFin" DataSetColumn="FechaFin" />
+              <Mapping SourceColumn="Concepto" DataSetColumn="Concepto" />
+              <Mapping SourceColumn="id_Fondeador" DataSetColumn="id_Fondeador" />
+              <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
+              <Mapping SourceColumn="Moneda" DataSetColumn="Moneda" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Capital_Inicial_FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Capital_Inicial_GetDataBy" GeneratorSourceName="Capital_Inicial_FillBy" GetMethodModifier="Public" GetMethodName="Capital_Inicial_GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Capital_Inicial_GetDataBy" UserSourceName="Capital_Inicial_FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        SUM(Importe) AS CapitalInicial
+FROM            Vw_PasivoNoFira
+WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Mes" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@Mes" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id_Fondeador" DataSourceName="WEB_Finagil.dbo.Vw_PasivoNoFira" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CapitalInicial" Modifier="Public" Name="CapitalInicial" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CapitalInicial">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(SUM(Importe), 0) AS CapitalInicial
+FROM            Vw_PasivoNoFira
+WHERE        (MONTH(FechaInicio) &lt; @Mes) AND (id_Fondeador = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Mes" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@Mes" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id_Fondeador" DataSourceName="WEB_Finagil.dbo.Vw_PasivoNoFira" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Descripcion" Modifier="Public" Name="Descripcion" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Descripcion">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Descripcion
+FROM            FOND_Fondeos
+WHERE        (id_Fondeador = @ID_FOND)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="ID_FOND" ColumnName="id_Fondeador" DataSourceName="WEB_Finagil.dbo.FOND_Fondeos" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID_FOND" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FondeosDelMes" Modifier="Public" Name="FondeosDelMes" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FondeosDelMes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(SUM(Importe), 0) AS FondeosDelMes
+FROM            Vw_PasivoNoFira
+WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID) AND (Concepto &lt;&gt; 'PAGO') AND (Concepto &lt;&gt; 'PAGO AUTOMATICO')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Mes" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@Mes" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id_Fondeador" DataSourceName="WEB_Finagil.dbo.Vw_PasivoNoFira" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresDelMes" Modifier="Public" Name="InteresDelMes" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InteresDelMes">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(SUM(Interes), 0) AS InteresDelMes
+FROM            Vw_PasivoNoFira
+WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Mes" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@Mes" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id_Fondeador" DataSourceName="WEB_Finagil.dbo.Vw_PasivoNoFira" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresInicial" Modifier="Public" Name="InteresInicial" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="InteresInicial">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(SUM(Interes), 0) AS InteresInicial
+FROM            Vw_PasivoNoFira
+WHERE        (MONTH(FechaInicio) &lt; @Mes) AND (id_Fondeador = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Mes" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@Mes" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id_Fondeador" DataSourceName="WEB_Finagil.dbo.Vw_PasivoNoFira" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Moneda" Modifier="Public" Name="Moneda" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="Moneda">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Moneda
+FROM            FOND_Fondeos
+WHERE        (id_Fondeador = @ID_FOND)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="ID_FOND" ColumnName="id_Fondeador" DataSourceName="WEB_Finagil.dbo.FOND_Fondeos" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID_FOND" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PagosFondeosCapital" Modifier="Public" Name="PagosFondeosCapital" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="PagosFondeosCapital">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(SUM(Importe),0) AS PagosFondeosCapital
+FROM            Vw_PasivoNoFira
+WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID) AND (Concepto='PAGO' AND Concepto='PAGO AUTOMATICO')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Mes" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@Mes" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id_Fondeador" DataSourceName="WEB_Finagil.dbo.Vw_PasivoNoFira" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PagosFondeosInteres" Modifier="Public" Name="PagosFondeosInteres" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="PagosFondeosInteres">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ISNULL(SUM(Interes),0) AS PagosFondeosInteres
+FROM            Vw_PasivoNoFira
+WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID) AND (Concepto='PAGO' AND Concepto='PAGO AUTOMATICO')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Mes" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@Mes" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id_Fondeador" DataSourceName="WEB_Finagil.dbo.Vw_PasivoNoFira" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CONT_BancosTableAdapter" GeneratorDataComponentClassName="CONT_BancosTableAdapter" Name="CONT_Bancos" UserDataComponentName="CONT_BancosTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.CONT_Bancos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -1340,226 +1465,6 @@ FROM            FOND_Sucursales</CommandText>
             <Mappings>
               <Mapping SourceColumn="id_sucursal" DataSetColumn="id_sucursal" />
               <Mapping SourceColumn="Sucursal" DataSetColumn="Sucursal" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Vw_PasivoNoFiraTableAdapter" GeneratorDataComponentClassName="Vw_PasivoNoFiraTableAdapter" Name="Vw_PasivoNoFira" UserDataComponentName="Vw_PasivoNoFiraTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.Vw_PasivoNoFira" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        Importe, Interes, Fondeador, FechaInicio, FechaFin, Concepto, id_Fondeador, Descripcion, Moneda, id_Fondeo
-FROM            Vw_PasivoNoFira</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Importe" DataSetColumn="Importe" />
-              <Mapping SourceColumn="Interes" DataSetColumn="Interes" />
-              <Mapping SourceColumn="Fondeador" DataSetColumn="Fondeador" />
-              <Mapping SourceColumn="FechaInicio" DataSetColumn="FechaInicio" />
-              <Mapping SourceColumn="FechaFin" DataSetColumn="FechaFin" />
-              <Mapping SourceColumn="Concepto" DataSetColumn="Concepto" />
-              <Mapping SourceColumn="id_Fondeador" DataSetColumn="id_Fondeador" />
-              <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
-              <Mapping SourceColumn="Moneda" DataSetColumn="Moneda" />
-              <Mapping SourceColumn="id_Fondeo" DataSetColumn="id_Fondeo" />
-            </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Capital_Inicial_FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="Capital_Inicial_GetDataBy" GeneratorSourceName="Capital_Inicial_FillBy" GetMethodModifier="Public" GetMethodName="Capital_Inicial_GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="Capital_Inicial_GetDataBy" UserSourceName="Capital_Inicial_FillBy">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        SUM(Importe) AS CapitalInicial
-FROM            Vw_PasivoNoFira
-WHERE        WHERE        (MONTH(FechaInicio) = @Mes) AND (id_Fondeador = @ID)AND (YEAR(FechaInicio) = @Anio)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="Mes" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Decimal" Direction="Input" ParameterName="@Mes" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="id_Fondeador" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeador" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CapitalInicial" Modifier="Public" Name="CapitalInicial" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="CapitalInicial">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        ISNULL(SUM(Importe), 0) AS CapitalInicial
-FROM            Vw_PasivoNoFira
-WHERE        (id_Fondeo = @ID) AND (FechaInicio &lt; @Fecha)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="ID" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Descripcion" Modifier="Public" Name="Descripcion" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Descripcion">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        FOND_Fondeos.Descripcion + '  -  ' + FOND_Fondeadores.Fondeador AS Descripcion
-FROM            FOND_Fondeos INNER JOIN
-                         FOND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador
-WHERE        (FOND_Fondeos.id_Fondeo = @ID_FOND)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="ID_FOND" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID_FOND" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="FondeosDelMes" Modifier="Public" Name="FondeosDelMes" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FondeosDelMes">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        ISNULL(SUM(Importe), 0) AS FondeosDelMes
-FROM            Vw_PasivoNoFira
-WHERE        (id_Fondeo = @ID) AND (Concepto NOT LIKE '%PAGO%') AND (FechaInicio BETWEEN @Fecha1 AND @Fecha2)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="ID" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha1" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha1" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha2" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha2" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresAnual" Modifier="Public" Name="InteresAnual" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InteresAnual">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        ISNULL(SUM(Interes), 0) AS InteresDelMes
-FROM            Vw_PasivoNoFira
-WHERE        (id_Fondeo = @ID) AND (Concepto = 'INTERESES' OR
-                         Concepto = 'CAPITAL') AND (FechaInicio BETWEEN @Fecha1 AND @Fecha2)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="ID" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha1" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha1" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha2" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha2" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresDelMes" Modifier="Public" Name="InteresDelMes" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="InteresDelMes">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        ISNULL(SUM(Interes), 0) AS InteresDelMes
-FROM            Vw_PasivoNoFira
-WHERE        (id_Fondeo = @ID) AND (Concepto = 'INTERESES' OR
-                         Concepto = 'CAPITAL') AND (FechaInicio BETWEEN @Fecha1 AND @Fecha2)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="ID" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha1" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha1" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha2" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha2" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InteresInicial" Modifier="Public" Name="InteresInicial" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="InteresInicial">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        ISNULL(SUM(Interes), 0) AS InteresInicial
-FROM            Vw_PasivoNoFira
-WHERE        (id_Fondeo = @ID) AND (FechaInicio &lt; @Fecha)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="ID" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="Moneda" Modifier="Public" Name="Moneda" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="Moneda">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        Moneda
-FROM            FOND_Fondeos
-WHERE        (id_Fondeo = @ID_FOND)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="ID_FOND" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric" DbType="Decimal" Direction="Input" ParameterName="@ID_FOND" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PagoInteresAnual" Modifier="Public" Name="PagoInteresAnual" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="PagoInteresAnual">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        ISNULL(SUM(Interes), 0) AS PagosFondeosInteres
-FROM            Vw_PasivoNoFira
-WHERE        (id_Fondeo = @ID) AND (Concepto LIKE '%PAGO%') AND (FechaInicio BETWEEN @Fecha1 AND @Fecha2) AND (Interes &lt; 0)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="ID" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha1" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha1" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha2" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha2" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PagosFondeosCapital" Modifier="Public" Name="PagosFondeosCapital" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="PagosFondeosCapital">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        ISNULL(SUM(Importe),0) AS PagosFondeosCapital
-FROM            Vw_PasivoNoFira
-WHERE         id_Fondeo = @ID AND (Concepto LIKE '%PAGO%') AND (FechaInicio BETWEEN @Fecha1 AND @Fecha2)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="ID" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha1" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha1" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha2" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha2" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="PagosFondeosInteres" Modifier="Public" Name="PagosFondeosInteres" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="PagosFondeosInteres">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        ISNULL(SUM(Interes),0) AS PagosFondeosInteres
-FROM            Vw_PasivoNoFira
-WHERE         (id_Fondeo = @ID) AND (Concepto like '%PAGO%') AND (FechaInicio BETWEEN @Fecha1 AND @Fecha2)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="ID" ColumnName="id_Fondeo" DataSourceName="" DataTypeServer="numeric(18, 0)" DbType="Decimal" Direction="Input" ParameterName="@ID" Precision="18" ProviderType="Decimal" Scale="0" Size="9" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha1" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha1" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="Fecha2" ColumnName="FechaInicio" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha2" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="FechaInicio" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FOND_FondeosRPTTableAdapter" GeneratorDataComponentClassName="FOND_FondeosRPTTableAdapter" Name="FOND_FondeosRPT" UserDataComponentName="FOND_FondeosRPTTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="WEB_FinagilConnectionString (MySettings)" DbObjectName="WEB_Finagil.dbo.FOND_Fondeos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [FOND_Fondeos] WHERE (([id_Fondeo] = @Original_id_Fondeo))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_id_Fondeo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [FOND_Fondeos] ([Descripcion]) VALUES (@Descripcion)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        id_Fondeo, Descripcion
-FROM            FOND_Fondeos</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [FOND_Fondeos] SET [Descripcion] = @Descripcion WHERE (([id_Fondeo] = @Original_id_Fondeo))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Descripcion" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Descripcion" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_id_Fondeo" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="id_Fondeo" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="id_Fondeo" DataSetColumn="id_Fondeo" />
-              <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -2009,6 +1914,45 @@ FROM            FOND_Fondeos</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Vw_PasivoNoFira" msprop:Generator_TableClassName="Vw_PasivoNoFiraDataTable" msprop:Generator_TableVarName="tableVw_PasivoNoFira" msprop:Generator_RowChangedName="Vw_PasivoNoFiraRowChanged" msprop:Generator_TablePropName="Vw_PasivoNoFira" msprop:Generator_RowDeletingName="Vw_PasivoNoFiraRowDeleting" msprop:Generator_RowChangingName="Vw_PasivoNoFiraRowChanging" msprop:Generator_RowEvHandlerName="Vw_PasivoNoFiraRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_PasivoNoFiraRowDeleted" msprop:Generator_RowClassName="Vw_PasivoNoFiraRow" msprop:Generator_UserTableName="Vw_PasivoNoFira" msprop:Generator_RowEvArgName="Vw_PasivoNoFiraRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Importe" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Interes" msprop:Generator_ColumnVarNameInTable="columnInteres" msprop:Generator_ColumnPropNameInRow="Interes" msprop:Generator_ColumnPropNameInTable="InteresColumn" msprop:Generator_UserColumnName="Interes" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Fondeador" msprop:Generator_ColumnVarNameInTable="columnFondeador" msprop:Generator_ColumnPropNameInRow="Fondeador" msprop:Generator_ColumnPropNameInTable="FondeadorColumn" msprop:Generator_UserColumnName="Fondeador" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" msprop:Generator_UserColumnName="FechaInicio" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FechaFin" msprop:Generator_ColumnVarNameInTable="columnFechaFin" msprop:Generator_ColumnPropNameInRow="FechaFin" msprop:Generator_ColumnPropNameInTable="FechaFinColumn" msprop:Generator_UserColumnName="FechaFin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Concepto" msprop:Generator_ColumnVarNameInTable="columnConcepto" msprop:Generator_ColumnPropNameInRow="Concepto" msprop:Generator_ColumnPropNameInTable="ConceptoColumn" msprop:Generator_UserColumnName="Concepto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_Fondeador" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Fondeador" msprop:Generator_ColumnPropNameInRow="id_Fondeador" msprop:Generator_ColumnPropNameInTable="id_FondeadorColumn" msprop:Generator_UserColumnName="id_Fondeador" type="xs:decimal" />
+              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Moneda" msprop:Generator_ColumnVarNameInTable="columnMoneda" msprop:Generator_ColumnPropNameInRow="Moneda" msprop:Generator_ColumnPropNameInTable="MonedaColumn" msprop:Generator_UserColumnName="Moneda" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="CONT_Bancos" msprop:Generator_TableClassName="CONT_BancosDataTable" msprop:Generator_TableVarName="tableCONT_Bancos" msprop:Generator_RowChangedName="CONT_BancosRowChanged" msprop:Generator_TablePropName="CONT_Bancos" msprop:Generator_RowDeletingName="CONT_BancosRowDeleting" msprop:Generator_RowChangingName="CONT_BancosRowChanging" msprop:Generator_RowEvHandlerName="CONT_BancosRowChangeEventHandler" msprop:Generator_RowDeletedName="CONT_BancosRowDeleted" msprop:Generator_RowClassName="CONT_BancosRow" msprop:Generator_UserTableName="CONT_Bancos" msprop:Generator_RowEvArgName="CONT_BancosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
@@ -2058,60 +2002,6 @@ FROM            FOND_Fondeos</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Vw_PasivoNoFira" msprop:Generator_TableClassName="Vw_PasivoNoFiraDataTable" msprop:Generator_TableVarName="tableVw_PasivoNoFira" msprop:Generator_RowChangedName="Vw_PasivoNoFiraRowChanged" msprop:Generator_TablePropName="Vw_PasivoNoFira" msprop:Generator_RowDeletingName="Vw_PasivoNoFiraRowDeleting" msprop:Generator_RowChangingName="Vw_PasivoNoFiraRowChanging" msprop:Generator_RowEvHandlerName="Vw_PasivoNoFiraRowChangeEventHandler" msprop:Generator_RowDeletedName="Vw_PasivoNoFiraRowDeleted" msprop:Generator_RowClassName="Vw_PasivoNoFiraRow" msprop:Generator_UserTableName="Vw_PasivoNoFira" msprop:Generator_RowEvArgName="Vw_PasivoNoFiraRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Importe" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Interes" msprop:Generator_ColumnVarNameInTable="columnInteres" msprop:Generator_ColumnPropNameInRow="Interes" msprop:Generator_ColumnPropNameInTable="InteresColumn" msprop:Generator_UserColumnName="Interes" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Fondeador" msprop:Generator_ColumnVarNameInTable="columnFondeador" msprop:Generator_ColumnPropNameInRow="Fondeador" msprop:Generator_ColumnPropNameInTable="FondeadorColumn" msprop:Generator_UserColumnName="Fondeador" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="FechaInicio" msprop:Generator_ColumnVarNameInTable="columnFechaInicio" msprop:Generator_ColumnPropNameInRow="FechaInicio" msprop:Generator_ColumnPropNameInTable="FechaInicioColumn" msprop:Generator_UserColumnName="FechaInicio" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="FechaFin" msprop:Generator_ColumnVarNameInTable="columnFechaFin" msprop:Generator_ColumnPropNameInRow="FechaFin" msprop:Generator_ColumnPropNameInTable="FechaFinColumn" msprop:Generator_UserColumnName="FechaFin" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Concepto" msprop:Generator_ColumnVarNameInTable="columnConcepto" msprop:Generator_ColumnPropNameInRow="Concepto" msprop:Generator_ColumnPropNameInTable="ConceptoColumn" msprop:Generator_UserColumnName="Concepto" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="id_Fondeador" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Fondeador" msprop:Generator_ColumnPropNameInRow="id_Fondeador" msprop:Generator_ColumnPropNameInTable="id_FondeadorColumn" msprop:Generator_UserColumnName="id_Fondeador" type="xs:decimal" />
-              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Moneda" msprop:Generator_ColumnVarNameInTable="columnMoneda" msprop:Generator_ColumnPropNameInRow="Moneda" msprop:Generator_ColumnPropNameInTable="MonedaColumn" msprop:Generator_UserColumnName="Moneda" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="3" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="id_Fondeo" msprop:Generator_ColumnVarNameInTable="columnid_Fondeo" msprop:Generator_ColumnPropNameInRow="id_Fondeo" msprop:Generator_ColumnPropNameInTable="id_FondeoColumn" msprop:Generator_UserColumnName="id_Fondeo" type="xs:decimal" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="FOND_FondeosRPT" msprop:Generator_TableClassName="FOND_FondeosRPTDataTable" msprop:Generator_TableVarName="tableFOND_FondeosRPT" msprop:Generator_RowChangedName="FOND_FondeosRPTRowChanged" msprop:Generator_TablePropName="FOND_FondeosRPT" msprop:Generator_RowDeletingName="FOND_FondeosRPTRowDeleting" msprop:Generator_RowChangingName="FOND_FondeosRPTRowChanging" msprop:Generator_RowEvHandlerName="FOND_FondeosRPTRowChangeEventHandler" msprop:Generator_RowDeletedName="FOND_FondeosRPTRowDeleted" msprop:Generator_RowClassName="FOND_FondeosRPTRow" msprop:Generator_UserTableName="FOND_FondeosRPT" msprop:Generator_RowEvArgName="FOND_FondeosRPTRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id_Fondeo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_Fondeo" msprop:Generator_ColumnPropNameInRow="id_Fondeo" msprop:Generator_ColumnPropNameInTable="id_FondeoColumn" msprop:Generator_UserColumnName="id_Fondeo" type="xs:decimal" />
-              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -2177,6 +2067,10 @@ FROM            FOND_Fondeos</CommandText>
       <xs:selector xpath=".//mstns:FOND_Monedas" />
       <xs:field xpath="mstns:id_moneda" />
     </xs:unique>
+    <xs:unique name="Vw_PasivoNoFira_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Vw_PasivoNoFira" />
+      <xs:field xpath="mstns:id_Fondeador" />
+    </xs:unique>
     <xs:unique name="CONT_Bancos_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:CONT_Bancos" />
       <xs:field xpath="mstns:Banco" />
@@ -2184,14 +2078,6 @@ FROM            FOND_Fondeos</CommandText>
     <xs:unique name="FOND_Sucursales_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:FOND_Sucursales" />
       <xs:field xpath="mstns:id_sucursal" />
-    </xs:unique>
-    <xs:unique name="Vw_PasivoNoFira_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Vw_PasivoNoFira" />
-      <xs:field xpath="mstns:id_Fondeador" />
-    </xs:unique>
-    <xs:unique name="FOND_FondeosRPT_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:FOND_FondeosRPT" />
-      <xs:field xpath="mstns:id_Fondeo" />
     </xs:unique>
   </xs:element>
 </xs:schema>

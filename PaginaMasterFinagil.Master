@@ -37,7 +37,6 @@
                                 <asp:MenuItem Text="Alta de Fondeo" Value="Alta de Fondeo" NavigateUrl="~/FOND_AltaFondeo.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Fondeos Vigentes" Value="Fondeos Vigentes" NavigateUrl="~/FOND_ConsultaFondeo.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Saldo por Fondeador" Value="Saldo por Fondeador" NavigateUrl="~/FOND_Saldos.aspx"></asp:MenuItem>
-                                <asp:MenuItem NavigateUrl="~/FOND_SaldosAll.aspx" Text="Saldo por Fondeador Todos" Value="Saldo por Fondeador Todos"></asp:MenuItem>
                                 <asp:MenuItem NavigateUrl="~/FOND_Fondeo_1.aspx" Text="Reporte Fondeo" Value="RPT_Fondeo"></asp:MenuItem>
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/LoginX.aspx" Text="Salir" Value="Salir" SeparatorImageUrl="~/IMG/sep.JPG"></asp:MenuItem>

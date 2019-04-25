@@ -11,20 +11,12 @@
     <OutputType>Library</OutputType>
     <RootNamespace>WEB_Finagil</RootNamespace>
     <AssemblyName>WEB_Finagil</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <UseIISExpress>false</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
-    <Use64BitIISExpress />
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,7 +26,6 @@
     <OutputPath>bin\</OutputPath>
     <DocumentationFile>WEB_Finagil.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,33 +35,21 @@
     <OutputPath>bin\</OutputPath>
     <DocumentationFile>WEB_Finagil.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.VSDesigner, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Web, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="RoderoLib">
-      <HintPath>.\RoderoLib.dll</HintPath>
-    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="RoderoLib, Version=1.0.1777.2921, Culture=neutral" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -94,75 +73,13 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FOND_AltaPago.aspx" />
-    <Content Include="FOND_AltaCapital.aspx" />
-    <Content Include="FOND_AltaFondeo.aspx" />
-    <Content Include="FOND_Fondeo_1.aspx" />
-    <Content Include="FOND_SaldoGaratiaDet.aspx" />
-    <Content Include="FOND_EXT_SaldoGaratiaDet.aspx" />
-    <Content Include="FOND_EXT_EdoCtaDET.aspx" />
-    <Content Include="FOND_EXT_EdoCta.aspx" />
-    <Content Include="FOND_EXT_ConsultaFondeo.aspx" />
-    <Content Include="FOND_EdoCtaDET.aspx" />
-    <Content Include="FOND_EdoCta.aspx" />
-    <Content Include="FOND_Saldos.aspx" />
-    <Content Include="FOND_ConsultaFondeo.aspx" />
-    <Content Include="css\calendar-blue.css" />
     <Content Include="Default.aspx" />
-    <Content Include="FOND_Tabla.aspx" />
-    <Content Include="images\custom_b.png" />
-    <Content Include="images\custom_bl.png" />
-    <Content Include="images\custom_br.png" />
-    <Content Include="images\custom_l.png" />
-    <Content Include="images\custom_r.png" />
-    <Content Include="images\custom_t.png" />
-    <Content Include="images\custom_tl.png" />
-    <Content Include="images\custom_tr.png" />
-    <Content Include="images\datepicker_b.png" />
-    <Content Include="images\datepicker_bl.png" />
-    <Content Include="images\datepicker_br.png" />
-    <Content Include="images\datepicker_l.png" />
-    <Content Include="images\datepicker_r.png" />
-    <Content Include="images\datepicker_t.png" />
-    <Content Include="images\datepicker_tl.png" />
-    <Content Include="images\datepicker_tr.png" />
-    <Content Include="images\field.png" />
-    <Content Include="IMG\calender.png" />
     <Content Include="IMG\LOGO FINAGIL.JPG" />
-    <Content Include="js\calendar-en.min.js" />
-    <Content Include="App_Browsers\Chrome.browser" />
-    <None Include="js\jquery-1.4.1-vsdoc.js" />
-    <Content Include="js\jquery-1.4.1.js" />
-    <Content Include="js\jquery-1.4.1.min.js" />
-    <Content Include="js\jquery.dynDateTime.min.js" />
     <Content Include="LoginX.aspx" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FOND_AltaPago.aspx.designer.vb">
-      <DependentUpon>FOND_AltaPago.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_AltaPago.aspx.vb">
-      <DependentUpon>FOND_AltaPago.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="FOND_AltaCapital.aspx.designer.vb">
-      <DependentUpon>FOND_AltaCapital.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_AltaCapital.aspx.vb">
-      <DependentUpon>FOND_AltaCapital.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="ClaseHash.vb" />
-    <Compile Include="FOND_AltaFondeo.aspx.designer.vb">
-      <DependentUpon>FOND_AltaFondeo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_AltaFondeo.aspx.vb">
-      <DependentUpon>FOND_AltaFondeo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="ConfReembolso.aspx.designer.vb">
       <DependentUpon>ConfReembolso.aspx</DependentUpon>
     </Compile>
@@ -170,95 +87,11 @@
       <DependentUpon>ConfReembolso.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="FOND_Fondeo_1.aspx.designer.vb">
-      <DependentUpon>FOND_Fondeo_1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_Fondeo_1.aspx.vb">
-      <DependentUpon>FOND_Fondeo_1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FOND_SaldoGaratiaDet.aspx.designer.vb">
-      <DependentUpon>FOND_SaldoGaratiaDet.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_SaldoGaratiaDet.aspx.vb">
-      <DependentUpon>FOND_SaldoGaratiaDet.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="FOND_EXT_SaldoGaratiaDet.aspx.designer.vb">
-      <DependentUpon>FOND_EXT_SaldoGaratiaDet.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_EXT_SaldoGaratiaDet.aspx.vb">
-      <DependentUpon>FOND_EXT_SaldoGaratiaDet.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="FOND_EXT_EdoCtaDET.aspx.designer.vb">
-      <DependentUpon>FOND_EXT_EdoCtaDET.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_EXT_EdoCtaDET.aspx.vb">
-      <DependentUpon>FOND_EXT_EdoCtaDET.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="FOND_EXT_EdoCta.aspx.designer.vb">
-      <DependentUpon>FOND_EXT_EdoCta.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_EXT_EdoCta.aspx.vb">
-      <DependentUpon>FOND_EXT_EdoCta.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="FOND_EXT_ConsultaFondeo.aspx.designer.vb">
-      <DependentUpon>FOND_EXT_ConsultaFondeo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_EXT_ConsultaFondeo.aspx.vb">
-      <DependentUpon>FOND_EXT_ConsultaFondeo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="FOND_EdoCtaDET.aspx.designer.vb">
-      <DependentUpon>FOND_EdoCtaDET.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_EdoCtaDET.aspx.vb">
-      <DependentUpon>FOND_EdoCtaDET.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="FOND_EdoCta.aspx.designer.vb">
-      <DependentUpon>FOND_EdoCta.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_EdoCta.aspx.vb">
-      <DependentUpon>FOND_EdoCta.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="FOND_Saldos.aspx.designer.vb">
-      <DependentUpon>FOND_Saldos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_Saldos.aspx.vb">
-      <DependentUpon>FOND_Saldos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="FOND_ConsultaFondeo.aspx.designer.vb">
-      <DependentUpon>FOND_ConsultaFondeo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_ConsultaFondeo.aspx.vb">
-      <DependentUpon>FOND_ConsultaFondeo.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="DetalleReembolso.aspx.designer.vb">
       <DependentUpon>DetalleReembolso.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetalleReembolso.aspx.vb">
       <DependentUpon>DetalleReembolso.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FOND_Tabla.aspx.designer.vb">
-      <DependentUpon>FOND_Tabla.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FOND_Tabla.aspx.vb">
-      <DependentUpon>FOND_Tabla.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="PaginaMasterFilial.Master.designer.vb">
-      <DependentUpon>PaginaMasterFilial.Master</DependentUpon>
-    </Compile>
-    <Compile Include="PaginaMasterFilial.Master.vb">
-      <DependentUpon>PaginaMasterFilial.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PaginaMasterFinagil.Master.designer.vb">
@@ -274,12 +107,6 @@
     <Compile Include="PaginaMasterExternos.Master.vb">
       <DependentUpon>PaginaMasterExternos.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="rpt_RNF1.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rpt_RNF.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="SaldosFondeo.aspx.designer.vb">
       <DependentUpon>SaldosFondeo.aspx</DependentUpon>
@@ -328,9 +155,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="WEB_FinagilDS.vb">
-      <DependentUpon>WEB_FinagilDS.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -338,10 +162,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rpt_RNF.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rpt_RNF1.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -355,9 +175,6 @@
     <Content Include="PaginaMasterExternos.Master" />
     <Content Include="PaginaMasterFinagil.Master" />
     <Content Include="SaldosFondeo.aspx" />
-    <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="My Project\PublishProfiles\web_PAsivos.pubxml" />
-    <Content Include="PaginaMasterFilial.Master" />
     <None Include="WEB_FinagilDS.xsc">
       <DependentUpon>WEB_FinagilDS.xsd</DependentUpon>
     </None>
@@ -392,10 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
-    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Docs\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -422,10 +235,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
