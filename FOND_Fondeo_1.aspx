@@ -31,7 +31,16 @@
                 <br />
                 <br />
                 <cc1:BotonEnviar ID="btnProcesar" runat="server" BackColor="#FF6600" Font-Bold="True"
-                    ForeColor="White" Text="Imprimir reporte" TextoEnviando="Procesando..." Width="182px" />
+                    ForeColor="White" Text="PDF Fondeo" TextoEnviando="Procesando..." Width="182px" />
+                &nbsp;&nbsp;
+                <cc1:BotonEnviar ID="btnProcesar0" runat="server" BackColor="#FF6600" Font-Bold="True"
+                    ForeColor="White" Text="XLS Fondeo" TextoEnviando="Procesando..." Width="182px" />
+                &nbsp;&nbsp;
+                <cc1:BotonEnviar ID="btnProcesar1" runat="server" BackColor="#FF6600" Font-Bold="True"
+                    ForeColor="White" Text="PDF Fondeador" TextoEnviando="Procesando..." Width="182px" />
+                &nbsp;&nbsp;
+                <cc1:BotonEnviar ID="btnProcesar2" runat="server" BackColor="#FF6600" Font-Bold="True"
+                    ForeColor="White" Text="XLS Fondeador" TextoEnviando="Procesando..." Width="182px" />
                 <br />
                 <br />
         </td>

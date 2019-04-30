@@ -48,4 +48,31 @@ Partial Public Class FOND_Fondeo_1
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnProcesar As Global.RoderoLib.BotonEnviar
+    
+    '''<summary>
+    '''Control btnProcesar0.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnProcesar0 As Global.RoderoLib.BotonEnviar
+    
+    '''<summary>
+    '''Control btnProcesar1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnProcesar1 As Global.RoderoLib.BotonEnviar
+    
+    '''<summary>
+    '''Control btnProcesar2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnProcesar2 As Global.RoderoLib.BotonEnviar
 End Class
