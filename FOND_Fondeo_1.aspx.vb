@@ -100,7 +100,7 @@ Public Class FOND_Fondeo_1
         rutaPDF = rutaPDF.Replace("~", "..")
         Response.Write("window.open('" & rutaPDF & "','_blank')")
         Response.Write("</script>")
-        Response.Write(rutaPDF)
+        'Response.Write(rutaPDF)
     End Sub
 
     Protected Sub Page_Load(sender As Object, e As EventArgs)
@@ -123,7 +123,7 @@ Public Class FOND_Fondeo_1
         rutaPDF = rutaPDF.Replace("~", "..")
         Response.Write("window.open('" & rutaPDF & "','_blank')")
         Response.Write("</script>")
-        Response.Write(rutaPDF)
+        'Response.Write(rutaPDF)
     End Sub
 
     Protected Sub btnProcesar1_Click(sender As Object, e As EventArgs) Handles btnProcesar1.Click
@@ -143,7 +143,7 @@ Public Class FOND_Fondeo_1
         rutaPDF = rutaPDF.Replace("~", "..")
         Response.Write("window.open('" & rutaPDF & "','_blank')")
         Response.Write("</script>")
-        Response.Write(rutaPDF)
+        'Response.Write(rutaPDF)
 
     End Sub
 
@@ -163,7 +163,7 @@ Public Class FOND_Fondeo_1
         rutaPDF = rutaPDF.Replace("~", "..")
         Response.Write("window.open('" & rutaPDF & "','_blank')")
         Response.Write("</script>")
-        Response.Write(rutaPDF)
+        'Response.Write(rutaPDF)
 
     End Sub
 
