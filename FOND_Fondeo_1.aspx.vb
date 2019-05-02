@@ -33,7 +33,8 @@ Public Class FOND_Fondeo_1
         For Each row In ds_f.FOND_FondeosRPT.Rows
             arreglo(cont, 0) = row.Item(0)
             arreglo(cont, 1) = ta_datos.CapitalInicial(row.Item(0), "01-" & fecha.ToString & "-" & fechaY.ToString).ToString
-            arreglo(cont, 2) = CDbl(ta_datos.InteresInicial(row(0), "01-01-" & fechaY.ToString)) + CDbl(ta_datos.InteresFechaMenor(row(0), "01-01-" & fechaY.ToString, "01-" & fecha.ToString & "-" & fechaY.ToString)) + CDbl(ta_datos.PagoFechaMenor(row(0), "01-01-" & fechaY.ToString, "01-" & fecha.ToString & "-" & fechaY.ToString))
+            'MsgBox((ta_datos.InteresInicial(row(0), "01-01-" & fechaY.ToString)).ToString + vbNewLine + (ta_datos.InteresFechaMenor(row(0), "01-01-" & fechaY.ToString, "01-" & fecha.ToString & "-" & fechaY.ToString)).ToString + vbNewLine + (ta_datos.PagoFechaMenor(row(0), "01-01-" & fechaY.ToString, "01-" & fecha.ToString & "-" & fechaY.ToString)).ToString)
+            arreglo(cont, 2) = Val(ta_datos.InteresInicial(row(0), "01-01-" & fechaY.ToString)) + Val(ta_datos.InteresFechaMenor(row(0), "01-01-" & fechaY.ToString, "01-" & fecha.ToString & "-" & fechaY.ToString)) + Val(ta_datos.PagoFechaMenor(row(0), "01-01-" & fechaY.ToString, "01-" & fecha.ToString & "-" & fechaY.ToString))
             arreglo(cont, 3) = ta_datos.FondeosDelMes(row.Item(0), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear).ToString
             arreglo(cont, 4) = ta_datos.PagosFondeosCapital(row.Item(0), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear).ToString
             arreglo(cont, 5) = ta_datos.PagosFondeosInteres(row.Item(0), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear).ToString
@@ -49,13 +50,13 @@ Public Class FOND_Fondeo_1
 
         dtArreglo.Columns.Add("Fondeador")
         dtArreglo.Columns.Add("Capital_Inicial", Type.GetType("System.Decimal"))
-        dtArreglo.Columns.Add("Interes_Inicial", Type.GetType("System.Decimal"))
+        dtArreglo.Columns.Add("Interes_Inicial", Type.GetType("System.Double"))
         dtArreglo.Columns.Add("Fondeo_del_mes", Type.GetType("System.Decimal"))
         dtArreglo.Columns.Add("Pago_Fondeo_Capital", Type.GetType("System.Decimal"))
         dtArreglo.Columns.Add("Pago_Fondeo_Interes", Type.GetType("System.Decimal"))
         dtArreglo.Columns.Add("Interes_Mes", Type.GetType("System.Decimal"))
         dtArreglo.Columns.Add("Capital_Final", Type.GetType("System.Decimal"))
-        dtArreglo.Columns.Add("Interes_Final", Type.GetType("System.Decimal"))
+        dtArreglo.Columns.Add("Interes_Final", Type.GetType("System.Double"))
         dtArreglo.Columns.Add("Descripcion")
         dtArreglo.Columns.Add("Moneda")
         dtArreglo.Columns.Add("Fondeo")
