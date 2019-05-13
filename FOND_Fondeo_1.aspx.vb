@@ -16,10 +16,12 @@ Public Class FOND_Fondeo_1
     Dim fechaYear As String  'Request.Form(txtFechaBusqueda.UniqueID)
     Dim fechaY As Integer  'Year(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID)))
     Dim dtArreglo As New DataTable("reporteNF")
+    Dim dtArregloUsd As New DataTable("reporteNFUsd")
     Dim longVert As Integer = 0
 
     Public Sub calcula()
-
+        dtArreglo.Dispose()
+        dtArregloUsd.Dispose()
         fecha = Month(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID)))
         fechaYear = Request.Form(txtFechaBusqueda.UniqueID)
         fechaY = Year(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID)))
@@ -44,34 +46,19 @@ Public Class FOND_Fondeo_1
             arreglo(7, cont) = ta_datos.Descripcion(row.Item(0)).ToString
             arreglo(8, cont) = ta_datos.Moneda(row.Item(0)).ToString
             arreglo(9, cont) = CDbl(ta_datos.InteresInicial(row.Item(0), "01-01-" & fechaY.ToString).ToString) + CDbl(ta_datos.InteresAnual(row.Item(0), "01-01-" & fechaY.ToString, fechaYear)) + CDbl(ta_datos.PagoInteresAnual(row.Item(0), "01-01-" & fechaY.ToString, fechaYear))
+            'MsgBox(arreglo(9, cont))
             arreglo(10, cont) = ta_datos.id_Fondeador(row.Item(0))
             arreglo(11, cont) = ta_datos.id_Fondeador2(row.Item(0))
             If ta_datos.Moneda(row.Item(0)).ToString <> "MXN" Then
 
-                'Capital Inicial
-                ta_datos.CapitalIniciaDiv_FillBy(ds_d.Vw_PasivoNoFira, row(0), "01-" & fecha.ToString & "-" & fechaY.ToString)
+                'Capital Inicial, capital inicial por el TC del cierre del mes anterior
                 Dim var_capitalInicial As Double = 0
-                For Each capital_inicial As WEB_FinagilDS.Vw_PasivoNoFiraRow In ds_d.Vw_PasivoNoFira.Rows
-                    var_capitalInicial += Val(capital_inicial.Importe) * Val(ta_tc.ObtieneTC(capital_inicial.FechaInicio))
-                Next
-                'Interes inicial 1
-                ta_datos.InteresInicialDiv_FillBy(ds_d.Vw_PasivoNoFira, row(0), "01-01-" & fechaY.ToString)
+                var_capitalInicial = Val(arreglo(1, cont)) * Val(ta_tc.ObtieneTC(DateSerial(Year(fechaYear), Month(CDate(fechaYear).AddMonths(-1)) + 1, 0).ToString))
+
+                'Interes inicial 1, ineteres inicial por el TC del cierre del mes anterior
                 Dim var_interesInicial1 As Double = 0
-                For Each interes_inicial1 As WEB_FinagilDS.Vw_PasivoNoFiraRow In ds_d.Vw_PasivoNoFira.Rows
-                    var_interesInicial1 += Val(interes_inicial1.Interes) * Val(ta_tc.ObtieneTC(interes_inicial1.FechaInicio))
-                Next
-                'Interes inicial 2
-                ta_datos.InteresFechaMenorDiv_FillBy(ds_d.Vw_PasivoNoFira, row(0), "01-01-" & fechaY.ToString, "01-" & fecha.ToString & "-" & fechaY.ToString)
-                Dim var_interesInicial2 As Double = 0
-                For Each interes_inicial2 As WEB_FinagilDS.Vw_PasivoNoFiraRow In ds_d.Vw_PasivoNoFira.Rows
-                    var_interesInicial2 += Val(interes_inicial2.Interes) * Val(ta_tc.ObtieneTC(interes_inicial2.FechaInicio))
-                Next
-                'Interes inicial 3
-                ta_datos.PagoFechaMenorDiv_FillBy(ds_d.Vw_PasivoNoFira, row(0), "01-01-" & fechaY.ToString, "01-" & fecha.ToString & "-" & fechaY.ToString)
-                Dim var_interesInicial3 As Double = 0
-                For Each interes_inicial3 As WEB_FinagilDS.Vw_PasivoNoFiraRow In ds_d.Vw_PasivoNoFira.Rows
-                    var_interesInicial3 += Val(interes_inicial3.Interes) * Val(ta_tc.ObtieneTC(interes_inicial3.FechaInicio))
-                Next
+                var_interesInicial1 = Val(arreglo(2, cont)) * Val(ta_tc.ObtieneTC(DateSerial(Year(fechaYear), Month(CDate(fechaYear).AddMonths(-1)) + 1, 0).ToString))
+
                 'Fondeos del mes
                 ta_datos.FondeoDelMesDiv_FillBy(ds_d.Vw_PasivoNoFira, row(0), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear)
                 Dim var_fondeoDelMes As Double = 0
@@ -112,54 +99,54 @@ Public Class FOND_Fondeo_1
 
 
 
-                longVert += 1
-                ReDim Preserve arreglo(11, ds_f.FOND_FondeosRPT.Rows.Count - 1 + longVert)
-                cont += 1
+                'longVert += 1
+                'ReDim Preserve arreglo(11, ds_f.FOND_FondeosRPT.Rows.Count - 1 + longVert)
+                'cont += 1
                 arreglo(0, cont) = row.Item(0)
                 If arreglo(1, cont - 1) > 0 Then
-                    arreglo(1, cont) = var_capitalInicial.ToString
+                    'arreglo(1, cont) = var_capitalInicial.ToString
                 Else
-                    arreglo(1, cont) = 0
+                    'arreglo(1, cont) = 0
                 End If
 
                 If arreglo(2, cont - 1) > 0 Then
-                    arreglo(2, cont) = var_interesInicial1 + var_interesInicial2 + var_interesInicial3
+                    'arreglo(2, cont) = var_interesInicial1 '+ var_interesInicial2 + var_interesInicial3
                 Else
-                    arreglo(2, cont) = 0
+                    'arreglo(2, cont) = 0
                 End If
 
-                If arreglo(3, cont - 1) > 0 Then
-                    arreglo(3, cont) = var_fondeoDelMes
-                Else
-                    arreglo(3, cont) = 0
-                End If
+                'If arreglo(3, cont - 1) > 0 Then
+                arreglo(3, cont) = var_fondeoDelMes
+                'Else
+                'arreglo(3, cont) = 0
+                'End If
 
-                If arreglo(4, cont - 1) > 0 Then
-                    arreglo(4, cont) = var_pagosFondeoCapital
-                Else
-                    arreglo(4, cont) = 0
-                End If
+                'If arreglo(4, cont - 1) > 0 Then
+                arreglo(4, cont) = var_pagosFondeoCapital
+                'Else
+                'arreglo(4, cont) = 0
+                'End If
 
-                If arreglo(5, cont - 1) > 0 Then
-                    arreglo(5, cont) = var_pagosFondeoInteres
-                Else
-                    arreglo(5, cont) = 0
-                End If
+                'If arreglo(5, cont - 1) > 0 Then
+                arreglo(5, cont) = var_pagosFondeoInteres
+                'Else
+                'arreglo(5, cont) = 0
+                'End If
 
-                If arreglo(6, cont - 1) > 0 Then
-                    arreglo(6, cont) = var_interesDelMes
-                Else
-                    arreglo(6, cont) = 0
-                End If
+                'If arreglo(6, cont - 1) > 0 Then
+                arreglo(6, cont) = var_interesDelMes
+                'Else
+                'arreglo(6, cont) = 0
+                'End If
 
-                arreglo(7, cont) = "*** " & ta_datos.Descripcion(row.Item(0)).ToString & " en MXN"
-                arreglo(8, cont) = "MXN"
+                arreglo(7, cont) = ta_datos.Descripcion(row.Item(0)).ToString & " en MXN"
+                'arreglo(8, cont) = "MXN"
 
-                If arreglo(9, cont - 1) > 0 Then
-                    arreglo(9, cont) = var_interesInicial1 + var_interesAnual + var_pagoInteresAnual
-                Else
-                    arreglo(9, cont) = 0
-                End If
+                'If arreglo(9, cont - 1) > 0 Then
+                'arreglo(9, cont) = var_interesInicial1 + var_interesAnual + var_pagoInteresAnual
+                'Else
+                'arreglo(9, cont) = 0
+                'End If
                 arreglo(10, cont) = ta_datos.id_Fondeador(row.Item(0))
                 arreglo(11, cont) = ta_datos.id_Fondeador2(row.Item(0))
             End If
@@ -181,26 +168,72 @@ Public Class FOND_Fondeo_1
         dtArreglo.Columns.Add("Fondeo")
         dtArreglo.Columns.Add("Fondeo2", Type.GetType("System.Decimal"))
 
+        dtArregloUsd.Columns.Add("Fondeador")
+        dtArregloUsd.Columns.Add("Capital_Inicial", Type.GetType("System.Decimal"))
+        dtArregloUsd.Columns.Add("Interes_Inicial", Type.GetType("System.Double"))
+        dtArregloUsd.Columns.Add("Fondeo_del_mes", Type.GetType("System.Decimal"))
+        dtArregloUsd.Columns.Add("Pago_Fondeo_Capital", Type.GetType("System.Decimal"))
+        dtArregloUsd.Columns.Add("Pago_Fondeo_Interes", Type.GetType("System.Decimal"))
+        dtArregloUsd.Columns.Add("Interes_Mes", Type.GetType("System.Decimal"))
+        dtArregloUsd.Columns.Add("Capital_Final", Type.GetType("System.Decimal"))
+        dtArregloUsd.Columns.Add("Interes_Final", Type.GetType("System.Double"))
+        dtArregloUsd.Columns.Add("Descripcion")
+        dtArregloUsd.Columns.Add("Moneda")
+        dtArregloUsd.Columns.Add("Fondeo")
+        dtArregloUsd.Columns.Add("Fondeo2", Type.GetType("System.Decimal"))
+
         Dim rowRNF As DataRow
+        Dim rowRNFUsd As DataRow
+
         Dim cont2 As Integer = 0
         For fila As Integer = 0 To ds_f.FOND_FondeosRPT.Rows.Count - 1 + longVert
             rowRNF = dtArreglo.NewRow
             rowRNF("Fondeador") = arreglo(0, cont2)
-            rowRNF("Capital_Inicial") = arreglo(1, cont2)
-            rowRNF("Interes_Inicial") = arreglo(2, cont2)
+            If arreglo(8, cont2) = "MXN" Then
+                rowRNF("Capital_Inicial") = arreglo(1, cont2)
+                rowRNF("Interes_Inicial") = arreglo(2, cont2)
+            Else
+                rowRNF("Capital_Inicial") = arreglo(1, cont2) * Val(ta_tc.ObtieneTC(DateSerial(Year(fechaYear), Month(CDate(fechaYear).AddMonths(-1)) + 1, 0).ToString))
+                rowRNF("Interes_Inicial") = arreglo(2, cont2) * Val(ta_tc.ObtieneTC(DateSerial(Year(fechaYear), Month(CDate(fechaYear).AddMonths(-1)) + 1, 0).ToString))
+            End If
             rowRNF("Fondeo_del_mes") = Math.Abs(CDbl(arreglo(3, cont2)))
             rowRNF("Pago_Fondeo_Capital") = Math.Abs(CDbl(arreglo(4, cont2)))
-            rowRNF("Pago_Fondeo_Interes") = arreglo(5, cont2)
-            rowRNF("Interes_Mes") = arreglo(6, cont2)
+            rowRNF("Pago_Fondeo_Interes") = Math.Abs(CDbl(arreglo(5, cont2)))
+            rowRNF("Interes_Mes") = Math.Abs(CDbl(arreglo(6, cont2)))
             rowRNF("Descripcion") = arreglo(7, cont2)
-            rowRNF("Moneda") = arreglo(8, cont2)
-            rowRNF("Capital_Final") = 0
-            rowRNF("Interes_Final") = arreglo(9, cont2)
+            rowRNF("Moneda") = "MXN" 'arreglo(8, cont2)
+            If arreglo(8, cont2) = "MXN" Then
+                rowRNF("Capital_Final") = Math.Abs(CDbl(arreglo(1, cont2)) + Math.Abs(CDbl(arreglo(3, cont2))) - Math.Abs(CDbl(arreglo(4, cont2)))) '0
+                rowRNF("Interes_Final") = Math.Abs(CDbl(arreglo(9, cont2)))
+            Else
+                rowRNF("Capital_Final") = (CDec(ta_datos.CapitalInicial(arreglo(0, cont2), "01-" & fecha.ToString & "-" & fechaY.ToString).ToString) + CDec(ta_datos.FondeosDelMes(arreglo(0, cont2), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear).ToString) - Math.Abs(CDec(ta_datos.PagosFondeosCapital(arreglo(0, cont2), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear).ToString))) * Val(ta_tc.ObtieneTC(DateSerial(Year(fechaYear), Month(fechaYear) + 1, 0)))
+                rowRNF("Interes_Final") = arreglo(9, cont2) * Val(ta_tc.ObtieneTC(DateSerial(Year(fechaYear), Month(fechaYear) + 1, 0)))
+            End If
             rowRNF("Fondeo") = arreglo(10, cont2)
             rowRNF("Fondeo2") = arreglo(11, cont2)
+
+            If arreglo(8, cont2) <> "MXN" Then
+                rowRNFUsd = dtArregloUsd.NewRow
+                rowRNFUsd("Fondeador") = arreglo(0, cont2)
+                rowRNFUsd("Capital_Inicial") = arreglo(1, cont2)
+                rowRNFUsd("Interes_Inicial") = arreglo(2, cont2)
+                rowRNFUsd("Fondeo_del_mes") = Math.Abs(CDbl(ta_datos.FondeosDelMes(arreglo(0, cont2), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear).ToString)) 'Math.Abs(CDbl(arreglo(3, cont2)))
+                rowRNFUsd("Pago_Fondeo_Capital") = Math.Abs(CDbl(ta_datos.PagosFondeosCapital(arreglo(0, cont2), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear).ToString)) 'Math.Abs(CDbl(arreglo(4, cont2)))
+                rowRNFUsd("Pago_Fondeo_Interes") = Math.Abs(CDbl(ta_datos.PagosFondeosInteres(arreglo(0, cont2), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear).ToString)) 'arreglo(5, cont2)
+                rowRNFUsd("Interes_Mes") = Math.Abs(CDbl(ta_datos.InteresDelMes(arreglo(0, cont2), "01-" & fecha.ToString & "-" & fechaY.ToString, fechaYear).ToString)) 'arreglo(6, cont2)
+                rowRNFUsd("Descripcion") = arreglo(7, cont2)
+                rowRNFUsd("Moneda") = arreglo(8, cont2)
+                rowRNFUsd("Capital_Final") = rowRNFUsd("Capital_Inicial") + rowRNFUsd("Fondeo_del_mes") - Math.Abs(rowRNFUsd("Pago_Fondeo_Capital")) 'Math.Abs(Math.Abs(CDbl(arreglo(1, cont2)) + Math.Abs(CDbl(arreglo(3, cont2))) - CDbl(arreglo(4, cont2))))
+                rowRNFUsd("Interes_Final") = Math.Abs(CDbl(arreglo(9, cont2)))
+                rowRNFUsd("Fondeo") = arreglo(10, cont2)
+                rowRNFUsd("Fondeo2") = arreglo(11, cont2)
+                dtArregloUsd.Rows.Add(rowRNFUsd)
+            End If
+
             dtArreglo.Rows.Add(rowRNF)
             cont2 += 1
         Next
+        dtArregloUsd.WriteXml("E:\dtArregloRNFUsd.xml", XmlWriteMode.WriteSchema)
     End Sub
 
     Protected Sub btnProcesar_Click(sender As Object, e As EventArgs) Handles btnProcesar.Click
@@ -208,7 +241,14 @@ Public Class FOND_Fondeo_1
         calcula()
         'dtArreglo.WriteXml("E:\dtArregloRNF.xml", XmlWriteMode.WriteSchema)
         rpt_RNF.Load(Server.MapPath("~/rpt_RNF.rpt"))
+
+        rpt_RNF.Subreports("rptPasivosNFUsd").SetDataSource(dtArregloUsd)
         rpt_RNF.SetDataSource(dtArreglo)
+
+        'rpt_RNF.Load(Server.MapPath("~/rpt_RNF.rpt"))
+        'rpt_RNF.SetDataSource(dtArregloUsd)
+
+
         rpt_RNF.SetParameterValue("var_dia", Day(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID))))
         rpt_RNF.SetParameterValue("var_mes", MonthName(fecha))
         rpt_RNF.SetParameterValue("var_anio", Year(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID))))
