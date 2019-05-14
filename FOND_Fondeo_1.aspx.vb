@@ -233,22 +233,17 @@ Public Class FOND_Fondeo_1
             dtArreglo.Rows.Add(rowRNF)
             cont2 += 1
         Next
-        dtArregloUsd.WriteXml("E:\dtArregloRNFUsd.xml", XmlWriteMode.WriteSchema)
+        dtArregloUsd.WriteXml("C:\Files\dtArregloRNFUsd.xml", XmlWriteMode.WriteSchema)
     End Sub
 
     Protected Sub btnProcesar_Click(sender As Object, e As EventArgs) Handles btnProcesar.Click
 
         calcula()
-        'dtArreglo.WriteXml("E:\dtArregloRNF.xml", XmlWriteMode.WriteSchema)
+
         rpt_RNF.Load(Server.MapPath("~/rpt_RNF.rpt"))
-
-        rpt_RNF.Subreports("rptPasivosNFUsd").SetDataSource(dtArregloUsd)
         rpt_RNF.SetDataSource(dtArreglo)
-
-        'rpt_RNF.Load(Server.MapPath("~/rpt_RNF.rpt"))
-        'rpt_RNF.SetDataSource(dtArregloUsd)
-
-
+        rpt_RNF.Subreports("rptPasivosNFUsd").SetDataSource(dtArregloUsd)
+        rpt_RNF.Refresh()
         rpt_RNF.SetParameterValue("var_dia", Day(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID))))
         rpt_RNF.SetParameterValue("var_mes", MonthName(fecha))
         rpt_RNF.SetParameterValue("var_anio", Year(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID))))

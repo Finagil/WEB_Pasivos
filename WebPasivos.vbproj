@@ -308,10 +308,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rpt_RNF1.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>rpt_RNF.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="SaldosFondeo.aspx.designer.vb">
       <DependentUpon>SaldosFondeo.aspx</DependentUpon>
