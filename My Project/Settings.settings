@@ -6,7 +6,7 @@
       <Value Profile="(Default)">192.168.110.1</Value>
     </Setting>
     <Setting Name="SmtpPORT" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">26</Value>
+      <Value Profile="(Default)">25</Value>
     </Setting>
     <Setting Name="CorreoAdmin" Type="System.String" Scope="Application">
       <Value Profile="(Default)">atorres@finagil.com.mx</Value>
