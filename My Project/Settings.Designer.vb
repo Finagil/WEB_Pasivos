@@ -130,7 +130,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ecacerest,c4c3r1t0s,cmoderna")>  _
         Public ReadOnly Property SmtpCreden() As String
             Get
                 Return CType(Me("SmtpCreden"),String)

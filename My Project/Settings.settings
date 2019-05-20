@@ -32,7 +32,7 @@
       <Value Profile="(Default)">Data Source=Server-raid2;Initial Catalog=WEB_Finagil;Persist Security Info=True;User ID=User_PRO;Password=User_PRO2015</Value>
     </Setting>
     <Setting Name="SmtpCreden" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">ecacerest,c4c3r1t0s,cmoderna</Value>
     </Setting>
   </Settings>
 </SettingsFile>
