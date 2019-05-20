@@ -43,7 +43,8 @@ Module Globales
     Public Sub EnviaCorreo(ByVal De As String, ByVal Para As String, ByVal Mensaje As String, ByVal Asunto As String)
         Dim Mensage As New MailMessage(De, Trim(Para), Trim(Asunto), Mensaje)
         Dim Cliente As New SmtpClient(My.Settings.SmtpSRV, My.Settings.SmtpPORT)
-        Cliente.Credentials = New System.Net.NetworkCredential("ecacerest", "c4c3r1t0s", "cmoderna")
+        Dim Credenciales As String() = My.Settings.SmtpCreden.Split(",")
+        Cliente.Credentials = New System.Net.NetworkCredential(Credenciales(0), Credenciales(1), Credenciales(2))
         Mensage.IsBodyHtml = True
         Cliente.Send(Mensage)
     End Sub

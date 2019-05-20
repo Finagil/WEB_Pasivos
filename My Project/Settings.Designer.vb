@@ -65,7 +65,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("25")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("26")>  _
         Public ReadOnly Property SmtpPORT() As String
             Get
                 Return CType(Me("SmtpPORT"),String)
@@ -125,6 +125,15 @@ Namespace My
         Public ReadOnly Property WEB_FinagilConnectionString() As String
             Get
                 Return CType(Me("WEB_FinagilConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public ReadOnly Property SmtpCreden() As String
+            Get
+                Return CType(Me("SmtpCreden"),String)
             End Get
         End Property
     End Class
