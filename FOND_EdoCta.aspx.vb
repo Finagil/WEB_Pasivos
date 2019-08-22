@@ -81,11 +81,7 @@ Public Class FOND_EdoCta
             rptSolPago.SetParameterValue("var_baseL", Letras(Me.GridView1.Rows(e.CommandArgument).Cells(10).Text, "MXN"))
             rptSolPago.SetParameterValue("var_tasaocuotaL", Letras(Me.GridView1.Rows(e.CommandArgument).Cells(11).Text, "MXN"))
 
-            'Dim a As String = Me.GridView1.SelectedRow.Cells(2).Text
-
-            'rptSolPago.Refresh()
-
-            Dim rutaPDF As String = "~\tmp\" & Me.DetailsView1.Rows(1).Cells(1).Text & ".pdf"
+            Dim rutaPDF As String = "\Pasivos\tmp\" & Me.DetailsView1.Rows(1).Cells(1).Text & ".pdf"
             rptSolPago.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(rutaPDF))
             Response.Write("<script>")
             rutaPDF = rutaPDF.Replace("\", "/")
