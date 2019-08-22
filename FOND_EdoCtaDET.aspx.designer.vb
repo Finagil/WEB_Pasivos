@@ -57,4 +57,13 @@ Partial Public Class FOND_EdoCtaDET
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents VWFondeosDS As Global.System.Web.UI.WebControls.ObjectDataSource
+    
+    '''<summary>
+    '''Control btnConfirmar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnConfirmar As Global.System.Web.UI.WebControls.Button
 End Class
