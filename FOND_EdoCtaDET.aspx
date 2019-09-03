@@ -132,7 +132,8 @@
     <tr>
         <td align="center">
             
-                &nbsp;</td>
+                <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar Datos" />
+        </td>
     </tr>
     </table>
 

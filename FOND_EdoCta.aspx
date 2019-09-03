@@ -45,13 +45,20 @@
             </tr>
     <tr>
         <td align="center">
-                &nbsp;</td>
+                
+            
+                
+            
+                
+            
+                
+        </td>
             </tr>
     <tr>
         <td align="center">
             
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWFondeosDS" Font-Names="Verdana" Font-Size="Smaller"
-                    ForeColor="#333333" GridLines="None" ShowFooter="True" DataKeyNames="id_Movimiento" EnableModelValidation="True">
+                    ForeColor="#333333" GridLines="None" ShowFooter="True" DataKeyNames="id_Movimiento">
                     <RowStyle BackColor="#FFE0C0" />
                     <Columns>
                         <asp:BoundField DataField="id_Movimiento" HeaderText="id_Movimiento" SortExpression="id_Movimiento" InsertVisible="False" ReadOnly="True" Visible="False" />
@@ -83,7 +90,7 @@
                         </asp:BoundField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id_fondeo", "fond_EdoCtaDET.aspx?id_fondeo={0}") & Eval("FechaInicio", "&Fec={0:d}") %>' Text="Detalle"></asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("id_fondeo", "fond_EdoCtaDET.aspx?id_fondeo={0}") & Eval("FechaInicio", "&Fec={0:d}") & Eval("id_Movimiento", "&Mov={0}") %>' Text="Detalle"></asp:HyperLink>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataFormatString="{0:n2}" HeaderText="Capital Pag." HtmlEncode="False" ReadOnly="True">
@@ -98,6 +105,14 @@
                         <asp:BoundField DataFormatString="{0:n2}" HeaderText="Saldo" ReadOnly="True" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
+                        <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <asp:Button ID="btnConfirmacion" runat="server" Text="Confirmación" 
+                                    CommandName="Confirmacion" 
+                                    CommandArgument="<%# CType(Container, GridViewRow).RowIndex %>" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
