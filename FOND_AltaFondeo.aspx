@@ -209,7 +209,7 @@
         Text="Fechas de Pago de Capital"></asp:Label></td>
             <td align="left">
                 <asp:FileUpload ID="FileUpload2" runat="server" Width="320px" />
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="FileUpload2" ErrorMessage="solo archivos TXT" Font-Names="Arial" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.txt|csv)$">solo archivos TXT</asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="FileUpload2" ErrorMessage="solo archivos csv" Font-Names="Arial" ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.txt|csv)$">solo archivos csv</asp:RegularExpressionValidator>
                 <asp:Label ID="Lberror" runat="server" Font-Names="Arial" ForeColor="Red" Text="Archivo Inválido" Visible="False"></asp:Label>
             </td>
         </tr>
