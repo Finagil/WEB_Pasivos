@@ -8,8 +8,9 @@ Public Class FOND_Fondeo_1
     Dim ds_f As New WEB_FinagilDS
     Dim ta_datos As New WEB_FinagilDSTableAdapters.Vw_PasivoNoFiraTableAdapter
     Dim ta_tc As New WEB_FinagilDSTableAdapters.CONT_TiposDeCambioTableAdapter
+    Dim taGarantias As New WEB_FinagilDSTableAdapters.FOND_SaldoGarantiasTableAdapter
     Dim ds_d As New WEB_FinagilDS
-    Dim arreglo(11, ds_f.FOND_FondeosRPT.Rows.Count - 1) As String
+    Dim arreglo(12, ds_f.FOND_FondeosRPT.Rows.Count - 1) As String
     Dim rpt_RNF As New ReportDocument
     Dim rpt_RNF2 As New ReportDocument
     Dim fecha As Integer  'Month(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID)))
@@ -31,7 +32,7 @@ Public Class FOND_Fondeo_1
 
         Dim row As WEB_FinagilDS.FOND_FondeosRPTRow
 
-        ReDim arreglo(11, ds_f.FOND_FondeosRPT.Rows.Count - 1)
+        ReDim arreglo(12, ds_f.FOND_FondeosRPT.Rows.Count - 1)
 
         Dim cont As Integer = 0
         For Each row In ds_f.FOND_FondeosRPT.Rows
@@ -49,6 +50,8 @@ Public Class FOND_Fondeo_1
             'MsgBox(arreglo(9, cont))
             arreglo(10, cont) = ta_datos.id_Fondeador(row.Item(0))
             arreglo(11, cont) = ta_datos.id_Fondeador2(row.Item(0))
+            arreglo(12, cont) = taGarantias.SaldoGarantia(row.Item(0))
+
             If ta_datos.Moneda(row.Item(0)).ToString <> "MXN" Then
 
                 'Capital Inicial, capital inicial por el TC del cierre del mes anterior
@@ -167,6 +170,7 @@ Public Class FOND_Fondeo_1
         dtArreglo.Columns.Add("Moneda")
         dtArreglo.Columns.Add("Fondeo")
         dtArreglo.Columns.Add("Fondeo2", Type.GetType("System.Decimal"))
+        dtArreglo.Columns.Add("saldoGarantia", Type.GetType("System.Decimal"))
 
         dtArregloUsd.Columns.Add("Fondeador")
         dtArregloUsd.Columns.Add("Capital_Inicial", Type.GetType("System.Decimal"))
@@ -181,6 +185,7 @@ Public Class FOND_Fondeo_1
         dtArregloUsd.Columns.Add("Moneda")
         dtArregloUsd.Columns.Add("Fondeo")
         dtArregloUsd.Columns.Add("Fondeo2", Type.GetType("System.Decimal"))
+        dtArregloUsd.Columns.Add("saldoGarantia", Type.GetType("System.Decimal"))
 
         Dim rowRNF As DataRow
         Dim rowRNFUsd As DataRow
@@ -211,6 +216,8 @@ Public Class FOND_Fondeo_1
             End If
             rowRNF("Fondeo") = arreglo(10, cont2)
             rowRNF("Fondeo2") = arreglo(11, cont2)
+            rowRNF("saldoGarantia") = arreglo(12, cont2)
+
 
             If arreglo(8, cont2) <> "MXN" Then
                 rowRNFUsd = dtArregloUsd.NewRow
@@ -227,12 +234,14 @@ Public Class FOND_Fondeo_1
                 rowRNFUsd("Interes_Final") = Math.Abs(CDbl(arreglo(9, cont2)))
                 rowRNFUsd("Fondeo") = arreglo(10, cont2)
                 rowRNFUsd("Fondeo2") = arreglo(11, cont2)
+                rowRNFUsd("saldoGarantia") = arreglo(12, cont2)
                 dtArregloUsd.Rows.Add(rowRNFUsd)
             End If
 
             dtArreglo.Rows.Add(rowRNF)
             cont2 += 1
         Next
+        dtArreglo.WriteXml("C:\Files\dtArregloRNF.xml", XmlWriteMode.WriteSchema)
         dtArregloUsd.WriteXml("C:\Files\dtArregloRNFUsd.xml", XmlWriteMode.WriteSchema)
     End Sub
 
