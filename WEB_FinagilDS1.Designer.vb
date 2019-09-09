@@ -19975,7 +19975,7 @@ Namespace WEB_FinagilDSTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "FechaInicio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT        FOND_Fondeos.Descripcion + '  -  ' + FOND_Fondeadores.Fondeador AS "& _ 
+            Me._commandCollection(4).CommandText = "SELECT        FOND_Fondeadores.Fondeador + '  -  ' + FOND_Fondeos.Descripcion AS "& _ 
                 "Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_Fondeos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         F"& _ 
                 "OND_Fondeadores ON FOND_Fondeos.id_Fondeador = FOND_Fondeadores.id_Fondeador"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
                 "ERE        (FOND_Fondeos.id_Fondeo = @ID_FOND)"
