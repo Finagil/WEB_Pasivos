@@ -7395,6 +7395,8 @@ Partial Public Class WEB_FinagilDS
         
         Private columnid_Fondeador As Global.System.Data.DataColumn
         
+        Private columnEstatus As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -7455,6 +7457,14 @@ Partial Public Class WEB_FinagilDS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property EstatusColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEstatus
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -7491,9 +7501,9 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddFOND_FondeosRPTRow(ByVal Descripcion As String, ByVal id_Fondeador As Decimal) As FOND_FondeosRPTRow
+        Public Overloads Function AddFOND_FondeosRPTRow(ByVal Descripcion As String, ByVal id_Fondeador As Decimal, ByVal Estatus As String) As FOND_FondeosRPTRow
             Dim rowFOND_FondeosRPTRow As FOND_FondeosRPTRow = CType(Me.NewRow,FOND_FondeosRPTRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Descripcion, id_Fondeador}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Descripcion, id_Fondeador, Estatus}
             rowFOND_FondeosRPTRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowFOND_FondeosRPTRow)
             Return rowFOND_FondeosRPTRow
@@ -7525,6 +7535,7 @@ Partial Public Class WEB_FinagilDS
             Me.columnid_Fondeo = MyBase.Columns("id_Fondeo")
             Me.columnDescripcion = MyBase.Columns("Descripcion")
             Me.columnid_Fondeador = MyBase.Columns("id_Fondeador")
+            Me.columnEstatus = MyBase.Columns("Estatus")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7536,6 +7547,8 @@ Partial Public Class WEB_FinagilDS
             MyBase.Columns.Add(Me.columnDescripcion)
             Me.columnid_Fondeador = New Global.System.Data.DataColumn("id_Fondeador", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnid_Fondeador)
+            Me.columnEstatus = New Global.System.Data.DataColumn("Estatus", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstatus)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid_Fondeo}, true))
             Me.columnid_Fondeo.AutoIncrement = true
             Me.columnid_Fondeo.AutoIncrementSeed = -1
@@ -7544,6 +7557,7 @@ Partial Public Class WEB_FinagilDS
             Me.columnid_Fondeo.ReadOnly = true
             Me.columnid_Fondeo.Unique = true
             Me.columnDescripcion.MaxLength = 50
+            Me.columnEstatus.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12329,6 +12343,21 @@ Partial Public Class WEB_FinagilDS
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Estatus() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableFOND_FondeosRPT.EstatusColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Estatus' de la tabla 'FOND_FondeosRPT' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableFOND_FondeosRPT.EstatusColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsDescripcionNull() As Boolean
             Return Me.IsNull(Me.tableFOND_FondeosRPT.DescripcionColumn)
         End Function
@@ -12349,6 +12378,18 @@ Partial Public Class WEB_FinagilDS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub Setid_FondeadorNull()
             Me(Me.tableFOND_FondeosRPT.id_FondeadorColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsEstatusNull() As Boolean
+            Return Me.IsNull(Me.tableFOND_FondeosRPT.EstatusColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetEstatusNull()
+            Me(Me.tableFOND_FondeosRPT.EstatusColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -21400,6 +21441,7 @@ Namespace WEB_FinagilDSTableAdapters
             tableMapping.ColumnMappings.Add("id_Fondeo", "id_Fondeo")
             tableMapping.ColumnMappings.Add("Descripcion", "Descripcion")
             tableMapping.ColumnMappings.Add("id_Fondeador", "id_Fondeador")
+            tableMapping.ColumnMappings.Add("Estatus", "Estatus")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -21408,18 +21450,20 @@ Namespace WEB_FinagilDSTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [FOND_Fondeos] ([Descripcion], [id_Fondeador]) VALUES (@Descripcion, "& _ 
-                "@id_Fondeador)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [FOND_Fondeos] ([Descripcion], [id_Fondeador], [Estatus]) VALUES (@De"& _ 
+                "scripcion, @id_Fondeador, @Estatus)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Descripcion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_Fondeador", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeador", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [FOND_Fondeos] SET [Descripcion] = @Descripcion, [id_Fondeador] = @id_Fond"& _ 
-                "eador WHERE (([id_Fondeo] = @Original_id_Fondeo))"
+                "eador, [Estatus] = @Estatus WHERE (([id_Fondeo] = @Original_id_Fondeo))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Descripcion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id_Fondeador", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeador", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estatus", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id_Fondeo", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id_Fondeo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
@@ -21436,16 +21480,30 @@ Namespace WEB_FinagilDSTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        id_Fondeo, Descripcion, id_Fondeador"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND_Fondeos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY id_Fondeador"
+            Me._commandCollection(0).CommandText = "SELECT        id_Fondeo, Descripcion, id_Fondeador, Estatus"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FOND"& _ 
+                "_Fondeos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Estatus = @estatus1) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Estat"& _ 
+                "us = @estatus2)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY id_Fondeador"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@estatus1", Global.System.Data.SqlDbType.VarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@estatus2", Global.System.Data.SqlDbType.VarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Estatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As WEB_FinagilDS.FOND_FondeosRPTDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As WEB_FinagilDS.FOND_FondeosRPTDataTable, ByVal estatus1 As String, ByVal estatus2 As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (estatus1 Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(estatus1,String)
+            End If
+            If (estatus2 Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(estatus2,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -21457,8 +21515,18 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As WEB_FinagilDS.FOND_FondeosRPTDataTable
+        Public Overloads Overridable Function GetData(ByVal estatus1 As String, ByVal estatus2 As String) As WEB_FinagilDS.FOND_FondeosRPTDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (estatus1 Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(estatus1,String)
+            End If
+            If (estatus2 Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(estatus2,String)
+            End If
             Dim dataTable As WEB_FinagilDS.FOND_FondeosRPTDataTable = New WEB_FinagilDS.FOND_FondeosRPTDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -21517,7 +21585,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Descripcion As String, ByVal id_Fondeador As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Insert(ByVal Descripcion As String, ByVal id_Fondeador As Global.System.Nullable(Of Decimal), ByVal Estatus As String) As Integer
             If (Descripcion Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -21527,6 +21595,11 @@ Namespace WEB_FinagilDSTableAdapters
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(id_Fondeador.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Estatus Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Estatus,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -21547,7 +21620,7 @@ Namespace WEB_FinagilDSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Descripcion As String, ByVal id_Fondeador As Global.System.Nullable(Of Decimal), ByVal Original_id_Fondeo As Decimal) As Integer
+        Public Overloads Overridable Function Update(ByVal Descripcion As String, ByVal id_Fondeador As Global.System.Nullable(Of Decimal), ByVal Estatus As String, ByVal Original_id_Fondeo As Decimal) As Integer
             If (Descripcion Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -21558,7 +21631,12 @@ Namespace WEB_FinagilDSTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_id_Fondeo,Decimal)
+            If (Estatus Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Estatus,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_id_Fondeo,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

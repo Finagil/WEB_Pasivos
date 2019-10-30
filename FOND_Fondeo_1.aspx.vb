@@ -27,8 +27,19 @@ Public Class FOND_Fondeo_1
         fechaYear = Request.Form(txtFechaBusqueda.UniqueID)
         fechaY = Year(DateTime.Parse(Request.Form(txtFechaBusqueda.UniqueID)))
 
+        Dim estatus1 As String
+        Dim estatus2 As String
+
+        If CheckBox1.Checked = True Then
+            estatus1 = "VIGENTE"
+            estatus2 = "VIGENTE"
+        Else
+            estatus1 = "TERMINADO"
+            estatus2 = "VIGENTE"
+        End If
+
         ta_f.Fill(ds_f.FOND_Fondeadores)
-        ta_frpt.Fill(ds_f.FOND_FondeosRPT)
+        ta_frpt.Fill(ds_f.FOND_FondeosRPT, estatus1, estatus2)
 
         Dim row As WEB_FinagilDS.FOND_FondeosRPTRow
 

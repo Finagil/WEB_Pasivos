@@ -23,6 +23,15 @@ Partial Public Class FOND_Fondeo_1
     Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''Control CheckBox1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents CheckBox1 As Global.System.Web.UI.WebControls.CheckBox
+    
+    '''<summary>
     '''Control txtFechaBusqueda.
     '''</summary>
     '''<remarks>

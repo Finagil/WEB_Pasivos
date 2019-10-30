@@ -27,6 +27,8 @@
                     Text="Fondeos"></asp:Label>
                 <br />
                 <br />
+                <asp:CheckBox ID="CheckBox1" runat="server" Font-Names="Arial" Font-Size="Small" Text="VIGENTE" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txtFechaBusqueda" runat="server" ReadOnly = "true"></asp:TextBox><img src="IMG/calender.png" /><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtFechaBusqueda" ErrorMessage="Campo Requerido" Font-Names="Arial"></asp:RequiredFieldValidator>
                 <br />
                 <br />
