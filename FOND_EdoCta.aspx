@@ -68,7 +68,7 @@
                         <asp:BoundField DataField="Concepto" HeaderText="Concepto" SortExpression="Concepto" />
                         <asp:BoundField DataField="TasaRetencion" DataFormatString="{0:n6}" HeaderText="Tasa Rete." HtmlEncode="False" SortExpression="TasaRetencion">
                         </asp:BoundField>
-                        <asp:BoundField DataField="Importe" DataFormatString="{0:n2}" HeaderText="Capital"
+                        <asp:BoundField DataField="Importe" DataFormatString="{0:n2}" HeaderText="Capital Inicial"
                             HtmlEncode="False" SortExpression="Importe" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
@@ -102,7 +102,7 @@
                         <asp:BoundField DataFormatString="{0:n2}" HeaderText="Retención Pag." HtmlEncode="False" ReadOnly="True">
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
-                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Saldo" ReadOnly="True" >
+                        <asp:BoundField DataFormatString="{0:n2}" HeaderText="Saldo Final" ReadOnly="True" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                         <asp:TemplateField ItemStyle-HorizontalAlign="Center">
@@ -111,6 +111,8 @@
                                     CommandName="Confirmacion" 
                                     CommandArgument="<%# CType(Container, GridViewRow).RowIndex %>" />
                             </ItemTemplate>
+
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
                         </asp:TemplateField>
 
                     </Columns>

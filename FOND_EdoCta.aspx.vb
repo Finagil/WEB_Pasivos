@@ -37,7 +37,10 @@ Public Class FOND_EdoCta
             e.Row.Cells(14).Text = CDec(taEdoCta.InteresPagado(ID, FecFin.Month, FecFin.Year)).ToString("n2")
             e.Row.Cells(15).Text = CDec(taEdoCta.RetencionPagada(ID, FecFin.Month, FecFin.Year)).ToString("n2")
             Pago = CDec(e.Row.Cells(14).Text)
-            e.Row.Cells(16).Text = Math.Abs(CapFinal + Inte + InteAcum + Pago).ToString("n2") ' Saldo Neto
+            ' Saldo pantalla inicial
+            'e.Row.Cells(16).Text = Math.Abs(CapFinal + Inte + InteAcum + Pago).ToString("n2") ' Saldo Neto
+            e.Row.Cells(16).Text = CDec(taEdoCta.ObtUltimoImporte_ScalarQuery(FecFin, ID)).ToString("n2")
+
             InteAcum = CDec(e.Row.Cells(16).Text) - CapFinal
             'Session.Item("Movimiento") = DataBinder.Eval(e.Row.DataItem, "id_Movimiento")
             If taEstatus.ObtEstatus_ScalarQuery(DataBinder.Eval(e.Row.DataItem, "id_Movimiento")) = "NE" Then
