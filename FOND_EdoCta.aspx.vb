@@ -79,8 +79,8 @@ Public Class FOND_EdoCta
             rptSolPago.SetParameterValue("var_tasaret", Me.GridView1.Rows(e.CommandArgument).Cells(5).Text)
             rptSolPago.SetParameterValue("var_capital", FormatCurrency(CDec(Me.GridView1.Rows(e.CommandArgument).Cells(6).Text)))
             'rptSolPago.SetParameterValue("var_capital", CDec(ta_datos.CapitalInicial(Me.DetailsView1.Rows(11).Cells(1).Text, "01-" & mes & "-" & anio).ToString) - CDec(ta_datos.FondeosDelMes(Me.DetailsView1.Rows(11).Cells(1).Text, "01-" & mes & "-" & anio, fecha).ToString) - CDec(ta_datos.PagosFondeosCapital(Me.DetailsView1.Rows(11).Cells(1).Text, "01-" & mes & "-" & anio, fecha).ToString))
-            'rptSolPago.SetParameterValue("var_interes", FormatCurrency(CDec(Me.GridView1.Rows(e.CommandArgument).Cells(7).Text)))
-            rptSolPago.SetParameterValue("var_interes", FormatCurrency(CDbl(ta_datos.InteresInicial(Me.DetailsView1.Rows(11).Cells(1).Text, "01-01-" & anio).ToString) + CDbl(ta_datos.InteresAnual(Me.DetailsView1.Rows(11).Cells(1).Text, "01-01-" & anio.ToString, fecha)) + CDbl(ta_datos.PagoInteresAnual(Me.DetailsView1.Rows(11).Cells(1).Text, "01-01-" & anio.ToString, fecha))))
+            rptSolPago.SetParameterValue("var_interes", FormatCurrency(CDec(Me.GridView1.Rows(e.CommandArgument).Cells(7).Text)))
+            'ptSolPago.SetParameterValue("var_interes", FormatCurrency(CDbl(ta_datos.InteresInicial(Me.DetailsView1.Rows(11).Cells(1).Text, "01-01-" & anio).ToString) + CDbl(ta_datos.InteresAnual(Me.DetailsView1.Rows(11).Cells(1).Text, "01-01-" & anio.ToString, fecha)) + CDbl(ta_datos.PagoInteresAnual(Me.DetailsView1.Rows(11).Cells(1).Text, "01-01-" & anio.ToString, fecha))))
 
             rptSolPago.SetParameterValue("var_retencion", FormatCurrency(CDec(Me.GridView1.Rows(e.CommandArgument).Cells(8).Text)))
             rptSolPago.SetParameterValue("var_neto", FormatCurrency(CDec(Me.GridView1.Rows(e.CommandArgument).Cells(9).Text)))
