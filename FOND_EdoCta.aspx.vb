@@ -7,6 +7,7 @@ Public Class FOND_EdoCta
     Dim FecIni, FecFin As Date
     Dim cFactor, Aux As String
     Dim Retencion, Rete, Inte, InteAcum As Decimal
+
     Dim Factor, Pago As Decimal
     Dim Cap, CapFinal As Decimal
     Dim taEdoCta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
@@ -63,7 +64,6 @@ Public Class FOND_EdoCta
 
     Private Sub GridView1_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles GridView1.RowCommand
         Dim ta_datos As New WEB_FinagilDSTableAdapters.Vw_PasivoNoFiraTableAdapter
-
         Dim dia As Integer = Day(DateTime.Parse(Me.GridView1.Rows(e.CommandArgument).Cells(3).Text))
         Dim mes As Integer = Month(DateTime.Parse(Me.GridView1.Rows(e.CommandArgument).Cells(3).Text))
         Dim anio As Integer = Year(DateTime.Parse(Me.GridView1.Rows(e.CommandArgument).Cells(3).Text))
@@ -72,7 +72,7 @@ Public Class FOND_EdoCta
         If e.CommandName = "Confirmacion" Then
             Dim rptSolPago As New ReportDocument
             rptSolPago.Load(Server.MapPath("~/rptConfirmacionSaldos.rpt"))
-
+            rptSolPago.SetParameterValue("var_Asunto", "ASUNTO:     CONFIRMACIÓN DE SALDOS - FONDEOS")
             rptSolPago.SetParameterValue("var_fondeador", Me.DetailsView1.Rows(1).Cells(1).Text)
             rptSolPago.SetParameterValue("var_anio", Year(CDate(Me.GridView1.Rows(e.CommandArgument).Cells(3).Text)))
             rptSolPago.SetParameterValue("var_mes", MonthName(Month(CDate(Me.GridView1.Rows(e.CommandArgument).Cells(3).Text))))
@@ -95,6 +95,40 @@ Public Class FOND_EdoCta
             rptSolPago.SetParameterValue("var_tasaocuotaL", Letras(Me.GridView1.Rows(e.CommandArgument).Cells(11).Text, "MXN"))
 
             Dim rutaPDF As String = "\Pasivos\tmp\" & Me.DetailsView1.Rows(1).Cells(1).Text & ".pdf"
+            rptSolPago.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(rutaPDF))
+            Response.Write("<script>")
+            rutaPDF = rutaPDF.Replace("\", "/")
+            rutaPDF = rutaPDF.Replace("~", "..")
+            Response.Write("window.open('" & rutaPDF & "','popup','_blank','width=200,height=200')")
+            Response.Write("</script>")
+        End If
+    End Sub
+
+    Private Sub GridView2_RowCommand(sender As Object, e As GridViewCommandEventArgs) Handles GridView2.RowCommand
+        If e.CommandName = "Confirmacion" Then
+            Dim rptSolPago As New ReportDocument
+            rptSolPago.Load(Server.MapPath("~/rptConfirmacionSaldos.rpt"))
+
+            rptSolPago.SetParameterValue("var_Asunto", "ASUNTO:     CONFIRMACIÓN DE SALDOS - GARANTIAS")
+            rptSolPago.SetParameterValue("var_fondeador", Me.DetailsView1.Rows(1).Cells(1).Text)
+            rptSolPago.SetParameterValue("var_anio", Year(Date.Now.Date.AddDays(Date.Now.Date.Day * -1)))
+            rptSolPago.SetParameterValue("var_mes", MonthName((Date.Now.Date.AddDays(Date.Now.Date.Day * -1)).Month))
+            rptSolPago.SetParameterValue("var_tasaret", "")
+            rptSolPago.SetParameterValue("var_capital", FormatCurrency(CDec(Me.GridView2.Rows(e.CommandArgument).Cells(1).Text)))
+            rptSolPago.SetParameterValue("var_interes", 0)
+            rptSolPago.SetParameterValue("var_retencion", 0)
+            rptSolPago.SetParameterValue("var_neto", "")
+            rptSolPago.SetParameterValue("var_base", "")
+            rptSolPago.SetParameterValue("var_tasaocuota", "")
+            rptSolPago.SetParameterValue("var_tasaretL", "")
+            rptSolPago.SetParameterValue("var_capitalL", Letras(Me.GridView2.Rows(e.CommandArgument).Cells(1).Text, "MXN"))
+            rptSolPago.SetParameterValue("var_interesL", "")
+            rptSolPago.SetParameterValue("var_retencionL", "")
+            rptSolPago.SetParameterValue("var_netoL", "")
+            rptSolPago.SetParameterValue("var_baseL", "")
+            rptSolPago.SetParameterValue("var_tasaocuotaL", "")
+
+            Dim rutaPDF As String = "\Pasivos\tmp\" & Me.DetailsView1.Rows(1).Cells(1).Text & "_garantia.pdf"
             rptSolPago.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(rutaPDF))
             Response.Write("<script>")
             rutaPDF = rutaPDF.Replace("\", "/")

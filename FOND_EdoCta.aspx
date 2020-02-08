@@ -173,13 +173,14 @@
     <tr>
         <td align="center">
                 <span style="font-family: Verdana; font-weight: bold; color: #FF6600">Saldo Garantía</span><span style="font-weight: bold"><asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWGarantias" Font-Names="Verdana" Font-Size="Smaller"
-                    ForeColor="#333333" GridLines="None" DataKeyNames="id_Garantia" EnableModelValidation="True">
+                    ForeColor="#333333" GridLines="None" DataKeyNames="id_Garantia">
                     <RowStyle BackColor="#FFE0C0" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="id_Fondeador" DataNavigateUrlFormatString="FOND_SaldoGaratiaDet.aspx?id_fondeador={0}" Text="Detalle" />
                         <asp:BoundField DataField="Capital" DataFormatString="{0:n2}" HeaderText="Capital" SortExpression="Capital" >
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
+                        <asp:ButtonField ButtonType="Button" CommandName="Confirmacion" Text="Confirmación" />
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
