@@ -26,11 +26,11 @@
                     LberrorGlobal.Text = "Fecha incorrecta, no se pueden usar fecha anteriores al " & CDate(Session("FechaAplicacion")).ToShortDateString
                     LberrorGlobal.Visible = True
                 Else
-                    EnviaCorreo("ecacerest@finagil.com.mx", "ecacerest@finagil.com.mx", "Id_fondeo", ID)
                     ta.Insert(ID, "PAGO", CDec(TxtImporte.Text) * -1, CDec(TxtInteres.Text) * -1, CDec(TxtRetencion.Text) * -1, 0, F1, F1, 0, 0, 0, CmbBanco.SelectedValue)
                     If CkGarantia.Checked = True Then
                     If TxtGarantia.Text = "" Then TxtGarantia.Text = "Garantia Ejercida"
                         ta2.Insert(IDF, ID, CDec(TxtImporte.Text), F1, TxtGarantia.Text)
+                        EnviaCorreo("ecacerest@finagil.com.mx", "ecacerest@finagil.com.mx", "Id_fondeo", ID)
                     End If
                 ProcesaCalculos(ID)
                 Response.Redirect("~\FOND_ConsultaFondeo.aspx", True)
