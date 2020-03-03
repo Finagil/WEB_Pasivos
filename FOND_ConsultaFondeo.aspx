@@ -14,7 +14,7 @@
         <td align="center">
             
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWFondeosDS" Font-Names="Verdana" Font-Size="Smaller"
-                    ForeColor="#333333" GridLines="None" ShowFooter="True" DataKeyNames="id_Fondeo" EnableModelValidation="True">
+                    ForeColor="#333333" GridLines="None" ShowFooter="True" DataKeyNames="id_Fondeo">
                     <RowStyle BackColor="#FFE0C0" Font-Size="Smaller" />
                     <Columns>
                         <asp:HyperLinkField DataNavigateUrlFields="id_Fondeo" DataNavigateUrlFormatString="FOND_AltaCapital.aspx?ID_fondeo={0}" Text="Alta Capital" >
@@ -63,6 +63,7 @@
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                         </asp:TemplateField>
                         <asp:BoundField DataField="Sucursal" HeaderText="Sucursal" ReadOnly="True" SortExpression="Sucursal" />
+                        <asp:HyperLinkField DataNavigateUrlFields="id_Fondeo" DataNavigateUrlFormatString="FOND_AltaContrato.aspx?ID_fondeo={0}" Text="Alta Contrato" />
                     </Columns>
                     <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />

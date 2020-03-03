@@ -99,6 +99,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FOND_AltaContrato.aspx" />
     <Content Include="FOND_AltaPago.aspx" />
     <Content Include="FOND_AltaCapital.aspx" />
     <Content Include="FOND_AltaFondeo.aspx" />
@@ -158,6 +159,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FOND_AltaContrato.aspx.designer.vb">
+      <DependentUpon>FOND_AltaContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FOND_AltaContrato.aspx.vb">
+      <DependentUpon>FOND_AltaContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="FOND_AltaPago.aspx.designer.vb">
       <DependentUpon>FOND_AltaPago.aspx</DependentUpon>
     </Compile>
