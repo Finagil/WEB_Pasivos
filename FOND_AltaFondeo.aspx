@@ -55,14 +55,14 @@
         <tr>
             <td colspan="2" align="center">
                 <br />
-    <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="ALTA DE FONDEOS"></asp:Label>
                 <br />
             </td>
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Fondeadores"></asp:Label></td>
             <td align="left">
                 <asp:DropDownList ID="cmbFondeador" runat="server" DataSourceID="FondeadorDS" DataTextField="Fondeador" DataValueField="id_Fondeador" Height="30px" Width="269px">
@@ -87,7 +87,7 @@
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Tipo de Fondeo"></asp:Label></td>
             <td align="left">
                 <asp:DropDownList ID="cmbTipoFondeo" runat="server" DataSourceID="TipoFondeoDS" DataTextField="Tipo_Fondeo" DataValueField="id_TipoFondeo" Height="30px" Width="269px">
@@ -109,7 +109,7 @@
             </td>
         </tr>
         <tr>
-            <td align="right" width="50%" style="font-family: Verdana; color: #FF6600">
+            <td align="right" width="50%" style="font-family: Verdana; color: #f58220">
                 <span style="font-weight: bold">Moneda</span></td>
             <td align="left">
                 <asp:DropDownList ID="cmbMoneda" runat="server" DataSourceID="TipoFondeoDS0" DataTextField="Moneda" DataValueField="id_moneda" Height="30px" Width="269px">
@@ -119,7 +119,7 @@
             </td>
         </tr>
         <tr>
-            <td align="right" width="50%" style="font-family: Verdana; color: #FF6600">
+            <td align="right" width="50%" style="font-family: Verdana; color: #f58220">
                 <span style="font-weight: bold">Sucursal</span></td>
             <td align="left">
                 <asp:DropDownList ID="cmbSuc" runat="server" DataSourceID="SucDS" DataTextField="Sucursal" DataValueField="Sucursal" Height="30px" Width="269px">
@@ -140,7 +140,7 @@
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Descripción"></asp:Label></td>
             <td align="left">
                 <asp:TextBox ID="TxtDesc" runat="server" MaxLength="50" Width="365px"></asp:TextBox>
@@ -149,7 +149,7 @@
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Fecha de Inicio"></asp:Label></td>
             <td align="left">
                 <asp:TextBox ID="TextBox1" runat="server" ReadOnly = "true"></asp:TextBox><img src="IMG/calender.png" />
@@ -158,7 +158,7 @@
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Fecha de Vencimiento"></asp:Label></td>
             <td align="left">
                 <asp:TextBox ID="TextBox2" runat="server" ReadOnly = "true"></asp:TextBox><img src="IMG/calender.png" /><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox2" ErrorMessage="Campo Requerido" Font-Names="Arial">*</asp:RequiredFieldValidator>
@@ -166,7 +166,7 @@
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label10" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label10" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Fecha de Pago"></asp:Label></td>
             <td align="left">
                 <asp:TextBox ID="TextBox3" runat="server" ReadOnly = "true"></asp:TextBox><img src="IMG/calender.png" /><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBox3" ErrorMessage="Campo Requerido" Font-Names="Arial">*</asp:RequiredFieldValidator>
@@ -174,7 +174,7 @@
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label7" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Tipo de Tasa"></asp:Label></td>
             <td align="left">
                 <asp:DropDownList ID="CmbTasas" runat="server" Height="30px" Width="259px">
@@ -186,7 +186,7 @@
         </tr>
         <tr>
             <td align="right" width="50%" style="height: 29px">
-    <asp:Label ID="Label8" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label8" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Tasa o Diferencial"></asp:Label></td>
             <td align="left" style="height: 29px">
                 <asp:TextBox ID="TxtDiff" runat="server" Width="112px"></asp:TextBox>
@@ -196,7 +196,7 @@
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label9" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label9" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Contrato"></asp:Label></td>
             <td align="left">
                 <asp:FileUpload ID="FileUpload1" runat="server" Width="320px" />
@@ -205,7 +205,7 @@
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label11" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label11" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Fechas de Pago de Capital"></asp:Label></td>
             <td align="left">
                 <asp:FileUpload ID="FileUpload2" runat="server" Width="320px" />
@@ -215,7 +215,7 @@
         </tr>
         <tr>
             <td align="right" width="50%">
-    <asp:Label ID="Label12" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label12" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Factoraje"></asp:Label></td>
             <td align="left">
                 <asp:CheckBox ID="CkFactoraje" runat="server" />
@@ -223,7 +223,7 @@
         </tr>
         <tr>
             <td align="center" width="50%" colspan="2">
-                <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
+                <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#f58220" Font-Bold="True"
                     ForeColor="White" Text="Guardar Fondeo" TextoEnviando="Confirmando..." Width="182px" CausesValidation="True" />
                 <br />
     <asp:Label ID="LbErrorGlobal" runat="server" Font-Bold="False" Font-Names="Arial" ForeColor="Red"

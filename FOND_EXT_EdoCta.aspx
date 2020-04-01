@@ -4,7 +4,7 @@
     <tr>
         <td align="center">
                 <br />
-                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
                     Text="Estado de Cuenta"></asp:Label>
                 <br />
                 <br />
@@ -15,7 +15,7 @@
                 <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="id_Fondeo,No_Movimientos" DataSourceID="FondeosDS" EnableModelValidation="True" Height="50px" Width="70%" CellPadding="4" Font-Names="Arial" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <CommandRowStyle BackColor="#FFFFC0" Font-Bold="True" />
-                    <FieldHeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" Width="30%" />
+                    <FieldHeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" Width="30%" />
                     <Fields>
                         <asp:BoundField DataField="id_Fondeo" HeaderText="id_Fondeo" InsertVisible="False" ReadOnly="True" SortExpression="id_Fondeo" Visible="False" />
                         <asp:BoundField DataField="Fondeador" HeaderText="Fondeador" SortExpression="Fondeador" />
@@ -45,7 +45,7 @@
                 &nbsp;</td>
             </tr>
     <tr>
-        <td align="center" style="font-family: Verdana; color: #FF6600">
+        <td align="center" style="font-family: Verdana; color: #f58220">
                 <span style="font-weight: bold">Saldo Garantia<asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWGarantias" Font-Names="Verdana" Font-Size="Smaller"
                     ForeColor="#333333" GridLines="None" DataKeyNames="id_Garantia" EnableModelValidation="True">
                     <RowStyle BackColor="#FFE0C0" />
@@ -55,14 +55,14 @@
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                     </Columns>
-                    <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <FooterStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                     <EmptyDataTemplate>
                         <br />
-                        <span style="font-weight: bold; color: #FF6600">Sin Datos </span>
+                        <span style="font-weight: bold; color: #f58220">Sin Datos </span>
                     </EmptyDataTemplate>
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                    <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
                     <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>
@@ -97,7 +97,7 @@
     <tr>
         <td align="center">
             
-                <span style="font-family: Verdana; font-weight: bold; color: #FF6600">Mensual</span><asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWFondeosDS" Font-Names="Verdana" Font-Size="Smaller"
+                <span style="font-family: Verdana; font-weight: bold; color: #f58220">Mensual</span><asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="VWFondeosDS" Font-Names="Verdana" Font-Size="Smaller"
                     ForeColor="#333333" GridLines="None" ShowFooter="True" DataKeyNames="id_Movimiento" EnableModelValidation="True">
                     <RowStyle BackColor="#FFE0C0" />
                     <Columns>
@@ -143,14 +143,14 @@
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                     </Columns>
-                    <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <FooterStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                     <EmptyDataTemplate>
                         <br />
-                        <span style="font-weight: bold; color: #FF6600">Sin Datos </span>
+                        <span style="font-weight: bold; color: #f58220">Sin Datos </span>
                     </EmptyDataTemplate>
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                    <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
                     <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>

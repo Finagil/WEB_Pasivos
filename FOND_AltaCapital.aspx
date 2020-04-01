@@ -23,7 +23,7 @@
         <tr>
             <td align="center" colspan="2">
                 <br />
-                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600" Text="Agregar Capital a Fondeo"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220" Text="Agregar Capital a Fondeo"></asp:Label>
                 <br />
                 <br />
             </td>
@@ -38,7 +38,7 @@
                 <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="id_Fondeo,No_Movimientos" DataSourceID="FondeosDS" EnableModelValidation="True" Height="50px" Width="70%" CellPadding="4" Font-Names="Arial" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <CommandRowStyle BackColor="#FFFFC0" Font-Bold="True" />
-                    <FieldHeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" Width="30%" />
+                    <FieldHeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" Width="30%" />
                     <Fields>
                         <asp:BoundField DataField="id_Fondeo" HeaderText="id_Fondeo" InsertVisible="False" ReadOnly="True" SortExpression="id_Fondeo" Visible="False" />
                         <asp:BoundField DataField="Fondeador" HeaderText="Fondeador" SortExpression="Fondeador" />
@@ -66,7 +66,7 @@
         </tr>
         <tr>
             <td align="right" width="40%">
-                <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+                <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
                     Text="Fecha Inicial"></asp:Label>
                 </td>
             <td align="left">
@@ -75,7 +75,7 @@
         </tr>
         <tr>
             <td align="right" width="40%">
-                <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+                <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
                     Text="Importe Capital"></asp:Label>
                 </td>
             <td align="left">
@@ -86,7 +86,7 @@
         </tr>
         <tr>
             <td align="right" width="40%">
-                <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+                <asp:Label ID="Label4" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
                     Text="Banco"></asp:Label>
                 </td>
             <td align="left">
@@ -115,7 +115,7 @@
         </tr>
         <tr>
             <td align="center" colspan="2" width="40%">
-                <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
+                <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#f58220" Font-Bold="True"
                     ForeColor="White" Text="Inserta Capital" TextoEnviando="Insertando..." Width="182px" EnableTheming="True" />
                 <br />
                 <asp:Label ID="LberrorGlobal" runat="server" Font-Bold="False" Font-Names="Arial" ForeColor="Red"

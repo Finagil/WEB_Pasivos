@@ -23,7 +23,7 @@
     <tr>
         <td align="center" colspan="2">
                 <br />
-                <span style="font-family: Verdana; font-weight: bold; color: #FF6600">Detalle de Garatías</span><br />
+                <span style="font-family: Verdana; font-weight: bold; color: #f58220">Detalle de Garatías</span><br />
         </td>
             </tr>
     <tr>
@@ -44,14 +44,14 @@
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                     </Columns>
-                    <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <FooterStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                     <EmptyDataTemplate>
                         <br />
-                        <span style="font-weight: bold; color: #FF6600">Sin Datos </span>
+                        <span style="font-weight: bold; color: #f58220">Sin Datos </span>
                     </EmptyDataTemplate>
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                    <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
                     <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>
@@ -69,10 +69,10 @@
     <tr>
         <td align="center" colspan="2">
             
-                <span style="font-family: Verdana; font-weight: bold; color: #FF6600">Alta de pago de Garatías</span></td>
+                <span style="font-family: Verdana; font-weight: bold; color: #f58220">Alta de pago de Garatías</span></td>
     </tr>
     <tr>
-        <td align="right" width="40%" style="font-family: Verdana; color: #FF6600">
+        <td align="right" width="40%" style="font-family: Verdana; color: #f58220">
             
                 <span style="font-weight: bold">Concepto</span></td>
         <td align="left" style="width: 524px">
@@ -81,9 +81,9 @@
              </td>
     </tr>
     <tr>
-        <td align="right" width="40%" style="font-family: Verdana; color: #FF6600">
+        <td align="right" width="40%" style="font-family: Verdana; color: #f58220">
             
-                <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+                <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
                     Text="Fecha"></asp:Label>
                 </td>
         <td align="left" style="width: 524px">
@@ -91,7 +91,7 @@
              </td>
     </tr>
     <tr>
-        <td align="right" width="40%" style="font-family: Verdana; color: #FF6600">
+        <td align="right" width="40%" style="font-family: Verdana; color: #f58220">
             
                 <span style="font-weight: bold">Importe del Pago</span></td>
         <td align="left" style="width: 524px">
@@ -101,8 +101,8 @@
              </td>
     </tr>
     <tr>
-        <td align="center" width="40%" style="font-family: Verdana; color: #FF6600" colspan="2">
-                            <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
+        <td align="center" width="40%" style="font-family: Verdana; color: #f58220" colspan="2">
+                            <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#f58220" Font-Bold="True"
                     ForeColor="White" Text="Guardar Pago" TextoEnviando="Confirmando..." Width="182px" CausesValidation="True" />
                             <br />
                 <asp:Label ID="LberrorGlobal" runat="server" Font-Bold="False" Font-Names="Arial" ForeColor="Red"

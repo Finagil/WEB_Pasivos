@@ -10,7 +10,7 @@
         <tr>
             <td colspan="2" align="center">
                 <br />
-    <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="ALTA DE CONTRATO"></asp:Label>
                 <br />
             </td>
@@ -25,7 +25,7 @@
                 <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="id_Fondeo,No_Movimientos" DataSourceID="FondeosDS" Height="50px" Width="70%" CellPadding="4" Font-Names="Arial" Font-Size="Smaller" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <CommandRowStyle BackColor="#FFFFC0" Font-Bold="True" />
-                    <FieldHeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" Width="30%" />
+                    <FieldHeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" Width="30%" />
                     <Fields>
                         <asp:BoundField DataField="id_Fondeo" HeaderText="id_Fondeo" InsertVisible="False" ReadOnly="True" SortExpression="id_Fondeo" Visible="False" />
                         <asp:BoundField DataField="Fondeador" HeaderText="Fondeador" SortExpression="Fondeador" />
@@ -50,7 +50,7 @@
         </tr>
         <tr>
             <td align="right" style="width: 50%">
-    <asp:Label ID="Label9" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+    <asp:Label ID="Label9" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
         Text="Contrato"></asp:Label></td>
             <td align="left"  style="width: 50%">
                 <asp:FileUpload ID="FileUpload1" runat="server" Width="320px" />
@@ -59,7 +59,7 @@
         </tr>
         <tr>
             <td align="center" width="50%" colspan="2">
-                <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#FF6600" Font-Bold="True"
+                <cc1:BotonEnviar ID="BotonEnviar1" runat="server" BackColor="#f58220" Font-Bold="True"
                     ForeColor="White" Text="Guardar Fondeo" TextoEnviando="Confirmando..." Width="182px" CausesValidation="True" />
                 <br />
                 <asp:Label ID="LberrorGlobal" runat="server" Font-Bold="False" Font-Names="Arial" ForeColor="Red"

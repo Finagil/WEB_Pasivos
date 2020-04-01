@@ -4,7 +4,7 @@
     <tr>
         <td align="center">
                 <br />
-                <span style="font-family: Verdana; font-weight: bold; color: #FF6600">Detalle de Garatías</span><br />
+                <span style="font-family: Verdana; font-weight: bold; color: #f58220">Detalle de Garatías</span><br />
         </td>
             </tr>
     <tr>
@@ -25,14 +25,14 @@
                         <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                     </Columns>
-                    <FooterStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <FooterStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                     <EmptyDataTemplate>
                         <br />
-                        <span style="font-weight: bold; color: #FF6600">Sin Datos </span>
+                        <span style="font-weight: bold; color: #f58220">Sin Datos </span>
                     </EmptyDataTemplate>
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                    <HeaderStyle BackColor="#FF6600" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#f58220" Font-Bold="True" ForeColor="White" />
                     <EditRowStyle BackColor="#2461BF" />
                     <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>

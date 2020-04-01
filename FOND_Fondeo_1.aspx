@@ -23,7 +23,7 @@
     <tr>
         <td align="center">
                 <br />
-                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#FF6600"
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="Verdana" ForeColor="#f58220"
                     Text="Fondeos"></asp:Label>
                 <br />
                 <br />
@@ -32,16 +32,16 @@
                 <asp:TextBox ID="txtFechaBusqueda" runat="server" ReadOnly = "true"></asp:TextBox><img src="IMG/calender.png" /><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtFechaBusqueda" ErrorMessage="Campo Requerido" Font-Names="Arial"></asp:RequiredFieldValidator>
                 <br />
                 <br />
-                <cc1:BotonEnviar ID="btnProcesar" runat="server" BackColor="#FF6600" Font-Bold="True"
+                <cc1:BotonEnviar ID="btnProcesar" runat="server" BackColor="#f58220" Font-Bold="True"
                     ForeColor="White" Text="PDF Fondeo" TextoEnviando="Procesando..." Width="182px" />
                 &nbsp;&nbsp;
-                <cc1:BotonEnviar ID="btnProcesar0" runat="server" BackColor="#FF6600" Font-Bold="True"
+                <cc1:BotonEnviar ID="btnProcesar0" runat="server" BackColor="#f58220" Font-Bold="True"
                     ForeColor="White" Text="XLS Fondeo" TextoEnviando="Procesando..." Width="182px" />
                 &nbsp;&nbsp;
-                <cc1:BotonEnviar ID="btnProcesar1" runat="server" BackColor="#FF6600" Font-Bold="True"
+                <cc1:BotonEnviar ID="btnProcesar1" runat="server" BackColor="#f58220" Font-Bold="True"
                     ForeColor="White" Text="PDF Fondeador" TextoEnviando="Procesando..." Width="182px" />
                 &nbsp;&nbsp;
-                <cc1:BotonEnviar ID="btnProcesar2" runat="server" BackColor="#FF6600" Font-Bold="True"
+                <cc1:BotonEnviar ID="btnProcesar2" runat="server" BackColor="#f58220" Font-Bold="True"
                     ForeColor="White" Text="XLS Fondeador" TextoEnviando="Procesando..." Width="182px" />
                 <br />
                 <br />
