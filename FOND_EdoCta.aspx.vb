@@ -9,6 +9,11 @@ Public Class FOND_EdoCta
     Dim Retencion, Rete, Inte, InteAcum As Decimal
 
     Dim Factor, Pago As Decimal
+
+    Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
     Dim Cap, CapFinal As Decimal
     Dim taEdoCta As New WEB_FinagilDSTableAdapters.FOND_EstadoCuentaTableAdapter
     Protected Sub GridView1_RowDataBound(sender As Object, e As GridViewRowEventArgs) Handles GridView1.RowDataBound
@@ -77,7 +82,7 @@ Public Class FOND_EdoCta
             rptSolPago.SetParameterValue("var_anio", Year(CDate(Me.GridView1.Rows(e.CommandArgument).Cells(3).Text)))
             rptSolPago.SetParameterValue("var_mes", MonthName(Month(CDate(Me.GridView1.Rows(e.CommandArgument).Cells(3).Text))))
             rptSolPago.SetParameterValue("var_tasaret", Me.GridView1.Rows(e.CommandArgument).Cells(5).Text)
-            rptSolPago.SetParameterValue("var_capital", FormatCurrency(CDec(Me.GridView1.Rows(e.CommandArgument).Cells(6).Text)))
+            rptSolPago.SetParameterValue("var_capital", FormatCurrency(CDec(Me.GridView1.Rows(e.CommandArgument).Cells(16).Text)))
             'rptSolPago.SetParameterValue("var_capital", CDec(ta_datos.CapitalInicial(Me.DetailsView1.Rows(11).Cells(1).Text, "01-" & mes & "-" & anio).ToString) - CDec(ta_datos.FondeosDelMes(Me.DetailsView1.Rows(11).Cells(1).Text, "01-" & mes & "-" & anio, fecha).ToString) - CDec(ta_datos.PagosFondeosCapital(Me.DetailsView1.Rows(11).Cells(1).Text, "01-" & mes & "-" & anio, fecha).ToString))
             rptSolPago.SetParameterValue("var_interes", FormatCurrency(CDec(Me.GridView1.Rows(e.CommandArgument).Cells(7).Text)))
             'ptSolPago.SetParameterValue("var_interes", FormatCurrency(CDbl(ta_datos.InteresInicial(Me.DetailsView1.Rows(11).Cells(1).Text, "01-01-" & anio).ToString) + CDbl(ta_datos.InteresAnual(Me.DetailsView1.Rows(11).Cells(1).Text, "01-01-" & anio.ToString, fecha)) + CDbl(ta_datos.PagoInteresAnual(Me.DetailsView1.Rows(11).Cells(1).Text, "01-01-" & anio.ToString, fecha))))
